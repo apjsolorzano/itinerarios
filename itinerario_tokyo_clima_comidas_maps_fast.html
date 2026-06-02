@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokyo · Itinerario con comidas validadas</title>
+<style>
+:root{--ink:#17120f;--paper:#fffaf2;--card:#fff;--muted:#74675b;--line:#eadccb;--accent:#d8483e;--gold:#ffb000;--green:#3f8f68;--blue:#315c76;--shadow:0 18px 54px rgba(31,20,8,.13);--radius:28px}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:linear-gradient(180deg,#f7efe4 0%,#fffaf2 52%,#f6efe7 100%);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;line-height:1.55} a{color:inherit;text-decoration:none} .page{width:min(1180px,calc(100% - 32px));margin:0 auto 64px}
+.hero{min-height:76vh;margin:16px auto 26px;border-radius:36px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background-image:linear-gradient(120deg,rgba(0,0,0,.78),rgba(0,0,0,.42)),url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1400&q=70');background-size:cover;background-position:center;box-shadow:var(--shadow);overflow:hidden;position:relative} .hero h1{font-size:clamp(3rem,8vw,7.2rem);letter-spacing:-.08em;line-height:.9;margin:0 0 16px} .hero p{font-size:1.1rem;max-width:780px;color:rgba(255,255,255,.9)} .topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;position:relative;z-index:2} .brand{font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem} .nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end} .nav a,.pill{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.14);color:#fff;border-radius:999px;padding:9px 12px;font-weight:800;font-size:.84rem;backdrop-filter:blur(10px)} .hero-foot{display:grid;grid-template-columns:repeat(4,1fr);gap:10px} .hero-foot div{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:14px;backdrop-filter:blur(12px)} .hero-foot b{display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#ffe2a1}
+.section{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:32px;margin:22px 0;box-shadow:var(--shadow);overflow:hidden} .head{padding:26px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;align-items:flex-end;background:linear-gradient(180deg,#fff,#fff8ee)} .head h2{margin:0;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.06em;line-height:1} .head p{margin:8px 0 0;color:var(--muted);max-width:780px} .badge{display:inline-flex;border-radius:999px;padding:9px 12px;background:#fff3d4;color:#855800;font-weight:900;white-space:nowrap} .badge.red{background:#ffebe9;color:#9a271f} .badge.blue{background:#eaf2f8;color:#315c76} .badge.green{background:#eaf7ef;color:#217149}
+.timeline{display:grid;gap:14px;padding:18px} .event{display:grid;grid-template-columns:128px 1fr 245px;gap:0;border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#fff;min-height:205px} .time{background:linear-gradient(180deg,#fff,#fff7ec);border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;justify-content:space-between} .time strong{font-size:1.25rem;letter-spacing:-.04em} .time small{color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.06em;font-size:.76rem} .copy{padding:18px} .copy h3{margin:0 0 6px;font-size:1.28rem;letter-spacing:-.03em} .copy p{margin:0 0 10px;color:var(--muted)} .ph{margin:0;background:#e6d6c8;min-height:205px;overflow:hidden} .ph img,.option img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .55s ease, opacity .45s ease, transform .55s ease;filter:blur(16px);opacity:.78;transform:scale(1.03)} .ph img.loaded,.option img.loaded{filter:blur(0);opacity:1;transform:scale(1)} .move,.dish,.valid{border-radius:16px;padding:10px 12px;margin:8px 0;font-size:.92rem} .move{background:#eef6fb;color:#315c76} .dish{background:#fff4dd;color:#6d4b0b} .valid{background:#eef8f1;color:#226b45} .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px} .tags span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;font-weight:900;border-radius:999px;padding:6px 9px;background:#f2eee7;color:#5f5145} .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:8px 12px;font-weight:900;font-size:.83rem;border:1px solid var(--line);background:#fff} .btn.map{background:#17120f;color:#fff;border-color:#17120f} .btn.route{background:#fff3d4;color:#754c00;border-color:#f3d38b}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px} .foodcard{border:1px solid var(--line);border-radius:24px;background:#fff;padding:18px} .foodcard b{color:var(--accent);text-transform:uppercase;letter-spacing:.07em;font-size:.76rem} .foodcard h3{margin:6px 0;font-size:1.15rem} .foodcard p{margin:0;color:var(--muted)} .foodcard ul{margin:10px 0 0;padding-left:18px;color:#57483b}
+.options{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(335px,42%);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px} .option{border:1px solid var(--line);border-radius:26px;background:#fff;overflow:hidden;scroll-snap-align:start} .option img{height:190px} .option-copy{padding:18px} .option-copy span{display:inline-block;font-size:.74rem;font-weight:900;border-radius:999px;padding:6px 9px;background:#f2eee7;margin-bottom:8px} .option-copy h4{margin:0 0 6px;font-size:1.24rem} .option-copy p{margin:0 0 10px;color:var(--muted)} .option-copy ul{margin:0;padding-left:18px;color:#57483b}
+.note{padding:18px 22px;margin:18px;border-radius:24px;background:#fff8e9;border:1px solid #f0d9a6;color:#6b4d11} .source-list{padding:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px} .source-list a{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;color:#54483e} .print-actions{position:fixed;right:18px;bottom:18px;display:flex;gap:10px;z-index:10} .print-actions button{border:0;border-radius:999px;background:#17120f;color:#fff;padding:12px 16px;font-weight:900;box-shadow:var(--shadow);cursor:pointer}
+@media (max-width:980px){.event{grid-template-columns:105px 1fr}.ph{grid-column:1/-1;height:220px}.hero-foot,.grid{grid-template-columns:repeat(2,1fr)}.options{grid-auto-columns:minmax(300px,78%)}}
+@media (max-width:640px){.page{width:min(100% - 18px,1180px)}.hero{min-height:auto;padding:18px;border-radius:26px}.nav a{display:none}.hero h1{font-size:3rem}.hero-foot,.grid,.source-list{grid-template-columns:1fr}.head{display:block;padding:22px}.event{grid-template-columns:1fr}.time{border-right:0;border-bottom:1px solid var(--line);display:block}.ph{grid-column:auto}.options{grid-auto-columns:minmax(275px,88%)}.print-actions{display:none}}
+@media print{body{background:#fff}.hero,.print-actions,.nav{display:none}.section{break-inside:avoid;box-shadow:none}.btn{display:none}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="hero">
+  <div class="topbar"><div class="brand">Tokyo clima-smart · food validated</div><nav class="nav"><a href="#martes">Martes</a><a href="#miercoles">Miércoles</a><a href="#jueves">Jueves</a><a href="#viernes">Viernes</a><a href="#topfood">Top comidas</a></nav></div>
+  <div><span class="pill">Base: Shibuya · salida sábado 10:00 AM</span><h1>Tokyo con comida que sí vale la pena</h1><p>La comida ahora está integrada en el horario: cada restaurante aparece donde realmente conviene por ruta, con plato específico, botón de Google Maps y traslado estimado entre bloques.</p></div>
+  <div class="hero-foot"><div><b>Prioridad 1</b>Wagyu/yakiniku en Shibuya, no ramen esa noche.</div><div><b>Prioridad 2</b>Mochi, anmitsu y melon pan en Asakusa.</div><div><b>Storm mode</b>TeamLab + Azabudai/Roppongi + spa.</div><div><b>Imágenes</b>Carga progresiva: miniatura borrosa → foto full al entrar en pantalla.</div></div>
+</header>
+
+<section class="section" id="martes">
+  <div class="head"><div><h2>Martes · Shibuya sunset + wagyu</h2><p>Como hoy ya estás por Shibuya y tienes reunión a las 10:00 PM, el plan queda compacto. Cena principal: BBQ japonés/wagyu. Ramen queda eliminado para no duplicar cena.</p></div><span class="badge red">🥩 Wagyu night</span></div>
+  <div class="timeline">
+    
+    <article class="event">
+      <div class="time"><strong>2:30 PM</strong><small>45 min</small></div>
+      <div class="copy">
+        <h3>Shibuya Crossing + Hachiko</h3>
+        <p>Punto de arranque suave. Fotos, cruce y caminar sin alejarte de la zona.</p>
+        <div class="move">🚇 Desde base/Shibuya: 5–15 min a pie o taxi corto.</div>
+        <div class="tags"><span>shibuya</span><span>foto</span><span>corto</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya+Crossing" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya%2C+Tokyo&destination=Shibuya+Crossing&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1100&q=70" alt="Shibuya Crossing + Hachiko"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>3:20 PM</strong><small>45–60 min</small></div>
+      <div class="copy">
+        <h3>Postre recomendado · FLIPPER’S Shibuya</h3>
+        <p>Mete postre temprano para no llegar pesado a la cena. Es mejor aquí que después del yakiniku.</p>
+        <div class="move">🚇 Shibuya Crossing → FLIPPER’S: ~8–12 min a pie.</div><div class="dish"><b>Qué pedir:</b> Kiseki / Miracle soufflé pancakes; si comparten, pidan uno clásico y uno seasonal.</div><div class="valid">✓ Validado por Tabelog como pancake/café de Shibuya; buen fit por distancia.</div>
+        <div class="tags"><span>postre</span><span>de paso</span><span>shibuya</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=FLIPPER%E2%80%99S+Shibuya" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya+Crossing&destination=FLIPPER%E2%80%99S+Shibuya&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=1100&q=70" alt="Postre recomendado · FLIPPER’S Shibuya"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>4:35 PM</strong><small>45 min</small></div>
+      <div class="copy">
+        <h3>Don Quijote Shibuya Megastore</h3>
+        <p>Compras rápidas antes del sunset. No lo dejes para tarde si tienes reunión.</p>
+        <div class="move">🚇 FLIPPER’S → Don Quijote: ~6–10 min a pie.</div>
+        <div class="tags"><span>compras</span><span>indoor</span><span>flex</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=MEGA+Don+Quijote+Shibuya" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=FLIPPER%E2%80%99S+Shibuya&destination=MEGA+Don+Quijote+Shibuya&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1100&q=70" alt="Don Quijote Shibuya Megastore"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>5:45 PM</strong><small>75–90 min</small></div>
+      <div class="copy">
+        <h3>Shibuya Sky sunset</h3>
+        <p>Sube con margen. El slot de atardecer es la mejor versión de Shibuya Sky si la visibilidad coopera.</p>
+        <div class="move">🚇 Don Quijote → Shibuya Sky: ~10–14 min a pie.</div>
+        <div class="tags"><span>mirador</span><span>sunset</span><span>reserva</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya+Sky" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=MEGA+Don+Quijote+Shibuya&destination=Shibuya+Sky&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1100&q=70" alt="Shibuya Sky sunset"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>7:35 PM</strong><small>90 min</small></div>
+      <div class="copy">
+        <h3>Cena principal · Han no Daidokoro Bettei</h3>
+        <p>Este es el BBQ japonés/wagyu fuerte del viaje. Reserva si puedes; si no hay mesa, usa USHIHACHI Kiwami como backup en Shibuya.</p>
+        <div class="move">🚇 Shibuya Sky → Han no Daidokoro: ~10–15 min a pie.</div><div class="dish"><b>Qué pedir:</b> A5 Yamagata beef platter, beef tongue, kalbi, chateaubriand si hay, y wagyu beef sushi/yukhoe para probar algo distinto.</div><div class="valid">✓ Sitio oficial destaca A5 Yamagata beef, Kobe beef y chateaubriand; Tabelog lo lista cerca de Shibuya Station.</div>
+        <div class="tags"><span>wagyu</span><span>yakiniku</span><span>must</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Han+no+Daidokoro+Bettei+Shibuya" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya+Sky&destination=Han+no+Daidokoro+Bettei+Shibuya&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=1100&q=70" alt="Cena principal · Han no Daidokoro Bettei"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>9:25 PM</strong><small>35 min</small></div>
+      <div class="copy">
+        <h3>Regreso / café / reunión 10:00 PM</h3>
+        <p>Cierra cena con tiempo. Evita pedir ramen después: solo té, agua o café si necesitas estar alerta.</p>
+        <div class="move">🚇 Han no Daidokoro → base Shibuya: ~10–20 min según hotel/taxi.</div>
+        <div class="tags"><span>fijo</span><span>reunión</span><span>descanso</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya%2C+Tokyo" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Han+no+Daidokoro+Bettei+Shibuya&destination=Shibuya%2C+Tokyo&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=70" alt="Regreso / café / reunión 10:00 PM"></figure>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="miercoles">
+  <div class="head"><div><h2>Miércoles · Storm mode indoor</h2><p>Día diseñado para lluvia/viento: TeamLab, comida cerca de Roppongi/Azabudai, compras indoor y spa 24h.</p></div><span class="badge blue">🌧️ Indoor seguro</span></div>
+  <div class="timeline">
+    
+    <article class="event">
+      <div class="time"><strong>7:00 AM</strong><small>2 h</small></div>
+      <div class="copy">
+        <h3>Trabajo remoto</h3>
+        <p>Bloque fijo. Deja impermeable y batería externa listos antes de salir.</p>
+        
+        <div class="tags"><span>fijo</span><span>trabajo</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya%2C+Tokyo" target="_blank" rel="noopener">📍 Maps</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=70" alt="Trabajo remoto"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>9:25 AM</strong><small>30–40 min</small></div>
+      <div class="copy">
+        <h3>Traslado a TeamLab Borderless</h3>
+        <p>Sal con margen por lluvia y trenes. Mejor taxi si el clima está fuerte.</p>
+        <div class="move">🚇 Shibuya → Azabudai Hills: ~25–40 min metro/taxi.</div>
+        <div class="tags"><span>traslado</span><span>clima</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=teamLab+Borderless+Azabudai+Hills" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya%2C+Tokyo&destination=teamLab+Borderless+Azabudai+Hills&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1100&q=70" alt="Traslado a TeamLab Borderless"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>10:15 AM</strong><small>2–2.5 h</small></div>
+      <div class="copy">
+        <h3>TeamLab Borderless · Azabudai Hills</h3>
+        <p>Plan ideal con alerta de tifón: indoor, visual y sin depender de vistas.</p>
+        
+        <div class="tags"><span>indoor</span><span>imperdible</span><span>reserva</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=teamLab+Borderless+Azabudai+Hills" target="_blank" rel="noopener">📍 Maps</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1100&q=70" alt="TeamLab Borderless · Azabudai Hills"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>1:05 PM</strong><small>60–75 min</small></div>
+      <div class="copy">
+        <h3>Almuerzo · Tsujihan Ark Hills</h3>
+        <p>Mejor que comer random en mall: kaisendon potente, rápido y muy japonés.</p>
+        <div class="move">🚇 TeamLab/Azabudai → Tsujihan Ark Hills: ~12–18 min taxi/metro.</div><div class="dish"><b>Qué pedir:</b> Zeitaku-don Matsu o Tokujo; deja arroz/pescado para cerrar con tai dashi tipo ochazuke.</div><div class="valid">✓ Tsujihan oficial indica que no acepta reservas; Tabelog lo lista como kaisen-don en Ark Hills.</div>
+        <div class="tags"><span>seafood</span><span>lunch</span><span>validado</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Tsujihan+Ark+Hills" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=teamLab+Borderless+Azabudai+Hills&destination=Tsujihan+Ark+Hills&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=1100&q=70" alt="Almuerzo · Tsujihan Ark Hills"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>2:35 PM</strong><small>90 min</small></div>
+      <div class="copy">
+        <h3>Azabudai Hills / Roppongi Hills indoor</h3>
+        <p>Café, miradores interiores si hay visibilidad, tiendas y pausa sin exponerte al clima.</p>
+        <div class="move">🚇 Tsujihan → Azabudai/Roppongi: ~10–20 min.</div>
+        <div class="tags"><span>indoor</span><span>buffer</span><span>lluvia</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Azabudai+Hills" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Tsujihan+Ark+Hills&destination=Azabudai+Hills&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1100&q=70" alt="Azabudai Hills / Roppongi Hills indoor"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>4:30 PM</strong><small>60–90 min</small></div>
+      <div class="copy">
+        <h3>Isetan Shinjuku depachika</h3>
+        <p>Si sigue lloviendo, ve por dulces/postres y bento premium bajo techo.</p>
+        <div class="move">🚇 Roppongi/Azabudai → Shinjuku: ~20–30 min metro.</div><div class="dish"><b>Qué pedir:</b> Matcha éclair o pastries de Sadaharu Aoki; también puedes comprar wagashi/daifuku para llevar.</div><div class="valid">✓ Time Out/Vogue destacan depachika como forma excelente de probar variedad gastronómica bajo techo.</div>
+        <div class="tags"><span>postres</span><span>depachika</span><span>indoor</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Isetan+Shinjuku+Food+Floor" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Azabudai+Hills&destination=Isetan+Shinjuku+Food+Floor&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=1100&q=70" alt="Isetan Shinjuku depachika"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>6:30 PM</strong><small>2–3 h</small></div>
+      <div class="copy">
+        <h3>24h spa · Thermae-Yu Shinjuku</h3>
+        <p>Este es el mejor cierre para día de lluvia. Relájate, cena ligera si hace falta y vuelve temprano.</p>
+        <div class="move">🚇 Isetan → Thermae-Yu: ~12–18 min a pie/taxi.</div><div class="dish"><b>Qué pedir:</b> Cena ligera dentro o cerca: soba/udon, tofu, onigiri o bento del depachika. Evita otra cena pesada.</div><div class="valid">✓ Sitio oficial de Thermae-Yu indica operación 24h/365 días en Shinjuku.</div>
+        <div class="tags"><span>spa</span><span>24h</span><span>relax</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Thermae-Yu+Shinjuku" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Isetan+Shinjuku+Food+Floor&destination=Thermae-Yu+Shinjuku&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1100&q=70" alt="24h spa · Thermae-Yu Shinjuku"></figure>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="jueves">
+  <div class="head"><div><h2>Jueves · Día con carrusel A/B/C/D</h2><p>Escoge según clima real después de trabajar. A = Fuji/Hakone si la visibilidad y transporte están bien. B = Kamakura/Enoshima si mejora pero no conviene montaña. C = Disney si quieres parque. D = Tokyo seguro si sigue raro.</p></div><span class="badge green">🔁 Switch por clima</span></div>
+  <div class="options">
+    
+    <article class="option">
+      <img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1100&q=70" alt="Plan A · Hakone/Fuji">
+      <div class="option-copy"><span>Mejor si despeja</span><h4>Plan A · Hakone/Fuji</h4><p>No lo fuerces con alerta o baja visibilidad. Es el plan más sensible al clima.</p><ul><li>9:15 AM salida desde Shibuya/Shinjuku</li><li>11:30 AM Hakone-Yumoto + lunch YAMASOBA</li><li>1:30 PM Owakudani/Ropeway si está abierto</li><li>Snack: kuro-tamago en Owakudani</li><li>7:30–8:30 PM regreso a Shibuya</li></ul><div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Hakone-Yumoto+Station" target="_blank" rel="noopener">📍 Maps</a></div></div>
+    </article>
+    
+    <article class="option">
+      <img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=1100&q=70" alt="Plan B · Kamakura + Enoshima">
+      <div class="option-copy"><span>Costa si mejora</span><h4>Plan B · Kamakura + Enoshima</h4><p>Más fácil de ajustar que Hakone y con comida local muy buena.</p><ul><li>10:30 AM Kamakura Station</li><li>Lunch: shirasu-don / shirasu monja cerca de estación</li><li>Postre: warabi mochi en Komachi-dori</li><li>Tarde: Enoshima si no hay viento fuerte</li><li>Cena ligera en Shibuya al regresar</li></ul><div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Kamakura+Station" target="_blank" rel="noopener">📍 Maps</a></div></div>
+    </article>
+    
+    <article class="option">
+      <img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=1100&q=70" alt="Plan C · Tokyo Disney">
+      <div class="option-copy"><span>Lluvia leve aceptable</span><h4>Plan C · Tokyo Disney</h4><p>Si prefieres experiencia y no vistas, Disney funciona aunque esté nublado.</p><ul><li>Pide snacks icónicos, no hagas comida formal larga</li><li>Mickey churro / turkey leg / popcorn flavors</li><li>Usa Mobile Order si está disponible</li><li>Vuelve antes de medianoche por trabajo/sueño</li></ul><div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Disneyland" target="_blank" rel="noopener">📍 Maps</a></div></div>
+    </article>
+    
+    <article class="option">
+      <img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1100&q=70" alt="Plan D · Tokyo indoor/Asakusa">
+      <div class="option-copy"><span>Si hay alerta</span><h4>Plan D · Tokyo indoor/Asakusa</h4><p>Backup seguro que no desperdicia el día y deja buena comida.</p><ul><li>Senso-ji cuando baje la lluvia</li><li>Daikokuya tendon</li><li>Kagetsudo melon pan</li><li>Umezono mochi/anmitsu</li><li>Skytree/Solamachi si la visibilidad coopera</li></ul><div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Senso-ji" target="_blank" rel="noopener">📍 Maps</a></div></div>
+    </article>
+  </div>
+  <div class="timeline">
+    
+    <article class="event">
+      <div class="time"><strong>7:00 AM</strong><small>2 h</small></div>
+      <div class="copy">
+        <h3>Trabajo remoto + check de clima/JMA</h3>
+        <p>Decide al terminar trabajo: si trenes/alertas están complicados, no hagas montaña ni costa.</p>
+        
+        <div class="tags"><span>fijo</span><span>decisión</span><span>seguridad</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya%2C+Tokyo" target="_blank" rel="noopener">📍 Maps</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=70" alt="Trabajo remoto + check de clima/JMA"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>9:15 AM</strong><small>variable</small></div>
+      <div class="copy">
+        <h3>Ejecuta el plan elegido</h3>
+        <p>Usa el carrusel de arriba. Para Hakone, salir después de 9:15 AM ya deja el día apretado; prioriza Owakudani y no intentes meter todo.</p>
+        <div class="move">🚇 Shibuya → Hakone: ~2–2.5 h; Shibuya → Kamakura: ~1–1.25 h; Shibuya → Disney: ~45–65 min.</div>
+        <div class="tags"><span>A/B/C/D</span><span>flexible</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya%2C+Tokyo" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya%2C+Tokyo&destination=Hakone-Yumoto+Station&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1100&q=70" alt="Ejecuta el plan elegido"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>12:00 PM</strong><small>lunch</small></div>
+      <div class="copy">
+        <h3>Comida según ruta</h3>
+        <p>No hay un restaurante único porque cambia el clima. Estos son los picks reales por ruta.</p>
+        <div class="dish"><b>Qué pedir:</b> Hakone: YAMASOBA tororo soba o tendon. Kamakura: shirasu-don/shirasu monja. Disney: Mickey churro + turkey leg/popcorn. Tokyo seguro: Daikokuya tendon.</div><div class="valid">✓ YAMASOBA oficial está a 2 min de Hakone-Yumoto; Tokyo Disney lista snacks oficiales; Daikokuya es clásico de tendon en Asakusa.</div>
+        <div class="tags"><span>food switch</span><span>lunch</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=YAMASOBA+Hakone+Yumoto" target="_blank" rel="noopener">📍 Maps</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=1100&q=70" alt="Comida según ruta"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>4:00 PM</strong><small>snack</small></div>
+      <div class="copy">
+        <h3>Snack/postre según ruta</h3>
+        <p>La idea es probar algo local sin arruinar la cena.</p>
+        <div class="dish"><b>Qué pedir:</b> Hakone: kuro-tamago. Kamakura: warabi mochi. Disney: churro/popcorn. Tokyo seguro: Umezono cream shiratama anmitsu.</div><div class="valid">✓ Hakone Navi describe el kuro-tamago como delicacy de Owakudani; Komachi-dori es buena zona de warabi mochi.</div>
+        <div class="tags"><span>postre</span><span>local</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Owakudani+Kurotamagokan" target="_blank" rel="noopener">📍 Maps</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1100&q=70" alt="Snack/postre según ruta"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>8:00 PM</strong><small>45–60 min</small></div>
+      <div class="copy">
+        <h3>Cena ligera de regreso · Uobei Shibuya</h3>
+        <p>Después de day trip no metas otra cena pesada. Sushi rápido y divertido, o descansa si vienes lleno.</p>
+        <div class="move">🚇 Desde estación Shibuya: ~5–10 min a pie.</div><div class="dish"><b>Qué pedir:</b> Maguro, engawa, salmon aburi, ikura, chawanmushi; pide poco y variado.</div><div class="valid">✓ Tabelog lo lista como kaiten sushi en Shibuya; Tripadvisor tiene alto volumen de reseñas.</div>
+        <div class="tags"><span>sushi</span><span>ligero</span><span>shibuya</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Uobei+Shibuya+Dogenzaka" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya+Station&destination=Uobei+Shibuya+Dogenzaka&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=1100&q=70" alt="Cena ligera de regreso · Uobei Shibuya"></figure>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="viernes">
+  <div class="head"><div><h2>Viernes · Tradición, postres y noche ligera</h2><p>Viernes queda más relajado por Yonaguni 11:30 PM–4:00 AM. Comida rica temprano, descanso en la tarde y cena controlada.</p></div><span class="badge green">🍡 Sweet crawl</span></div>
+  <div class="timeline">
+    
+    <article class="event">
+      <div class="time"><strong>7:00 AM</strong><small>2 h</small></div>
+      <div class="copy">
+        <h3>Trabajo remoto</h3>
+        <p>Empieza a dejar listo lo del aeropuerto antes de salir. Viernes no debe sentirse apretado.</p>
+        
+        <div class="tags"><span>fijo</span><span>trabajo</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya%2C+Tokyo" target="_blank" rel="noopener">📍 Maps</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=70" alt="Trabajo remoto"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>10:20 AM</strong><small>35–45 min</small></div>
+      <div class="copy">
+        <h3>Traslado a Asakusa</h3>
+        <p>Salida tranquila. Lleva paraguas pequeño si hay lluvia residual.</p>
+        <div class="move">🚇 Shibuya → Asakusa: ~35–45 min metro.</div>
+        <div class="tags"><span>traslado</span><span>relax</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Senso-ji" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya%2C+Tokyo&destination=Senso-ji&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1100&q=70" alt="Traslado a Asakusa"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>11:05 AM</strong><small>60 min</small></div>
+      <div class="copy">
+        <h3>Senso-ji + Nakamise</h3>
+        <p>Visita cultural principal del día. Manténlo suave y sin correr.</p>
+        
+        <div class="tags"><span>templo</span><span>cultura</span><span>foto</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Senso-ji" target="_blank" rel="noopener">📍 Maps</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1100&q=70" alt="Senso-ji + Nakamise"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>12:05 PM</strong><small>20 min</small></div>
+      <div class="copy">
+        <h3>Snack · Asakusa Kagetsudo</h3>
+        <p>Aquí va el melon pan, no como postre de noche. Compra temprano porque puede agotarse.</p>
+        <div class="move">🚇 Senso-ji → Kagetsudo: ~3–6 min a pie.</div><div class="dish"><b>Qué pedir:</b> Jumbo melon pan caliente; si quieres hacerlo postre, acompáñalo con té/helado soft serve.</div><div class="valid">✓ Tabelog lo lista por su Famous Jumbo Melon Bread; sitio oficial indica venta hasta agotar.</div>
+        <div class="tags"><span>melon pan</span><span>snack</span><span>must</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Asakusa+Kagetsudo+Honten" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Senso-ji&destination=Asakusa+Kagetsudo+Honten&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=1100&q=70" alt="Snack · Asakusa Kagetsudo"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>12:45 PM</strong><small>60–75 min</small></div>
+      <div class="copy">
+        <h3>Almuerzo · Daikokuya Tempura</h3>
+        <p>Comida clásica de Asakusa y diferente a ramen/gyoza: tempura oscura estilo Edo sobre arroz.</p>
+        <div class="move">🚇 Kagetsudo → Daikokuya: ~4–8 min a pie.</div><div class="dish"><b>Qué pedir:</b> Tendon/tempura course; si quieren compartir, pidan un tendon y una tempura set.</div><div class="valid">✓ Daikokuya oficial lista cursos de tendon/tempura; Good Luck Trip lo reseña como spot histórico de 1887.</div>
+        <div class="tags"><span>tempura</span><span>tendon</span><span>clásico</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Daikokuya+Tempura+Honten+Asakusa" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Asakusa+Kagetsudo+Honten&destination=Daikokuya+Tempura+Honten+Asakusa&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1100&q=70" alt="Almuerzo · Daikokuya Tempura"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>2:00 PM</strong><small>35–45 min</small></div>
+      <div class="copy">
+        <h3>Mochi/postre · Umezono Asakusa Honten</h3>
+        <p>Este es el lugar para mochi/wagashi tradicional. Hazlo aquí porque estás en la zona.</p>
+        <div class="move">🚇 Daikokuya → Umezono: ~4–7 min a pie.</div><div class="dish"><b>Qué pedir:</b> Cream shiratama anmitsu o awa zenzai; busca textura chewy de shiratama/mochi, anko y kuromitsu.</div><div class="valid">✓ Umezono oficial data de 1854; su especialidad histórica es awa zenzai.</div>
+        <div class="tags"><span>mochi</span><span>wagashi</span><span>must</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Umezono+Asakusa+Honten" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Daikokuya+Tempura+Honten+Asakusa&destination=Umezono+Asakusa+Honten&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1100&q=70" alt="Mochi/postre · Umezono Asakusa Honten"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>2:50 PM</strong><small>60–75 min</small></div>
+      <div class="copy">
+        <h3>Tokyo Skytree + Solamachi</h3>
+        <p>Vista si el clima abre; si estás cansado, usa Solamachi para compras bajo techo y vuelve.</p>
+        <div class="move">🚇 Asakusa → Skytree: ~15–20 min a pie o ~10 min taxi.</div>
+        <div class="tags"><span>mirador</span><span>indoor</span><span>flex</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Skytree" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Umezono+Asakusa+Honten&destination=Tokyo+Skytree&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1100&q=70" alt="Tokyo Skytree + Solamachi"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>4:30 PM</strong><small>2 h</small></div>
+      <div class="copy">
+        <h3>Regreso a base · siesta + ducha + maleta mínima</h3>
+        <p>Bloque protegido. No lo sacrifiques: la noche es larga y el vuelo es 10:00 AM.</p>
+        <div class="move">🚇 Skytree → Shibuya/base: ~35–50 min metro/taxi.</div>
+        <div class="tags"><span>descanso</span><span>clave</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya%2C+Tokyo" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Tokyo+Skytree&destination=Shibuya%2C+Tokyo&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=70" alt="Regreso a base · siesta + ducha + maleta mínima"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>6:45 PM</strong><small>60 min</small></div>
+      <div class="copy">
+        <h3>Cena controlada · Katsu Midori / Uobei Shibuya</h3>
+        <p>Cena rica pero liviana antes de fiesta. Solo cambia a yakiniku si no lograste hacerlo martes.</p>
+        <div class="move">🚇 Base → Shibuya sushi: ~5–15 min.</div><div class="dish"><b>Qué pedir:</b> Nigiri variado: chutoro/otoro si hay, anago, ikura, aburi salmon; mantén porciones moderadas.</div><div class="valid">✓ Tabelog lista Katsu Midori Seibu Shibuya como sushi/seafood cerca de JR Shibuya; Uobei es backup rápido.</div>
+        <div class="tags"><span>sushi</span><span>pre-party</span><span>ligero</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Katsu+Midori+Seibu+Shibuya" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya%2C+Tokyo&destination=Katsu+Midori+Seibu+Shibuya&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=1100&q=70" alt="Cena controlada · Katsu Midori / Uobei Shibuya"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>8:15 PM</strong><small>90 min</small></div>
+      <div class="copy">
+        <h3>Descanso final antes de Yonaguni</h3>
+        <p>Agua, batería, cash, transporte de regreso y alarma. No improvises a las 4:00 AM.</p>
+        <div class="move">🚇 Cena → base: ~5–15 min.</div>
+        <div class="tags"><span>preparación</span><span>noche</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya%2C+Tokyo" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Katsu+Midori+Seibu+Shibuya&destination=Shibuya%2C+Tokyo&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=70" alt="Descanso final antes de Yonaguni"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>11:30 PM</strong><small>hasta 4:00 AM</small></div>
+      <div class="copy">
+        <h3>Yonaguni fiesta</h3>
+        <p>Plan nocturno. Mantén la salida al aeropuerto ya definida desde antes.</p>
+        <div class="move">🚇 Base → venue: confirma Maps según dirección exacta.</div>
+        <div class="tags"><span>party</span><span>última noche</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Yonaguni+Tokyo" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya%2C+Tokyo&destination=Yonaguni+Tokyo&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=1100&q=70" alt="Yonaguni fiesta"></figure>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="sabado">
+  <div class="head"><div><h2>Sábado · salida</h2><p>Sin sección de vuelos/equipaje, solo timing operativo porque vienes de fiesta.</p></div><span class="badge red">✈️ 10:00 AM</span></div>
+  <div class="timeline">
+    
+    <article class="event">
+      <div class="time"><strong>4:15 AM</strong><small>45 min</small></div>
+      <div class="copy">
+        <h3>Regreso, ducha y cierre</h3>
+        <p>No comas pesado. Agua + snack simple si hace falta.</p>
+        
+        <div class="tags"><span>post-party</span><span>cierre</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Shibuya%2C+Tokyo" target="_blank" rel="noopener">📍 Maps</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=70" alt="Regreso, ducha y cierre"></figure>
+    </article>
+    
+    <article class="event">
+      <div class="time"><strong>5:45 AM</strong><small>variable</small></div>
+      <div class="copy">
+        <h3>Salida al aeropuerto</h3>
+        <p>Confirma si es Narita o Haneda. Si es Narita, sal antes; si es Haneda, tienes algo más de margen.</p>
+        <div class="move">🚇 Shibuya → Haneda: ~40–60 min; Shibuya → Narita: ~75–100 min.</div>
+        <div class="tags"><span>transporte</span><span>buffer</span></div>
+        <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Tokyo+airport" target="_blank" rel="noopener">📍 Maps</a><a class="btn route" href="https://www.google.com/maps/dir/?api=1&origin=Shibuya%2C+Tokyo&destination=Tokyo+airport&travelmode=transit" target="_blank" rel="noopener">↗ Ruta</a></div>
+      </div>
+      <figure class="ph"><img class="progressive" loading="lazy" decoding="async" width="640" height="420" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=40&q=15&blur=20" data-full="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1100&q=70" alt="Salida al aeropuerto"></figure>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="topfood">
+  <div class="head"><div><h2>Top comidas que sí priorizaría</h2><p>Estas son las comidas que mantendría sí o sí si hay que recortar planes por clima.</p></div><span class="badge">🍽️ Ranking</span></div>
+  <div class="grid">
+    <div class="foodcard"><b>1 · Wagyu / BBQ japonés</b><h3>Han no Daidokoro Bettei</h3><p>Prioridad martes. Pide A5 Yamagata platter, tongue, kalbi y chateaubriand si está disponible.</p><ul><li>Backup: USHIHACHI Kiwami Shibuya</li><li>Reserva recomendada</li></ul></div>
+    <div class="foodcard"><b>2 · Mochi / wagashi</b><h3>Umezono Asakusa</h3><p>Postre tradicional: cream shiratama anmitsu o awa zenzai. Mejor aquí que en un random stand.</p></div>
+    <div class="foodcard"><b>3 · Melon pan</b><h3>Asakusa Kagetsudo</h3><p>Jumbo melon pan caliente antes de almuerzo o como snack temprano. No esperes a la tarde si hay fila.</p></div>
+    <div class="foodcard"><b>4 · Tendon / tempura</b><h3>Daikokuya Tempura</h3><p>Plato específico: tendon estilo Asakusa. Es diferente a ramen y muy representativo.</p></div>
+    <div class="foodcard"><b>5 · Kaisen-don</b><h3>Tsujihan Ark Hills</h3><p>Ideal después de TeamLab: seafood bowl + cierre con dashi. No requiere reserva.</p></div>
+    <div class="foodcard"><b>6 · Tonkatsu premium</b><h3>Maisen Aoyama</h3><p>Si te queda Harajuku/Omotesando en algún hueco: kurobuta tonkatsu o black pork loin/filet set.</p></div>
+  </div>
+  <div class="note"><b>Nota:</b> los tiempos de traslado son estimados para decidir rápido. Antes de moverte, abre el botón de ruta en Google Maps porque lluvia, trenes y hora pico pueden cambiar bastante.</div>
+  <div class="source-list">
+    <a href="https://shibuya-hannodaidokoro-bettei.com/en" target="_blank" rel="noopener">Han no Daidokoro Bettei · oficial</a>
+    <a href="https://tabelog.com/en/tokyo/A1303/A130301/13208724/" target="_blank" rel="noopener">USHIHACHI Kiwami · Tabelog</a>
+    <a href="https://www.asakusa-umezono.co.jp/" target="_blank" rel="noopener">Umezono Asakusa · oficial</a>
+    <a href="https://asakusa-kagetudo.com/en/" target="_blank" rel="noopener">Asakusa Kagetsudo · oficial</a>
+    <a href="https://www.tempura.co.jp/english/" target="_blank" rel="noopener">Daikokuya Tempura · oficial</a>
+    <a href="https://www.tsujihan-jp.com/" target="_blank" rel="noopener">Tsujihan · oficial</a>
+    <a href="https://mai-sen.com/restaurant/aoyama/" target="_blank" rel="noopener">Maisen Aoyama · oficial</a>
+    <a href="https://thermae-yu.jp/" target="_blank" rel="noopener">Thermae-Yu Shinjuku · oficial</a>
+  </div>
+</section>
+</div>
+<div class="print-actions"><button onclick="window.print()">Imprimir / PDF</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Arriba</button></div>
+<script>
+(function(){
+  const imgs = document.querySelectorAll('img.progressive[data-full]');
+  const loadFull = img => {
+    if (img.dataset.loaded) return;
+    img.dataset.loaded = '1';
+    const full = new Image();
+    full.decoding = 'async';
+    full.src = img.dataset.full;
+    full.onload = () => { img.src = full.src; img.classList.add('loaded'); };
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { loadFull(e.target); io.unobserve(e.target); } });
+    }, {rootMargin:'420px 0px'});
+    imgs.forEach(img => io.observe(img));
+  } else { imgs.forEach(loadFull); }
+})();
+</script>
+</body>
+</html>
