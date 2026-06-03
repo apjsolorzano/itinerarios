@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -10,8 +9,8 @@
 
   <style>
     :root {
-      --bg: #0f172a;
-      --bg-soft: #111827;
+      --bg: #020617;
+      --bg-2: #0f172a;
       --card: #ffffff;
       --card-soft: #f8fafc;
       --text: #0f172a;
@@ -19,33 +18,29 @@
       --muted: #94a3b8;
       --accent: #0ea5e9;
       --accent-dark: #0369a1;
-      --gold: #f59e0b;
+      --warm: #f97316;
+      --warm-soft: #fff7ed;
       --border: #e2e8f0;
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --shadow: 0 24px 80px rgba(15, 23, 42, 0.18);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --shadow: 0 22px 70px rgba(15, 23, 42, 0.16);
       --max-width: 1120px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #020617 0%, #0f172a 360px, #f1f5f9 360px, #f8fafc 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 330px, #f1f5f9 330px, #f8fafc 100%);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     img {
       display: block;
@@ -54,42 +49,40 @@
     }
 
     .page {
-      width: min(100% - 32px, var(--max-width));
+      width: min(100% - 28px, var(--max-width));
       margin: 0 auto;
-      padding: 32px 0 56px;
+      padding: 24px 0 44px;
     }
 
     .hero {
       color: white;
-      padding: 48px 0 40px;
+      padding: 38px 0 30px;
     }
 
     .eyebrow {
-      margin: 0 0 16px;
+      margin: 0 0 12px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      font-size: 0.76rem;
       color: #bae6fd;
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(2.6rem, 8vw, 6rem);
-      line-height: 0.92;
+      font-size: clamp(2.45rem, 7.5vw, 5.7rem);
+      line-height: 0.94;
       letter-spacing: -0.07em;
-      max-width: 920px;
+      max-width: 940px;
     }
 
-    .hero h1 span {
-      color: #7dd3fc;
-    }
+    .hero h1 span { color: #7dd3fc; }
 
     .hero-summary {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 18px;
-      margin-top: 30px;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 14px;
+      margin-top: 24px;
       align-items: stretch;
     }
 
@@ -98,14 +91,14 @@
       background: rgba(255,255,255,0.08);
       backdrop-filter: blur(14px);
       border-radius: var(--radius-xl);
-      padding: 22px;
-      box-shadow: 0 22px 60px rgba(0,0,0,0.22);
+      padding: 20px;
+      box-shadow: 0 20px 52px rgba(0,0,0,0.2);
     }
 
     .hero-card strong {
       display: block;
-      font-size: 1.05rem;
-      margin-bottom: 8px;
+      font-size: 1.02rem;
+      margin-bottom: 6px;
     }
 
     .hero-card p {
@@ -114,36 +107,41 @@
     }
 
     .route-line {
-      margin-top: 22px;
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
+    }
+
+    .chip,
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.86rem;
     }
 
     .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 13px;
-      border-radius: 999px;
       background: rgba(255,255,255,0.1);
       border: 1px solid rgba(255,255,255,0.16);
       color: #e0f2fe;
-      font-weight: 700;
-      font-size: 0.9rem;
     }
 
     .section {
-      margin-top: 28px;
+      margin-top: 22px;
       background: var(--card);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
       overflow: hidden;
-      border: 1px solid rgba(226,232,240,0.9);
+      border: 1px solid rgba(226,232,240,0.92);
     }
 
     .section-header {
-      padding: 28px;
+      position: relative;
+      padding: 24px;
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       color: white;
     }
@@ -156,33 +154,52 @@
 
     .section-header h2 {
       margin: 0;
-      font-size: clamp(1.5rem, 3vw, 2.4rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
+      font-size: clamp(1.45rem, 3vw, 2.3rem);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      padding-right: 110px;
     }
 
     .section-header p {
-      margin: 10px 0 0;
+      margin: 8px 0 0;
       color: inherit;
       opacity: 0.78;
-      max-width: 780px;
+      max-width: 800px;
     }
 
-    .section-body {
-      padding: 28px;
+    .section-body { padding: 24px; }
+
+    .copy-link {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.34);
+      background: rgba(255,255,255,0.12);
+      color: inherit;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
     }
 
-    .flight-grid {
+    .light .copy-link {
+      background: rgba(255,255,255,0.72);
+      color: var(--accent-dark);
+    }
+
+    .flight-grid,
+    .info-grid {
       display: grid;
-      gap: 16px;
+      gap: 14px;
     }
 
     .flight-leg {
       display: grid;
-      grid-template-columns: 120px 1fr auto;
-      gap: 18px;
+      grid-template-columns: 118px 1fr auto;
+      gap: 16px;
       align-items: center;
-      padding: 18px;
+      padding: 16px;
       background: var(--card-soft);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
@@ -191,124 +208,142 @@
     .flight-leg .date {
       color: var(--accent-dark);
       font-weight: 900;
-      font-size: 0.9rem;
+      font-size: 0.86rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .flight-leg h3 {
-      margin: 0 0 4px;
-      font-size: 1.1rem;
-    }
-
-    .flight-leg p {
-      margin: 0;
-      color: var(--text-soft);
-    }
-
-    .duration {
-      font-weight: 900;
-      color: var(--text);
-      white-space: nowrap;
-    }
+    .flight-leg h3 { margin: 0 0 3px; font-size: 1.06rem; }
+    .flight-leg p { margin: 0; color: var(--text-soft); }
+    .duration { font-weight: 900; color: var(--text); white-space: nowrap; }
 
     .part-label {
-      margin: 0 0 18px;
+      margin: 0 0 14px;
       color: var(--accent-dark);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
     }
 
     .day {
-      margin-top: 22px;
-      padding: 24px;
+      margin-top: 20px;
+      padding: 22px;
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     }
 
-    .day:first-child {
-      margin-top: 0;
-    }
+    .day:first-child { margin-top: 0; }
 
     .day-top {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+    }
+
+    .day-heading {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      min-width: 0;
     }
 
     .day-number {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 72px;
-      height: 72px;
-      border-radius: 24px;
-      background: var(--bg);
+      min-width: 66px;
+      height: 66px;
+      border-radius: 22px;
+      background: var(--bg-2);
       color: white;
       font-weight: 950;
-      font-size: 1.4rem;
+      font-size: 1.28rem;
       letter-spacing: -0.05em;
     }
 
     .day-title h3 {
       margin: 0;
-      font-size: clamp(1.35rem, 3vw, 2rem);
+      font-size: clamp(1.28rem, 3vw, 1.95rem);
       letter-spacing: -0.04em;
       line-height: 1.1;
     }
 
     .day-title p {
-      margin: 6px 0 0;
+      margin: 5px 0 0;
       color: var(--text-soft);
-      font-weight: 700;
+      font-weight: 750;
+    }
+
+    .day-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .meta-chip {
+      background: #e0f2fe;
+      color: #075985;
+      border: 1px solid #bae6fd;
     }
 
     .timeline {
       display: grid;
-      gap: 14px;
+      gap: 12px;
     }
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 98px 1fr;
-      gap: 16px;
-      padding: 16px;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      padding: 15px;
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
     }
 
-    .time {
+    .time { color: var(--accent-dark); font-weight: 950; }
+    .activity h4 { margin: 0 0 5px; font-size: 1.03rem; }
+    .activity p { margin: 0; color: var(--text-soft); }
+
+    .activity-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .maps-link,
+    .secondary-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 0.82rem;
+      font-weight: 850;
+      border: 1px solid var(--border);
+      background: #f8fafc;
       color: var(--accent-dark);
-      font-weight: 950;
     }
 
-    .activity h4 {
-      margin: 0 0 6px;
-      font-size: 1.05rem;
-    }
-
-    .activity p {
-      margin: 0;
-      color: var(--text-soft);
-    }
+    .maps-link::before { content: "📍"; }
 
     .image-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 14px;
+      gap: 10px;
+      margin-top: 12px;
     }
 
     .image-card {
-      min-height: 160px;
-      border-radius: 18px;
+      min-height: 145px;
+      border-radius: 16px;
       overflow: hidden;
       background: #e2e8f0;
       border: 1px solid var(--border);
@@ -317,450 +352,524 @@
 
     .image-card img {
       height: 100%;
-      min-height: 160px;
+      min-height: 145px;
       object-fit: cover;
     }
 
     .image-card figcaption {
       position: absolute;
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
-      padding: 8px 10px;
-      border-radius: 12px;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      padding: 7px 9px;
+      border-radius: 11px;
       background: rgba(15, 23, 42, 0.72);
       color: white;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 800;
       backdrop-filter: blur(8px);
     }
 
     .food-block {
-      margin-top: 18px;
-      padding: 18px;
+      margin-top: 16px;
+      padding: 16px;
       border-radius: var(--radius-lg);
-      background: #fff7ed;
+      background: var(--warm-soft);
       border: 1px solid #fed7aa;
     }
 
     .food-block h4 {
-      margin: 0 0 12px;
+      margin: 0 0 6px;
       color: #9a3412;
-      font-size: 1.05rem;
+      font-size: 1.04rem;
     }
 
-    .food-grid {
+    .food-block > p {
+      margin: 0 0 12px;
+      color: #9a3412;
+      opacity: 0.82;
+    }
+
+    .food-carousel {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(245px, 31%);
+      gap: 12px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x proximity;
+      padding: 2px 2px 10px;
+      scrollbar-width: thin;
     }
 
     .food-card {
+      scroll-snap-align: start;
       background: white;
-      border-radius: 18px;
+      border-radius: 17px;
       border: 1px solid #fed7aa;
       padding: 14px;
+      min-height: 100%;
     }
 
-    .food-card strong {
-      display: block;
-      margin-bottom: 5px;
+    .food-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 9px;
+    }
+
+    .food-meta span {
+      font-size: 0.75rem;
+      font-weight: 850;
+      color: #9a3412;
+      background: #ffedd5;
+      border: 1px solid #fed7aa;
+      border-radius: 999px;
+      padding: 5px 8px;
+    }
+
+    .food-card h5 {
+      margin: 0 0 6px;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
     }
 
     .food-card p {
       margin: 0;
       color: var(--text-soft);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+    }
+
+    .dish-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    .dish-chips span {
+      font-size: 0.8rem;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: #f8fafc;
+      color: #334155;
+      border: 1px solid var(--border);
+      font-weight: 750;
+    }
+
+    .budget-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .budget-card,
+    .tip-card {
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 15px;
+    }
+
+    .budget-card strong,
+    .tip-card strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .budget-card p,
+    .tip-card p {
+      margin: 0;
+      color: var(--text-soft);
     }
 
     .checklist {
       columns: 2;
-      column-gap: 28px;
+      column-gap: 26px;
       padding-left: 20px;
       margin: 0;
     }
 
     .checklist li {
       break-inside: avoid;
-      margin-bottom: 9px;
+      margin-bottom: 8px;
       color: var(--text-soft);
     }
 
     .note {
-      padding: 16px 18px;
+      padding: 15px 16px;
       background: #eff6ff;
       border: 1px solid #bfdbfe;
       color: #1e3a8a;
       border-radius: var(--radius-lg);
-      margin-top: 18px;
-      font-weight: 700;
+      margin-top: 16px;
+      font-weight: 750;
     }
 
     .footer {
-      margin: 36px 0 0;
+      margin: 32px 0 0;
       text-align: center;
       color: #cbd5e1;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 820px) {
+    .footer a {
+      color: white;
+      font-weight: 850;
+    }
+
+    @media (max-width: 900px) {
+      .hero-summary { grid-template-columns: 1fr; }
+      .flight-leg { grid-template-columns: 1fr; }
+      .image-grid { grid-template-columns: 1fr; }
+      .budget-grid { grid-template-columns: 1fr; }
+      .food-carousel { grid-auto-columns: minmax(240px, 82%); }
+    }
+
+    @media (max-width: 640px) {
       .page {
-        width: min(100% - 22px, var(--max-width));
-        padding-top: 18px;
+        width: min(100% - 16px, var(--max-width));
+        padding-top: 12px;
       }
 
-      .hero {
-        padding: 34px 0 30px;
+      .hero { padding: 26px 0 22px; }
+      .hero-card { padding: 16px; border-radius: 22px; }
+      .section { margin-top: 16px; border-radius: 22px; }
+      .section-header, .section-body { padding: 18px; }
+      .section-header h2 { padding-right: 0; }
+      .copy-link {
+        position: static;
+        margin-top: 12px;
       }
 
-      .hero-summary {
-        grid-template-columns: 1fr;
+      .day {
+        padding: 16px;
+        border-radius: 22px;
       }
 
-      .section-body,
-      .section-header {
-        padding: 22px;
-      }
-
-      .flight-leg {
-        grid-template-columns: 1fr;
+      .day-heading { width: 100%; }
+      .day-number {
+        min-width: 54px;
+        height: 54px;
+        border-radius: 18px;
+        font-size: 1.08rem;
       }
 
       .timeline-item {
         grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 13px;
       }
 
-      .image-grid,
-      .food-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .checklist {
-        columns: 1;
-      }
+      .time { font-size: 0.9rem; }
+      .food-block { padding: 13px; }
+      .food-carousel { grid-auto-columns: minmax(230px, 86%); gap: 10px; }
+      .checklist { columns: 1; }
+      .route-line { gap: 7px; }
+      .chip, .meta-chip { font-size: 0.8rem; padding: 7px 9px; }
     }
   </style>
-
 </head>
 
 <body>
-  <main class="page">
+  <main class="page" id="top">
 
-```
-<!-- HERO PRINCIPAL -->
-<header class="hero">
-  <p class="eyebrow">{{COUNTRY_OR_REGION}} · {{TRIP_CATEGORY}}</p>
+    <header class="hero" id="inicio">
+      <p class="eyebrow">{{COUNTRY_OR_REGION}} · {{TRIP_CATEGORY}}</p>
+      <h1>{{MAIN_TITLE_LINE_1}}<br /><span>{{MAIN_TITLE_LINE_2}}</span></h1>
 
-  <h1>
-    {{MAIN_TITLE_LINE_1}}<br />
-    <span>{{MAIN_TITLE_LINE_2}}</span>
-  </h1>
-
-  <div class="hero-summary">
-    <div class="hero-card">
-      <strong>{{DATE_RANGE}} · {{TRAVELERS}}</strong>
-      <p>{{HERO_DESCRIPTION}}</p>
-    </div>
-
-    <div class="hero-card">
-      <strong>Ruta general</strong>
-      <p>{{ROUTE_SUMMARY}}</p>
-    </div>
-  </div>
-
-  <div class="route-line">
-    <span class="chip">✈️ {{ORIGIN}}</span>
-    <span class="chip">→ {{CONNECTION_1}}</span>
-    <span class="chip">→ {{DESTINATION_1}}</span>
-    <span class="chip">→ {{DESTINATION_2}}</span>
-    <span class="chip">↩ {{RETURN_CITY}}</span>
-  </div>
-</header>
-
-<!-- BLOQUE DE CONEXIÓN AÉREA DE IDA -->
-<section class="section">
-  <div class="section-header">
-    <h2>✈️ Bloque de Conexión Aérea de Ida</h2>
-    <p>{{INBOUND_FLIGHT_OVERVIEW}}</p>
-  </div>
-
-  <div class="section-body">
-    <div class="flight-grid">
-
-      <article class="flight-leg">
-        <div class="date">{{FLIGHT_1_DATE}}</div>
-        <div>
-          <h3>{{FLIGHT_1_ROUTE}}</h3>
-          <p>{{FLIGHT_1_TIME}} · {{FLIGHT_1_DETAILS}}</p>
+      <div class="hero-summary">
+        <div class="hero-card">
+          <strong>{{DATE_RANGE}} · {{TRAVELERS}}</strong>
+          <p>{{HERO_DESCRIPTION}}</p>
         </div>
-        <div class="duration">{{FLIGHT_1_DURATION}}</div>
-      </article>
-
-      <article class="flight-leg">
-        <div class="date">{{FLIGHT_2_DATE}}</div>
-        <div>
-          <h3>{{FLIGHT_2_ROUTE}}</h3>
-          <p>{{FLIGHT_2_TIME}} · {{FLIGHT_2_DETAILS}}</p>
-        </div>
-        <div class="duration">{{FLIGHT_2_DURATION}}</div>
-      </article>
-
-      <article class="flight-leg">
-        <div class="date">{{FLIGHT_3_DATE}}</div>
-        <div>
-          <h3>{{FLIGHT_3_ROUTE}}</h3>
-          <p>{{FLIGHT_3_TIME}} · {{FLIGHT_3_DETAILS}}</p>
-        </div>
-        <div class="duration">{{FLIGHT_3_DURATION}}</div>
-      </article>
-
-    </div>
-
-    <div class="note">
-      Duración total estimada de ruta de ida: {{TOTAL_INBOUND_DURATION}}.
-    </div>
-  </div>
-</section>
-
-<!-- PARTE 1 DEL VIAJE -->
-<section class="section">
-  <div class="section-header light">
-    <p class="part-label">Parte 1</p>
-    <h2>{{PART_1_TITLE}}</h2>
-    <p>{{PART_1_DESCRIPTION}}</p>
-  </div>
-
-  <div class="section-body">
-
-    <!-- DÍA 1 -->
-    <article class="day">
-      <div class="day-top">
-        <div class="day-number">Día 1</div>
-        <div class="day-title">
-          <h3>{{DAY_1_DATE}}</h3>
-          <p>{{DAY_1_THEME}}</p>
+        <div class="hero-card">
+          <strong>Ruta general</strong>
+          <p>{{ROUTE_SUMMARY}}</p>
         </div>
       </div>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="time">{{DAY_1_TIME_1}}</div>
-          <div class="activity">
-            <h4>{{DAY_1_ACTIVITY_1_TITLE}}</h4>
-            <p>{{DAY_1_ACTIVITY_1_DESCRIPTION}}</p>
+      <div class="route-line" aria-label="Ruta resumida del viaje">
+        <span class="chip">✈️ {{ORIGIN}}</span>
+        <span class="chip">→ {{CONNECTION_1}}</span>
+        <span class="chip">→ {{DESTINATION_1}}</span>
+        <span class="chip">→ {{DESTINATION_2}}</span>
+        <span class="chip">↩ {{RETURN_CITY}}</span>
+      </div>
+    </header>
 
-            <div class="image-grid">
-              <figure class="image-card">
-                <img src="{{DAY_1_IMAGE_1_URL}}" alt="{{DAY_1_IMAGE_1_ALT}}" />
-                <figcaption>{{DAY_1_IMAGE_1_CAPTION}}</figcaption>
-              </figure>
-              <figure class="image-card">
-                <img src="{{DAY_1_IMAGE_2_URL}}" alt="{{DAY_1_IMAGE_2_ALT}}" />
-                <figcaption>{{DAY_1_IMAGE_2_CAPTION}}</figcaption>
-              </figure>
-              <figure class="image-card">
-                <img src="{{DAY_1_IMAGE_3_URL}}" alt="{{DAY_1_IMAGE_3_ALT}}" />
-                <figcaption>{{DAY_1_IMAGE_3_CAPTION}}</figcaption>
-              </figure>
+    <section class="section" id="resumen">
+      <div class="section-header">
+        <h2>Resumen ejecutivo</h2>
+        <p>{{EXECUTIVE_SUMMARY}}</p>
+        <button class="copy-link" type="button" data-copy-link="resumen" aria-label="Copiar enlace a resumen">Copiar enlace</button>
+      </div>
+      <div class="section-body">
+        <div class="info-grid">
+          <div class="tip-card"><strong>Mejor ritmo</strong><p>{{PACE_SUMMARY}}</p></div>
+          <div class="tip-card"><strong>Prioridad del viaje</strong><p>{{TRIP_PRIORITY}}</p></div>
+          <div class="tip-card"><strong>Nota clave</strong><p>{{KEY_NOTE}}</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="conexion-ida">
+      <div class="section-header">
+        <h2>✈️ Conexion aerea de ida</h2>
+        <p>{{INBOUND_FLIGHT_OVERVIEW}}</p>
+        <button class="copy-link" type="button" data-copy-link="conexion-ida" aria-label="Copiar enlace a conexion de ida">Copiar enlace</button>
+      </div>
+      <div class="section-body">
+        <div class="flight-grid">
+          <article class="flight-leg">
+            <div class="date">{{FLIGHT_1_DATE}}</div>
+            <div><h3>{{FLIGHT_1_ROUTE}}</h3><p>{{FLIGHT_1_TIME}} · {{FLIGHT_1_DETAILS}}</p></div>
+            <div class="duration">{{FLIGHT_1_DURATION}}</div>
+          </article>
+          <article class="flight-leg">
+            <div class="date">{{FLIGHT_2_DATE}}</div>
+            <div><h3>{{FLIGHT_2_ROUTE}}</h3><p>{{FLIGHT_2_TIME}} · {{FLIGHT_2_DETAILS}}</p></div>
+            <div class="duration">{{FLIGHT_2_DURATION}}</div>
+          </article>
+        </div>
+        <div class="note">Duracion total estimada de ruta de ida: {{TOTAL_INBOUND_DURATION}}.</div>
+      </div>
+    </section>
+
+    <section class="section" id="itinerario">
+      <div class="section-header light">
+        <p class="part-label">Itinerario principal</p>
+        <h2>{{ITINERARY_SECTION_TITLE}}</h2>
+        <p>{{ITINERARY_SECTION_DESCRIPTION}}</p>
+        <button class="copy-link" type="button" data-copy-link="itinerario" aria-label="Copiar enlace al itinerario">Copiar enlace</button>
+      </div>
+
+      <div class="section-body">
+        <article class="day" id="dia-1">
+          <div class="day-top">
+            <div class="day-heading">
+              <div class="day-number">Día 1</div>
+              <div class="day-title">
+                <h3>{{DAY_1_DATE}}</h3>
+                <p>{{DAY_1_THEME}}</p>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="meta-chip">{{DAY_1_ZONE}}</span>
+              <span class="meta-chip">{{DAY_1_INTENSITY}}</span>
             </div>
           </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="time">{{DAY_1_TIME_2}}</div>
-          <div class="activity">
-            <h4>{{DAY_1_ACTIVITY_2_TITLE}}</h4>
-            <p>{{DAY_1_ACTIVITY_2_DESCRIPTION}}</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">{{DAY_1_TIME_1}}</div>
+              <div class="activity">
+                <h4>{{DAY_1_ACTIVITY_1_TITLE}}</h4>
+                <p>{{DAY_1_ACTIVITY_1_DESCRIPTION}}</p>
+                <div class="activity-actions">
+                  <a class="maps-link" href="{{DAY_1_ACTIVITY_1_MAPS_URL}}" target="_blank" rel="noopener">Ver en Maps</a>
+                  <a class="secondary-link" href="#dia-1">Enlace del dia</a>
+                </div>
+
+                <div class="image-grid">
+                  <figure class="image-card">
+                    <img src="{{DAY_1_IMAGE_1_URL}}" alt="{{DAY_1_IMAGE_1_ALT}}" width="800" height="600" decoding="async" />
+                    <figcaption>{{DAY_1_IMAGE_1_CAPTION}}</figcaption>
+                  </figure>
+                  <figure class="image-card">
+                    <img src="{{DAY_1_IMAGE_2_URL}}" alt="{{DAY_1_IMAGE_2_ALT}}" width="800" height="600" loading="lazy" decoding="async" />
+                    <figcaption>{{DAY_1_IMAGE_2_CAPTION}}</figcaption>
+                  </figure>
+                  <figure class="image-card">
+                    <img src="{{DAY_1_IMAGE_3_URL}}" alt="{{DAY_1_IMAGE_3_ALT}}" width="800" height="600" loading="lazy" decoding="async" />
+                    <figcaption>{{DAY_1_IMAGE_3_CAPTION}}</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="time">{{DAY_1_TIME_2}}</div>
+              <div class="activity">
+                <h4>{{DAY_1_ACTIVITY_2_TITLE}}</h4>
+                <p>{{DAY_1_ACTIVITY_2_DESCRIPTION}}</p>
+                <div class="activity-actions">
+                  <a class="maps-link" href="{{DAY_1_ACTIVITY_2_MAPS_URL}}" target="_blank" rel="noopener">Ver en Maps</a>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <div class="food-block" id="gastronomia-dia-1">
+            <h4>🍽️ Sugerencias gastronomicas — Día 1</h4>
+            <p>{{DAY_1_FOOD_OVERVIEW}}</p>
+            <div class="food-carousel" aria-label="Sugerencias gastronomicas del dia 1">
+              <article class="food-card">
+                <div class="food-meta"><span>{{DAY_1_FOOD_1_ZONE}}</span><span>{{DAY_1_FOOD_1_TIME}}</span></div>
+                <h5>{{DAY_1_FOOD_1_NAME}}</h5>
+                <p>{{DAY_1_FOOD_1_REASON}}</p>
+                <div class="dish-chips"><span>{{DAY_1_FOOD_1_DISH_1}}</span><span>{{DAY_1_FOOD_1_DISH_2}}</span><span>{{DAY_1_FOOD_1_DISH_3}}</span></div>
+                <a class="maps-link" href="{{DAY_1_FOOD_1_MAPS_URL}}" target="_blank" rel="noopener">Ver en Maps</a>
+              </article>
+              <article class="food-card">
+                <div class="food-meta"><span>{{DAY_1_FOOD_2_ZONE}}</span><span>{{DAY_1_FOOD_2_TIME}}</span></div>
+                <h5>{{DAY_1_FOOD_2_NAME}}</h5>
+                <p>{{DAY_1_FOOD_2_REASON}}</p>
+                <div class="dish-chips"><span>{{DAY_1_FOOD_2_DISH_1}}</span><span>{{DAY_1_FOOD_2_DISH_2}}</span><span>{{DAY_1_FOOD_2_DISH_3}}</span></div>
+                <a class="maps-link" href="{{DAY_1_FOOD_2_MAPS_URL}}" target="_blank" rel="noopener">Ver en Maps</a>
+              </article>
+              <article class="food-card">
+                <div class="food-meta"><span>{{DAY_1_FOOD_3_ZONE}}</span><span>{{DAY_1_FOOD_3_TIME}}</span></div>
+                <h5>{{DAY_1_FOOD_3_NAME}}</h5>
+                <p>{{DAY_1_FOOD_3_REASON}}</p>
+                <div class="dish-chips"><span>{{DAY_1_FOOD_3_DISH_1}}</span><span>{{DAY_1_FOOD_3_DISH_2}}</span><span>{{DAY_1_FOOD_3_DISH_3}}</span></div>
+                <a class="maps-link" href="{{DAY_1_FOOD_3_MAPS_URL}}" target="_blank" rel="noopener">Ver en Maps</a>
+              </article>
+            </div>
+          </div>
+        </article>
+
+        <article class="day" id="dia-n">
+          <div class="day-top">
+            <div class="day-heading">
+              <div class="day-number">Día {{DAY_N_NUMBER}}</div>
+              <div class="day-title">
+                <h3>{{DAY_N_DATE}}</h3>
+                <p>{{DAY_N_THEME}}</p>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="meta-chip">{{DAY_N_ZONE}}</span>
+              <span class="meta-chip">{{DAY_N_INTENSITY}}</span>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">{{DAY_N_TIME_1}}</div>
+              <div class="activity">
+                <h4>{{DAY_N_ACTIVITY_1_TITLE}}</h4>
+                <p>{{DAY_N_ACTIVITY_1_DESCRIPTION}}</p>
+                <div class="activity-actions">
+                  <a class="maps-link" href="{{DAY_N_ACTIVITY_1_MAPS_URL}}" target="_blank" rel="noopener">Ver en Maps</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="food-block" id="gastronomia-dia-{{DAY_N_NUMBER}}">
+            <h4>🍽️ Sugerencias gastronomicas — Día {{DAY_N_NUMBER}}</h4>
+            <p>{{DAY_N_FOOD_OVERVIEW}}</p>
+            <div class="food-carousel" aria-label="Sugerencias gastronomicas del dia {{DAY_N_NUMBER}}">
+              <article class="food-card">
+                <div class="food-meta"><span>{{DAY_N_FOOD_1_ZONE}}</span><span>{{DAY_N_FOOD_1_TIME}}</span></div>
+                <h5>{{DAY_N_FOOD_1_NAME}}</h5>
+                <p>{{DAY_N_FOOD_1_REASON}}</p>
+                <div class="dish-chips"><span>{{DAY_N_FOOD_1_DISH_1}}</span><span>{{DAY_N_FOOD_1_DISH_2}}</span><span>{{DAY_N_FOOD_1_DISH_3}}</span></div>
+                <a class="maps-link" href="{{DAY_N_FOOD_1_MAPS_URL}}" target="_blank" rel="noopener">Ver en Maps</a>
+              </article>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="presupuesto">
+      <div class="section-header">
+        <h2>💳 Presupuesto estimado</h2>
+        <p>{{BUDGET_OVERVIEW}}</p>
+        <button class="copy-link" type="button" data-copy-link="presupuesto" aria-label="Copiar enlace a presupuesto">Copiar enlace</button>
+      </div>
+      <div class="section-body">
+        <div class="budget-grid">
+          <div class="budget-card"><strong>{{BUDGET_CATEGORY_1}}</strong><p>{{BUDGET_CATEGORY_1_RANGE}}</p></div>
+          <div class="budget-card"><strong>{{BUDGET_CATEGORY_2}}</strong><p>{{BUDGET_CATEGORY_2_RANGE}}</p></div>
+          <div class="budget-card"><strong>{{BUDGET_CATEGORY_3}}</strong><p>{{BUDGET_CATEGORY_3_RANGE}}</p></div>
+        </div>
+        <div class="note">{{BUDGET_NOTE}}</div>
+      </div>
+    </section>
+
+    <section class="section" id="equipaje">
+      <div class="section-header">
+        <h2>🎒 Equipaje y preparacion</h2>
+        <p>{{PACKING_SECTION_DESCRIPTION}}</p>
+        <button class="copy-link" type="button" data-copy-link="equipaje" aria-label="Copiar enlace a equipaje">Copiar enlace</button>
+      </div>
+      <div class="section-body">
+        <h3>{{PACKING_CATEGORY_1}}</h3>
+        <ul class="checklist">
+          <li>{{PACKING_ITEM_1}}</li>
+          <li>{{PACKING_ITEM_2}}</li>
+          <li>{{PACKING_ITEM_3}}</li>
+          <li>{{PACKING_ITEM_4}}</li>
+        </ul>
+        <h3>{{PACKING_CATEGORY_2}}</h3>
+        <ul class="checklist">
+          <li>{{PACKING_ITEM_5}}</li>
+          <li>{{PACKING_ITEM_6}}</li>
+          <li>{{PACKING_ITEM_7}}</li>
+          <li>{{PACKING_ITEM_8}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="consejos-practicos">
+      <div class="section-header light">
+        <h2>Consejos practicos</h2>
+        <p>{{PRACTICAL_TIPS_OVERVIEW}}</p>
+        <button class="copy-link" type="button" data-copy-link="consejos-practicos" aria-label="Copiar enlace a consejos practicos">Copiar enlace</button>
+      </div>
+      <div class="section-body">
+        <div class="info-grid">
+          <div class="tip-card"><strong>{{TIP_1_TITLE}}</strong><p>{{TIP_1_DESCRIPTION}}</p></div>
+          <div class="tip-card"><strong>{{TIP_2_TITLE}}</strong><p>{{TIP_2_DESCRIPTION}}</p></div>
+          <div class="tip-card"><strong>{{TIP_3_TITLE}}</strong><p>{{TIP_3_DESCRIPTION}}</p></div>
         </div>
       </div>
+    </section>
 
-      <div class="food-block">
-        <h4>🍽️ Gastronomía Seleccionada — Día 1</h4>
-        <div class="food-grid">
-          <div class="food-card">
-            <strong>{{DAY_1_RESTAURANT_1}}</strong>
-            <p>{{DAY_1_RESTAURANT_1_DESCRIPTION}}</p>
-          </div>
-          <div class="food-card">
-            <strong>{{DAY_1_RESTAURANT_2}}</strong>
-            <p>{{DAY_1_RESTAURANT_2_DESCRIPTION}}</p>
-          </div>
-        </div>
+    <section class="section" id="retorno">
+      <div class="section-header">
+        <h2>✈️ Logistica de retorno</h2>
+        <p>{{RETURN_LOGISTICS_OVERVIEW}}</p>
+        <button class="copy-link" type="button" data-copy-link="retorno" aria-label="Copiar enlace a retorno">Copiar enlace</button>
       </div>
-    </article>
-
-    <!-- DÍA 2 -->
-    <article class="day">
-      <div class="day-top">
-        <div class="day-number">Día 2</div>
-        <div class="day-title">
-          <h3>{{DAY_2_DATE}}</h3>
-          <p>{{DAY_2_THEME}}</p>
+      <div class="section-body">
+        <div class="flight-grid">
+          <article class="flight-leg">
+            <div class="date">{{RETURN_FLIGHT_1_DATE}}</div>
+            <div><h3>{{RETURN_FLIGHT_1_ROUTE}}</h3><p>{{RETURN_FLIGHT_1_TIME}} · {{RETURN_FLIGHT_1_DETAILS}}</p></div>
+            <div class="duration">{{RETURN_FLIGHT_1_DURATION}}</div>
+          </article>
         </div>
+        <div class="note">Tiempo total estimado de retorno: {{TOTAL_RETURN_DURATION}}.</div>
       </div>
+    </section>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="time">{{DAY_2_TIME_1}}</div>
-          <div class="activity">
-            <h4>{{DAY_2_ACTIVITY_1_TITLE}}</h4>
-            <p>{{DAY_2_ACTIVITY_1_DESCRIPTION}}</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="time">{{DAY_2_TIME_2}}</div>
-          <div class="activity">
-            <h4>{{DAY_2_ACTIVITY_2_TITLE}}</h4>
-            <p>{{DAY_2_ACTIVITY_2_DESCRIPTION}}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="food-block">
-        <h4>🍽️ Gastronomía Seleccionada — Día 2</h4>
-        <div class="food-grid">
-          <div class="food-card">
-            <strong>{{DAY_2_RESTAURANT_1}}</strong>
-            <p>{{DAY_2_RESTAURANT_1_DESCRIPTION}}</p>
-          </div>
-          <div class="food-card">
-            <strong>{{DAY_2_RESTAURANT_2}}</strong>
-            <p>{{DAY_2_RESTAURANT_2_DESCRIPTION}}</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- PARTE 2 DEL VIAJE, SI APLICA -->
-<section class="section">
-  <div class="section-header light">
-    <p class="part-label">Parte 2</p>
-    <h2>{{PART_2_TITLE}}</h2>
-    <p>{{PART_2_DESCRIPTION}}</p>
-  </div>
-
-  <div class="section-body">
-
-    <!-- Repetir esta estructura por cada día adicional -->
-    <article class="day">
-      <div class="day-top">
-        <div class="day-number">Día {{DAY_N_NUMBER}}</div>
-        <div class="day-title">
-          <h3>{{DAY_N_DATE}}</h3>
-          <p>{{DAY_N_THEME}}</p>
-        </div>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="time">{{DAY_N_TIME_1}}</div>
-          <div class="activity">
-            <h4>{{DAY_N_ACTIVITY_1_TITLE}}</h4>
-            <p>{{DAY_N_ACTIVITY_1_DESCRIPTION}}</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="time">{{DAY_N_TIME_2}}</div>
-          <div class="activity">
-            <h4>{{DAY_N_ACTIVITY_2_TITLE}}</h4>
-            <p>{{DAY_N_ACTIVITY_2_DESCRIPTION}}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="food-block">
-        <h4>🍽️ Gastronomía Seleccionada — Día {{DAY_N_NUMBER}}</h4>
-        <div class="food-grid">
-          <div class="food-card">
-            <strong>{{DAY_N_RESTAURANT_1}}</strong>
-            <p>{{DAY_N_RESTAURANT_1_DESCRIPTION}}</p>
-          </div>
-          <div class="food-card">
-            <strong>{{DAY_N_RESTAURANT_2}}</strong>
-            <p>{{DAY_N_RESTAURANT_2_DESCRIPTION}}</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- EQUIPAJE / PREPARACIÓN -->
-<section class="section">
-  <div class="section-header">
-    <h2>🎒 Equipaje Requerido — Control de Vestimenta</h2>
-    <p>{{PACKING_SECTION_DESCRIPTION}}</p>
-  </div>
-
-  <div class="section-body">
-    <h3>{{PACKING_CATEGORY_1}}</h3>
-    <ul class="checklist">
-      <li>{{PACKING_ITEM_1}}</li>
-      <li>{{PACKING_ITEM_2}}</li>
-      <li>{{PACKING_ITEM_3}}</li>
-      <li>{{PACKING_ITEM_4}}</li>
-      <li>{{PACKING_ITEM_5}}</li>
-    </ul>
-
-    <h3>{{PACKING_CATEGORY_2}}</h3>
-    <ul class="checklist">
-      <li>{{PACKING_ITEM_6}}</li>
-      <li>{{PACKING_ITEM_7}}</li>
-      <li>{{PACKING_ITEM_8}}</li>
-      <li>{{PACKING_ITEM_9}}</li>
-      <li>{{PACKING_ITEM_10}}</li>
-    </ul>
-  </div>
-</section>
-
-<!-- LOGÍSTICA DE RETORNO -->
-<section class="section">
-  <div class="section-header">
-    <h2>✈️ Logística de Retorno</h2>
-    <p>{{RETURN_LOGISTICS_OVERVIEW}}</p>
-  </div>
-
-  <div class="section-body">
-    <div class="flight-grid">
-
-      <article class="flight-leg">
-        <div class="date">{{RETURN_FLIGHT_1_DATE}}</div>
-        <div>
-          <h3>{{RETURN_FLIGHT_1_ROUTE}}</h3>
-          <p>{{RETURN_FLIGHT_1_TIME}} · {{RETURN_FLIGHT_1_DETAILS}}</p>
-        </div>
-        <div class="duration">{{RETURN_FLIGHT_1_DURATION}}</div>
-      </article>
-
-      <article class="flight-leg">
-        <div class="date">{{RETURN_FLIGHT_2_DATE}}</div>
-        <div>
-          <h3>{{RETURN_FLIGHT_2_ROUTE}}</h3>
-          <p>{{RETURN_FLIGHT_2_TIME}} · {{RETURN_FLIGHT_2_DETAILS}}</p>
-        </div>
-        <div class="duration">{{RETURN_FLIGHT_2_DURATION}}</div>
-      </article>
-
-    </div>
-
-    <div class="note">
-      Tiempo total estimado de retorno: {{TOTAL_RETURN_DURATION}}.
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  {{FOOTER_TEXT}} · Última actualización: {{LAST_UPDATED}}
-</footer>
-```
-
+    <footer class="footer">
+      <p>{{FOOTER_TEXT}} · Ultima actualizacion: {{LAST_UPDATED}}</p>
+      <p>Horarios, precios y disponibilidad pueden cambiar. Conviene verificar antes de reservar o desplazarse.</p>
+      <p><a href="#top">Volver al inicio</a></p>
+    </footer>
   </main>
+
+  <script>
+    document.querySelectorAll('[data-copy-link]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var id = button.getAttribute('data-copy-link');
+        var url = window.location.origin + window.location.pathname + '#' + id;
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(function () {
+            var original = button.textContent;
+            button.textContent = 'Copiado';
+            setTimeout(function () { button.textContent = original; }, 1400);
+          });
+        } else {
+          window.location.hash = id;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
