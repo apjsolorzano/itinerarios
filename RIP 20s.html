@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Acción: RIP to My 20s - Welcome 30s</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent-silver: #d1d1d1;
+            --border-color: #262626;
+            --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: var(--font-family); line-height: 1.5; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { text-align: center; padding: 40px 20px; border-bottom: 1px solid var(--border-color); margin-bottom: 40px; }
+        header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(135deg, #fff 0%, #888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+        header p { font-size: 1rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 4px; }
+
+        .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .meta-card { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; text-align: center; }
+        .meta-card h3 { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 5px; }
+        .meta-card p { font-size: 1.2rem; font-weight: bold; color: var(--accent-silver); }
+
+        section { margin-bottom: 50px; }
+        .section-title { font-size: 1.4rem; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid var(--accent-silver); padding-left: 12px; margin-bottom: 25px; color: var(--text-main); }
+
+        /* Estructura de imágenes */
+        .image-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
+        .img-container { width: 100%; height: 200px; overflow: hidden; border-radius: 8px; border: 1px solid var(--border-color); }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        .task-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .task-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; padding: 18px 20px; display: flex; align-items: flex-start; justify-content: space-between; }
+        .task-tag { display: inline-block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; background-color: #222; color: var(--accent-silver); border-radius: 4px; margin-bottom: 8px; font-weight: 600; }
+        .task-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+        .task-desc { font-size: 0.9rem; color: var(--text-muted); }
+        .task-time { font-size: 0.8rem; color: var(--accent-silver); background-color: #1a1a1a; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 20px; white-space: nowrap; margin-left: 15px; align-self: center; }
+
+        .timeline { position: relative; padding-left: 30px; margin-top: 20px; }
+        .timeline::before { content: ''; position: absolute; left: 7px; top: 5px; bottom: 5px; width: 2px; background-color: var(--border-color); }
+        .timeline-item { position: relative; margin-bottom: 25px; }
+        .timeline-item::before { content: ''; position: absolute; left: -30px; top: 5px; width: 16px; height: 16px; border-radius: 50%; background-color: var(--bg-dark); border: 3px solid var(--accent-silver); }
+        .timeline-content { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 15px 20px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>RIP to My 20s</h1>
+            <p>Welcome 30s • Michelle</p>
+        </header>
+
+        <div class="meta-grid">
+            <div class="meta-card"><h3>Fecha</h3><p>27 de Junio, 2026</p></div>
+            <div class="meta-card"><h3>Dress Code</h3><p>Total Black</p></div>
+            <div class="meta-card"><h3>Invitados</h3><p>20 - 25 personas</p></div>
+        </div>
+
+        <section>
+            <h2 class="section-title">Bloque 1: Experiencia Culinaria & Bar</h2>
+            <!-- Galería de imágenes actualizada -->
+            <div class="image-row">
+                <div class="img-container"><img src="https://byfood.b-cdn.net/api/public/assets/9648/content" alt="Experiencia Yakiniku"></div>
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=400" alt="Cocktails"></div>
+                <div class="img-container"><img src="https://m.media-amazon.com/images/I/81dg9XAyVVL._AC_UF350,350_QL80_.jpg" alt="Pastel"></div>
+            </div>
+
+            <div class="task-grid">
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">Cena Principal</span>
+                        <div class="task-title">Experiencia Yakiniku</div>
+                        <div class="task-desc">Cortes premium (ternera, res, pollo) finamente rebanados. Mini parrillas al centro de cada mesa para auto-cocción interactiva.</div>
+                    </div>
+                    <div class="task-time">Semana 1</div>
+                </div>
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">Soporte</span>
+                        <div class="task-title">Bocadillos & Snacks</div>
+                        <div class="task-desc">Entradas para compartir al inicio y snacks trasnochadores (mini pizzas, hot dogs, papitas) en el After.</div>
+                    </div>
+                    <div class="task-time">Semana 2</div>
+                </div>
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">Barra</span>
+                        <div class="task-title">Bartender & Coctelería</div>
+                        <div class="task-desc">Mocktails de autor (con opciones a base de Matcha) y tragos preparados. Brindis insignia "La Última de los 20s".</div>
+                    </div>
+                    <div class="task-time">Semana 1</div>
+                </div>
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">Postres</span>
+                        <div class="task-title">Pastel & Dulces</div>
+                        <div class="task-desc">Pastel blanco minimalista con detalles en brillo negro/plata. Bocados pequeños de chocolate y caramelo.</div>
+                    </div>
+                    <div class="task-time">Semana 1</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Bloque 2: Espacios & Logística de la Casa</h2>
+            <div class="task-grid">
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">Infraestructura</span>
+                        <div class="task-title">Mantenimiento Crítico</div>
+                        <div class="task-desc">Arreglar motor del portón eléctrico principal y optimizar la iluminación del parqueo (evento nocturno).</div>
+                    </div>
+                    <div class="task-time">Inmediato</div>
+                </div>
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">Ambientación</span>
+                        <div class="task-title">Techos & Pisos (Alquiler)</div>
+                        <div class="task-desc">Montaje de telas colgantes en el techo para cambiar el espacio y alfombras elegantes. Iluminación ambiental LED.</div>
+                    </div>
+                    <div class="task-time">Semana 1</div>
+                </div>
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">Plan B</span>
+                        <div class="task-title">Contingencia por Lluvia</div>
+                        <div class="task-desc">Montaje base totalmente dentro de la casa. Proyección abierta al patio únicamente si el clima lo permite de última hora.</div>
+                    </div>
+                    <div class="task-time">Día del Evento</div>
+                </div>
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">After</span>
+                        <div class="task-title">Efecto Club en Bar</div>
+                        <div class="task-desc">Cubrir paredes con tela negra opaca e intensificar luces estroboscópicas/LED al iniciar la noche profunda.</div>
+                    </div>
+                    <div class="task-time">Día del Evento</div>
+                </div>
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">Visuals</span>
+                        <div class="task-title">Photocall & Branding</div>
+                        <div class="task-desc">Shimmer wall (negro o plata) con neón "RIP My 20s" o "Chapter 30". Velas LED, marcos divertidos y globos '30'.</div>
+                    </div>
+                    <div class="task-time">Semana 1</div>
+                </div>
+                <div class="task-card">
+                    <div class="task-content">
+                        <span class="task-tag">Personal</span>
+                        <div class="task-title">Staff, Música & Foto</div>
+                        <div class="task-desc">Contratar meseros para servicio a mesas. Playlist/DJ (Hits 2010s/Reggaetón). Estación Instax/Polaroid para firmas.</div>
+                    </div>
+                    <div class="task-time">Semana 1</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Itinerario Sugerido</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-title">20:00 - 20:45 | El Funeral de los 20s</div>
+                        <div class="timeline-desc">Llegada en Total Black. Entrega de accesorios (lentes '30'). Fotos en el Shimmer Wall, cocteles de entrada y bocadillos.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-title">20:45 - 22:30 | Experiencia Yakiniku</div>
+                        <div class="timeline-desc">Cena interactiva compartida en las mesas. Servicio de bebidas principales y mocktails de Matcha.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-title">22:30 - 23:00 | Discursos, Trivia & Pastel</div>
+                        <div class="timeline-desc">Trivia dinámica sobre Michelle con premios cortos. Speech de felicitación tuyo y brindis especial. Pastel y postres.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-title">23:00 - Fin | El After (The Club)</div>
+                        <div class="timeline-desc">Transición a la zona de bar oscuro. Música festiva (reggaetón old school), barra libre abierta y snacks de medianoche.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
