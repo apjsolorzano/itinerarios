@@ -142,6 +142,14 @@ body {
 
 footer { background: var(--ink); color: rgba(255,255,255,0.4); text-align: center; padding: 2.5rem 1rem; font-size: 13px; border-top: 4px solid var(--gold); margin-top: 4rem; }
 footer strong { color: white; display: block; margin-bottom: 4px; font-size: 15px; letter-spacing: 1px; }
+
+.reservation-box{background:white;border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;box-shadow:0 4px 20px rgba(0,0,0,.02)}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.res-card{background:var(--paper-warm);padding:1rem;border-radius:8px;border-left:3px solid var(--gold)}
+.res-card h4{margin-bottom:.5rem}
+.map-btn{display:inline-block;margin-top:.5rem;padding:.45rem .8rem;border-radius:6px;background:var(--blue-patagonia);color:#fff;text-decoration:none}
+.code{font-family:monospace;font-weight:bold}
+
 </style>
 </head>
 <body>
@@ -205,7 +213,42 @@ footer strong { color: white; display: block; margin-bottom: 4px; font-size: 15p
     </div>
   </div>
 
-  <div class="section-title">Parte 1 — Ushuaia: Nieve e Hielo Continental</div>
+  
+<div class="reservation-box">
+  <div class="logistics-title">🔐 Reservas y Códigos de Confirmación</div>
+  <div class="res-grid">
+    <div class="res-card">
+      <h4>✈️ Michelle</h4>
+      <p><strong>SAL → LIM:</strong> <span class="code">AIIKIN</span> (Avianca)</p>
+      <p><strong>LIM → USH:</strong> <span class="code">782340878</span> (Kiwi)</p>
+      <p><strong>USH → EZE:</strong> <span class="code">796739306</span> (Kiwi)</p>
+      <p><strong>EZE → SAL:</strong> <span class="code">AZTT8A</span> (Avianca)</p>
+    </div>
+    <div class="res-card">
+      <h4>✈️ Jonathan</h4>
+      <p><strong>SAL → LIM:</strong> <span class="code">B2KOWO</span> (Avianca)</p>
+      <p><strong>LIM → USH:</strong> <span class="code">782344970</span> (Kiwi)</p>
+      <p><strong>USH → EZE:</strong> <span class="code">796739306</span> (Kiwi)</p>
+      <p><strong>EZE → SAL:</strong> <span class="code">B2R6XX</span> (Avianca)</p>
+    </div>
+    <div class="res-card">
+      <h4>🏠 Casa de Familia — Ushuaia</h4>
+      <p>Confirmación: <span class="code">5057085908</span></p>
+      <p>PIN: <span class="code">3664</span></p>
+      <p>Booking.com</p>
+      <a class="map-btn" href="https://maps.app.goo.gl/ZczE6PEEnYxni6yZ6" target="_blank">Ver ubicación</a>
+    </div>
+    <div class="res-card">
+      <h4>🏠 Che Lolita House — Buenos Aires</h4>
+      <p>Confirmación: <span class="code">5940286279</span></p>
+      <p>PIN: <span class="code">0177</span></p>
+      <p>Booking.com</p>
+      <a class="map-btn" href="https://maps.app.goo.gl/ejYdzkDeSNvGRhTw5" target="_blank">Ver ubicación</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">Parte 1 — Ushuaia: Nieve e Hielo Continental</div>
 
   <div class="day-card">
     <div class="day-header">
