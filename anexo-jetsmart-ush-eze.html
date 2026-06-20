@@ -1,1 +1,32 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anexo JetSMART USH → EZE</title><meta name="description" content="Anexo JetSMART para el tramo Ushuaia a Buenos Aires."><style>body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#faf8f5;color:#1a1a18}.l{max-width:720px;margin:14vh auto;padding:24px;line-height:1.55}</style></head><body><div class="l">Cargando…</div><script>(async()=>{const ps=["anexo-jetsmart-ush-eze-data-1.txt","anexo-jetsmart-ush-eze-data-2.txt","anexo-jetsmart-ush-eze-data-3.txt"];let b="";for(const p of ps)b+=await (await fetch(p,{cache:"no-store"})).text();b=b.replace(/\s/g,"");const s=atob(b),u=new Uint8Array(s.length);for(let i=0;i<s.length;i++)u[i]=s.charCodeAt(i);const st=new Blob([u]).stream().pipeThrough(new DecompressionStream("gzip")),h=await new Response(st).text();document.open();document.write(h);document.close();})().catch(()=>{document.body.innerHTML="<main style='max-width:720px;margin:14vh auto;padding:24px;font-family:system-ui'><h1>No se pudo cargar</h1><p>Actualiza el navegador.</p></main>"});</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anexo JetSMART USH → EZE</title>
+<style>
+body{margin:0;background:#faf8f5;color:#1a1a18;font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.5}
+main{max-width:680px;margin:auto;padding:16px}
+section{background:white;border:1px solid #ddd;border-radius:16px;padding:16px;box-shadow:0 8px 28px rgba(0,0,0,.06)}
+h1{color:#1a4d75;font-size:1.35rem}.code{font-size:2rem;font-weight:900;color:#c04a3a;letter-spacing:.08em}
+.card{border:1px solid #ddd;border-radius:14px;padding:14px;background:#f8fbfd;margin:12px 0}.row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e2e8ee;padding:8px 0}.row:last-child{border-bottom:0}
+a{color:#1a4d75;font-weight:800}
+</style>
+</head>
+<body>
+<main><section>
+<h1>Anexo JetSMART — USH → EZE</h1>
+<p><b>PNR / código útil para check-in:</b><br><span class="code">A9PHQG</span></p>
+<div class="card">
+<div class="row"><b>Aerolínea</b><span>JetSMART</span></div>
+<div class="row"><b>Vuelo</b><span>JA3202</span></div>
+<div class="row"><b>Trayecto</b><span>Ushuaia (USH) → Buenos Aires / Ezeiza (EZE)</span></div>
+<div class="row"><b>Horario</b><span>10:23 AM → 01:53 PM</span></div>
+<div class="row"><b>Pasajeros</b><span>Jonathan Felix Solorzano Fuentes · Andrea Michelle Gomez Romero</span></div>
+<div class="row"><b>Equipaje indicado</b><span>1 artículo personal · 25 × 35 × 45 cm · 10 kg</span></div>
+</div>
+<p>Este anexo resume los datos de la captura JetSMART para tenerlos a mano al momento del check-in.</p>
+<p><a href="ushuaia-2026.html">Volver al itinerario</a></p>
+</section></main>
+</body>
+</html>
