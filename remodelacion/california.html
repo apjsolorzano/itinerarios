@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Propuesta visual de remodelación de la vivienda San Jacinto.">
-  <title>Remodelación San Jacinto | Antes y después</title>
+  <meta name="description" content="Propuesta visual de remodelación de la vivienda California.">
+  <title>Remodelación California | Antes y después</title>
   <style>
     :root {
       --ink: #20231f;
@@ -39,8 +39,8 @@
       padding: clamp(96px, 13vw, 160px) max(24px, calc((100vw - 1180px) / 2)) 72px;
       color: white;
       background:
-        radial-gradient(circle at 82% 22%, rgba(217, 196, 166, .20), transparent 24%),
-        linear-gradient(135deg, #172b22 0%, #2f5142 58%, #6b7968 100%);
+        linear-gradient(100deg, rgba(22, 39, 30, .96) 0%, rgba(29, 49, 39, .84) 48%, rgba(29, 49, 39, .24) 100%),
+        url("https://res.cloudinary.com/dx8vxmic/image/upload/v1786401271/Fachada_California_2.png") center / cover;
     }
     .eyebrow {
       margin: 0 0 12px;
@@ -170,26 +170,6 @@
       object-fit: contain;
       object-position: center;
     }
-    .photo-placeholder {
-      display: grid;
-      place-items: center;
-      width: 100%;
-      height: 100%;
-      padding: 28px;
-      color: var(--muted);
-      border: 1px dashed #bbb5aa;
-      border-radius: 16px;
-      background: rgba(255,255,255,.45);
-      text-align: center;
-    }
-    .photo-placeholder span {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--green);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.3rem, 3vw, 1.9rem);
-    }
-    .photo-placeholder small { max-width: 280px; font-size: .82rem; line-height: 1.5; }
     .card-footer {
       display: flex;
       align-items: center;
@@ -262,9 +242,9 @@
 <body>
   <header class="hero">
     <div>
-      <p class="eyebrow">Proyecto de vivienda · San Jacinto</p>
+      <p class="eyebrow">Proyecto de vivienda · California</p>
       <h1>Una casa lista para volver a vivirse.</h1>
-      <p>Estructura preparada para documentar el estado actual y las mejoras propuestas. Las fotografías se incorporarán completas a medida que estén disponibles.</p>
+      <p>Recorrido visual por el estado actual y las mejoras propuestas. Cada fotografía se presenta completa para conservar techo, piso y laterales.</p>
       <a class="hero-link" href="#recorrido">Explorar la propuesta <span aria-hidden="true">↓</span></a>
     </div>
   </header>
@@ -279,59 +259,94 @@
   <main id="recorrido">
     <section class="intro" aria-labelledby="intro-title">
       <h2 id="intro-title">Antes y después,<br>sin perder detalle.</h2>
-      <p>Las vistas comparables aparecerán lado a lado, sin recortes ni controles superpuestos. Las fotografías sin contraparte se conservarán en una galería de referencia independiente.</p>
+      <p>Las vistas comparables aparecen lado a lado, sin recortes ni controles superpuestos. Cuando una fotografía no tiene una contraparte segura, se conserva en una galería de referencia independiente.</p>
     </section>
 
     <div id="rooms"></div>
   </main>
 
   <footer class="site-footer">
-    <strong>Remodelación San Jacinto</strong>
+    <strong>Remodelación California</strong>
     Sitio dedicado exclusivamente a esta vivienda.
   </footer>
 
   <script>
-    // Agrega las URLs cuando estén disponibles, por ejemplo:
-    // pairs: [{ before: "https://...", after: "https://..." }]
-    // references: ["https://..."]
+    const IMAGE_ROOT = "https://res.cloudinary.com/dx8vxmic/image/upload/";
+
     const rooms = [
-      { id: "sala", title: "Sala", description: "Espacio preparado para documentar el estado actual y las propuestas de renovación.", pairs: [], references: [] },
-      { id: "cocina", title: "Cocina", description: "Área reservada para comparar distribución, acabados y funcionalidad.", pairs: [], references: [] },
-      { id: "fachada", title: "Fachada", description: "Sección destinada a mostrar el frente actual y su propuesta arquitectónica.", pairs: [], references: [] },
-      { id: "garaje", title: "Garaje / Bodega", description: "Espacio preparado para registrar la reorganización y las referencias existentes.", pairs: [], references: [] }
+      {
+        id: "sala",
+        title: "Sala",
+        description: "Dos ángulos para apreciar la renovación del espacio social.",
+        pairs: [
+          { before: "v1786401321/Sala_sin_mejora_1.jpg", after: "v1786401270/Sala_Mejora_1.png" },
+          { before: "v1786401321/Sala_sin_mejora_2.jpg", after: "v1786401268/Sala_mejora_2.png" }
+        ]
+      },
+      {
+        id: "cocina",
+        title: "Cocina",
+        description: "Distribución actual y propuestas para una cocina más clara y funcional.",
+        pairs: [
+          { before: "v1786401320/Cocina_California.jpg", after: "v1786401270/Cocina_mejora_1.png" },
+          { before: "v1786401321/Cocina_California_2.jpg", after: "v1786401270/Cocina_mejora_2.png" }
+        ]
+      },
+      {
+        id: "fachada",
+        title: "Fachada",
+        description: "Una lectura completa del frente de la vivienda y su nueva presencia exterior.",
+        pairs: [
+          { before: "v1786401320/Fachada_sin_arreglar_Cali_1.jpg", after: "v1786401271/Fachada_California_2.png" },
+          { before: "v1786401320/Fachada_sin_arreglar_Cali_2.jpg", after: "v1786401271/Fachada_California_1.png" }
+        ],
+        references: ["v1786401320/Fachada_sin_arreglar_Cali_3.jpg"]
+      },
+      {
+        id: "garaje",
+        title: "Garaje / Bodega",
+        description: "Propuestas de reorganización y referencias adicionales del estado original.",
+        pairs: [
+          { before: "v1786401320/Garaje-bodega_sin_arreglar_1.jpg", after: "v1786401273/Bodega-_Garaje_California_1.png" },
+          { before: "v1786401320/Garaje-bodega_sin_arreglar_2.jpg", after: "v1786401271/Bodega-Cochera_California.png" }
+        ],
+        references: [
+          "v1786401321/Garaje-bodega_sin_arreglar_3.jpg",
+          "v1786401321/Garaje-bodega_sin_arreglar_4.jpg",
+          "v1786401321/Garaje-bodega_sin_arreglar_5.jpg"
+        ]
+      }
     ];
 
     const state = Object.fromEntries(rooms.map(room => [room.id, { pair: 0, reference: 0 }]));
+    const fullUrl = path => IMAGE_ROOT + path;
 
-    function mediaMarkup(src, alt, className, pendingTitle) {
-      if (src) return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy">`;
-      return `<div class="photo-placeholder" role="img" aria-label="${pendingTitle}"><div><span>${pendingTitle}</span><small>Este espacio se completará cuando la fotografía esté disponible.</small></div></div>`;
-    }
+    function roomMarkup(room) {
+      const pair = room.pairs[0];
+      const dots = room.pairs.map((_, index) => `
+        <button class="dot" type="button" aria-label="Mostrar vista ${index + 1}" aria-current="${index === 0}" data-action="pair-dot" data-index="${index}"></button>
+      `).join("");
 
-    function referenceMarkup(room) {
-      if (!room.references.length) return "";
-      return `
+      const references = room.references?.length ? `
         <div class="reference-block">
           <h3 class="reference-heading">Referencias del estado actual</h3>
           <div class="reference-card">
             <div class="photo-frame reference-frame">
-              ${mediaMarkup(room.references[0], `${room.title}: referencia 1`, "reference-image", "Referencia pendiente")}
+              <img class="reference-image" src="${fullUrl(room.references[0])}" alt="${room.title}: referencia 1 del estado actual" loading="lazy">
             </div>
             <div class="card-footer">
               <div class="reference-caption" aria-live="polite">
                 <strong>Fotografía de referencia</strong>
                 <span class="reference-status">Imagen 1 de ${room.references.length}</span>
               </div>
-              ${room.references.length > 1 ? `<div class="nav-buttons"><button class="nav-button" type="button" aria-label="Referencia anterior" data-action="reference-prev">←</button><button class="nav-button" type="button" aria-label="Referencia siguiente" data-action="reference-next">→</button></div>` : ""}
+              ${room.references.length > 1 ? `
+                <div class="nav-buttons">
+                  <button class="nav-button" type="button" aria-label="Referencia anterior" data-action="reference-prev">←</button>
+                  <button class="nav-button" type="button" aria-label="Referencia siguiente" data-action="reference-next">→</button>
+                </div>` : ""}
             </div>
           </div>
-        </div>`;
-    }
-
-    function roomMarkup(room) {
-      const hasPairs = room.pairs.length > 0;
-      const pair = room.pairs[0] || { before: "", after: "" };
-      const dots = room.pairs.map((_, index) => `<button class="dot" type="button" aria-label="Mostrar vista ${index + 1}" aria-current="${index === 0}" data-action="pair-dot" data-index="${index}"></button>`).join("");
+        </div>` : "";
 
       return `
         <section class="room" id="${room.id}" data-room="${room.id}" aria-labelledby="${room.id}-title">
@@ -343,20 +358,24 @@
             <div class="comparison-grid">
               <article class="photo-panel">
                 <div class="photo-label"><span>Antes</span><small>Estado actual</small></div>
-                <div class="photo-frame">${mediaMarkup(pair.before, `${room.title}: estado actual`, "before-image", "Fotografía pendiente")}</div>
+                <div class="photo-frame"><img class="before-image" src="${fullUrl(pair.before)}" alt="${room.title}: estado actual, vista 1" loading="lazy"></div>
               </article>
               <article class="photo-panel">
                 <div class="photo-label"><span>Después</span><small>Propuesta</small></div>
-                <div class="photo-frame">${mediaMarkup(pair.after, `${room.title}: propuesta de mejora`, "after-image", "Propuesta pendiente")}</div>
+                <div class="photo-frame"><img class="after-image" src="${fullUrl(pair.after)}" alt="${room.title}: propuesta de mejora, vista 1" loading="lazy"></div>
               </article>
             </div>
             <div class="card-footer">
-              <p class="view-status" aria-live="polite">${hasPairs ? `Vista 1 de ${room.pairs.length}` : "Imágenes pendientes"}</p>
-              ${hasPairs ? `<div class="dots" aria-label="Seleccionar vista">${dots}</div>` : ""}
-              ${room.pairs.length > 1 ? `<div class="nav-buttons"><button class="nav-button" type="button" aria-label="Vista anterior" data-action="pair-prev">←</button><button class="nav-button" type="button" aria-label="Vista siguiente" data-action="pair-next">→</button></div>` : ""}
+              <p class="view-status" aria-live="polite">Vista 1 de ${room.pairs.length}</p>
+              <div class="dots" aria-label="Seleccionar vista">${dots}</div>
+              ${room.pairs.length > 1 ? `
+                <div class="nav-buttons">
+                  <button class="nav-button" type="button" aria-label="Vista anterior" data-action="pair-prev">←</button>
+                  <button class="nav-button" type="button" aria-label="Vista siguiente" data-action="pair-next">→</button>
+                </div>` : ""}
             </div>
           </div>
-          ${referenceMarkup(room)}
+          ${references}
         </section>`;
     }
 
@@ -365,14 +384,13 @@
 
     function updatePair(room, section, index) {
       const total = room.pairs.length;
-      if (!total) return;
       const next = (index + total) % total;
       const pair = room.pairs[next];
       state[room.id].pair = next;
       const before = section.querySelector(".before-image");
       const after = section.querySelector(".after-image");
-      before.src = pair.before;
-      after.src = pair.after;
+      before.src = fullUrl(pair.before);
+      after.src = fullUrl(pair.after);
       before.alt = `${room.title}: estado actual, vista ${next + 1}`;
       after.alt = `${room.title}: propuesta de mejora, vista ${next + 1}`;
       section.querySelector(".view-status").textContent = `Vista ${next + 1} de ${total}`;
@@ -381,11 +399,10 @@
 
     function updateReference(room, section, index) {
       const total = room.references.length;
-      if (!total) return;
       const next = (index + total) % total;
       state[room.id].reference = next;
       const image = section.querySelector(".reference-image");
-      image.src = room.references[next];
+      image.src = fullUrl(room.references[next]);
       image.alt = `${room.title}: referencia ${next + 1} del estado actual`;
       section.querySelector(".reference-status").textContent = `Imagen ${next + 1} de ${total}`;
     }
