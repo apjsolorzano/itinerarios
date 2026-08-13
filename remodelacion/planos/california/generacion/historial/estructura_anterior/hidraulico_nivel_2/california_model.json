@@ -1,0 +1,531 @@
+{
+  "$schema": "../california_plan.schema.json",
+  "format": "plan-editor/v1",
+  "project_id": "casa_california_remodelacion_revision_04",
+  "sheet_id": "hidraulico_nivel_2_2_ih_revision_sin_escalera_revision_04",
+  "title": "PLANO DE INSTALACIONES HIDRÁULICAS NIVEL 2",
+  "discipline": "hidráulico",
+  "source": {
+    "pdf_path": "../source/california_planos_casa_remodelacion.pdf",
+    "sha256": "e4f69232fb5bfaa51469b0355bb3247e479c4645e26ec3dfeb039616d24bf6f4",
+    "page_number": 9,
+    "page_index": 8,
+    "sheet_code": "2/I-H",
+    "printed_scale_text": "INDICADA / 1:2500",
+    "printed_scale_status": "preservada_del_original_no_calibrada",
+    "has_ocg_layers": false
+  },
+  "canvas": {
+    "width_pt": 1224.0,
+    "height_pt": 792.0,
+    "view_box": [
+      0,
+      0,
+      1224.0,
+      792.0
+    ],
+    "coordinate_system": "puntos_pdf_origen_superior_izquierdo",
+    "metric_calibration": {
+      "status": "pending",
+      "method": "calibrar_con_cotas_impresas_antes_de_editar_geometria"
+    }
+  },
+  "source_layers": [],
+  "unlayered_content": {
+    "visible": true,
+    "object_count": 5119,
+    "bounds_pt": [
+      43.74,
+      46.02,
+      747.78,
+      1176.06
+    ],
+    "drawing_kinds": {
+      "stroke-path": 1898,
+      "fill-path": 3221
+    },
+    "note": "Esta hoja no contiene capas OCG; su contenido vectorial se conserva como base única."
+  },
+  "visual_profile": {
+    "enabled": true,
+    "name": "architectural_validation_dense",
+    "minimum_hairline_width_pt": 0.75,
+    "force_full_stroke_opacity": true,
+    "preserve_explicit_lineweights": true,
+    "purpose": "reproducir la densidad visual de las hairlines del visor PDF"
+  },
+  "validation": {
+    "generate_side_by_side": false,
+    "keep_intermediate_images": false,
+    "comparison_crop_pt": [
+      35,
+      35,
+      1000,
+      757
+    ]
+  },
+  "semantic_entities": [
+    {
+      "id": "EDIT-BATHROOM-FIXTURES-KEEP",
+      "type": "fixture",
+      "label": "Aparatos sanitarios de baños conservados",
+      "level": "Nivel 2",
+      "visible": true,
+      "properties": {
+        "includes_washbasins": true,
+        "includes_toilets": true
+      }
+    },
+    {
+      "id": "EDIT-POOL-REMOVE",
+      "type": "area",
+      "label": "Piscina eliminada",
+      "visible": false,
+      "properties": {
+        "operation_id": "edit.remove-pool"
+      }
+    },
+    {
+      "id": "REV03-ROOMS-N2-05-06-REMOVE",
+      "type": "area",
+      "label": "Habitaciones V y VI de Nivel 2 eliminadas",
+      "level": "Nivel 2",
+      "visible": false
+    },
+    {
+      "id": "REV03-STAIR-CORRIDOR-N2-REMOVE",
+      "type": "area",
+      "label": "Escalera y pasillo de Nivel 2 eliminados",
+      "level": "Nivel 2",
+      "visible": false
+    },
+    {
+      "id": "REV04-EXTERIOR-CLOSURE-NIVEL-2-HYDRAULIC",
+      "type": "wall",
+      "label": "Muro exterior reconstruido y coordinado con instalaciones hidráulicas",
+      "level": "Nivel 2",
+      "visible": true,
+      "properties": {
+        "revision": "REV-04",
+        "continuous": true
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "edit.remove-hydraulic-furniture-01",
+      "type": "whiteout",
+      "rect_pt": [
+        225,
+        125,
+        78,
+        40
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-02",
+      "type": "whiteout",
+      "rect_pt": [
+        340,
+        125,
+        78,
+        40
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-03",
+      "type": "whiteout",
+      "rect_pt": [
+        225,
+        235,
+        78,
+        40
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-04",
+      "type": "whiteout",
+      "rect_pt": [
+        340,
+        235,
+        78,
+        40
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-05",
+      "type": "whiteout",
+      "rect_pt": [
+        710,
+        182,
+        82,
+        42
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-06",
+      "type": "whiteout",
+      "rect_pt": [
+        705,
+        238,
+        87,
+        42
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-07",
+      "type": "whiteout",
+      "rect_pt": [
+        245,
+        255,
+        62,
+        26
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-08",
+      "type": "whiteout",
+      "rect_pt": [
+        548,
+        257,
+        78,
+        35
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-09",
+      "type": "whiteout",
+      "rect_pt": [
+        625,
+        280,
+        48,
+        42
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-10",
+      "type": "whiteout",
+      "rect_pt": [
+        668,
+        280,
+        86,
+        48
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-11",
+      "type": "whiteout",
+      "rect_pt": [
+        548,
+        367,
+        78,
+        32
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-12",
+      "type": "whiteout",
+      "rect_pt": [
+        625,
+        368,
+        48,
+        46
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-13",
+      "type": "whiteout",
+      "rect_pt": [
+        666,
+        367,
+        88,
+        56
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-14",
+      "type": "whiteout",
+      "rect_pt": [
+        548,
+        457,
+        78,
+        32
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-15",
+      "type": "whiteout",
+      "rect_pt": [
+        625,
+        458,
+        48,
+        46
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-16",
+      "type": "whiteout",
+      "rect_pt": [
+        666,
+        457,
+        88,
+        56
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-17",
+      "type": "whiteout",
+      "rect_pt": [
+        548,
+        542,
+        78,
+        32
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-18",
+      "type": "whiteout",
+      "rect_pt": [
+        625,
+        543,
+        48,
+        46
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-19",
+      "type": "whiteout",
+      "rect_pt": [
+        666,
+        542,
+        88,
+        56
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-20",
+      "type": "whiteout",
+      "rect_pt": [
+        548,
+        608,
+        82,
+        24
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.restore-hydraulic-linework",
+      "type": "append_source_colors",
+      "stroke_colors": [
+        "#0000ff",
+        "#f8991e"
+      ],
+      "fill_colors": [
+        "#0000ff",
+        "#f8991e"
+      ],
+      "visible": true,
+      "description": "Restaura redes hidráulicas, drenajes, símbolos y notas sobre el borrado."
+    },
+    {
+      "id": "edit.remove-pool",
+      "type": "whiteout",
+      "polygon_pt": [
+        [
+          125.0,
+          274.0
+        ],
+        [
+          244.0,
+          274.0
+        ],
+        [
+          244.0,
+          382.0
+        ],
+        [
+          125.0,
+          382.0
+        ]
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Elimina por completo la piscina y su contorno, conservando el lindero exterior."
+    },
+    {
+      "id": "edit.rev03-remove-level-2-rooms-5-6",
+      "type": "whiteout",
+      "rect_pt": [
+        500.0,
+        466.2,
+        292.0,
+        165.8
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira Habitaciones V y VI y sus ramales desde la cara exterior del nuevo cierre."
+    },
+    {
+      "id": "edit.rev03-remove-level-2-stair-corridor-01",
+      "type": "whiteout",
+      "rect_pt": [
+        240.0,
+        312.0,
+        282.0,
+        20.0
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira escalera, pasillo y columnas aplazadas en el plano hidráulico de Nivel 2."
+    },
+    {
+      "id": "edit.rev03-remove-level-2-stair-corridor-02",
+      "type": "whiteout",
+      "rect_pt": [
+        240.0,
+        274.0,
+        20.0,
+        59.0
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira escalera, pasillo y columnas aplazadas en el plano hidráulico de Nivel 2."
+    },
+    {
+      "id": "edit.rev03-remove-level-2-stair-corridor-03",
+      "type": "whiteout",
+      "rect_pt": [
+        388.0,
+        312.0,
+        134.0,
+        116.0
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira escalera, pasillo y columnas aplazadas en el plano hidráulico de Nivel 2."
+    },
+    {
+      "id": "edit.rev03-remove-level-2-stair-corridor-04",
+      "type": "whiteout",
+      "rect_pt": [
+        486.0,
+        312.0,
+        36.0,
+        320.0
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira escalera, pasillo y columnas aplazadas en el plano hidráulico de Nivel 2."
+    },
+    {
+      "id": "edit.rev04-reconstruct-exterior-closure-01",
+      "type": "draw_path",
+      "d": "M511.7 459.3 H792",
+      "fill": "none",
+      "stroke": "#636465",
+      "stroke_width_pt": 0.75,
+      "stroke_linecap": "square",
+      "stroke_linejoin": "miter",
+      "visible": true,
+      "description": "Línea del muro exterior reconstruido y coordinado con arquitectura."
+    },
+    {
+      "id": "edit.rev04-reconstruct-exterior-closure-02",
+      "type": "draw_path",
+      "d": "M511.7 464.4 H792",
+      "fill": "none",
+      "stroke": "#636465",
+      "stroke_width_pt": 0.75,
+      "stroke_linecap": "square",
+      "stroke_linejoin": "miter",
+      "visible": true,
+      "description": "Línea del muro exterior reconstruido y coordinado con arquitectura."
+    }
+  ],
+  "output": {
+    "svg_path": "california_rev04.svg",
+    "faithful_svg_path": null,
+    "preview_png_path": null,
+    "text_as_path": true,
+    "reason_for_text_as_path": "preservar apariencia exacta sin depender de fuentes instaladas"
+  },
+  "edit_revision": {
+    "id": "REV-04",
+    "base_revision": "REV-03",
+    "non_destructive": true,
+    "svg_only": true,
+    "summary": [
+      "Muro exterior reconstruido en doble línea.",
+      "Ramales de habitaciones descartadas retirados.",
+      "Red hidráulica de los ambientes conservados mantenida."
+    ]
+  },
+  "discipline_palette": {
+    "accent": "#0000ff",
+    "secondary": "#f8991e",
+    "label": "azul y naranja"
+  },
+  "color_profile": {
+    "enabled": false,
+    "replacements": {}
+  }
+}

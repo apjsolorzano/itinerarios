@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.codex/plan-editor/california_svg_plan.schema.json",
+  "title": "Modelo SVG-first para edición de planos",
+  "type": "object",
+  "required": [
+    "format",
+    "project_id",
+    "sheet_id",
+    "source",
+    "canvas",
+    "semantic_entities",
+    "operations",
+    "output"
+  ],
+  "properties": {
+    "format": { "const": "plan-editor/svg-v1" },
+    "project_id": { "type": "string" },
+    "sheet_id": { "type": "string" },
+    "title": { "type": "string" },
+    "discipline": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": [
+        "kind",
+        "master_svg_path",
+        "master_svg_sha256",
+        "reference_svg_path",
+        "reference_svg_sha256",
+        "baseline_revision"
+      ],
+      "properties": {
+        "kind": { "const": "svg" },
+        "master_svg_path": { "type": "string" },
+        "master_svg_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "reference_svg_path": { "type": "string" },
+        "reference_svg_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "baseline_revision": { "type": "string" },
+        "reference_policy": { "const": "svg_only" }
+      },
+      "additionalProperties": true
+    },
+    "canvas": {
+      "type": "object",
+      "required": ["width_pt", "height_pt", "view_box"],
+      "additionalProperties": true
+    },
+    "semantic_entities": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "operations": {
+      "description": "Cambios incrementales aplicados al SVG maestro; nunca requieren PDF.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "enum": [
+              "append_svg",
+              "whiteout",
+              "draw_path",
+              "draw_rect",
+              "draw_line",
+              "draw_polyline",
+              "hide_ids",
+              "set_attributes",
+              "replace_color"
+            ]
+          },
+          "visible": { "type": "boolean" },
+          "path": { "type": "string" },
+          "rect_pt": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": { "type": "number" }
+          },
+          "polygon_pt": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": { "type": "number" }
+            }
+          },
+          "ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "attributes": { "type": "object" },
+          "source_color": { "type": "string" },
+          "target_color": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": ["svg_path"],
+      "properties": {
+        "svg_path": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

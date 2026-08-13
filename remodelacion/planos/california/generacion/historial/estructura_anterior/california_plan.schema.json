@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.codex/plan-editor/california_plan.schema.json",
+  "title": "Modelo regenerable de plano arquitectónico",
+  "type": "object",
+  "required": [
+    "format",
+    "project_id",
+    "sheet_id",
+    "source",
+    "canvas",
+    "source_layers",
+    "semantic_entities",
+    "operations",
+    "output"
+  ],
+  "properties": {
+    "format": { "const": "plan-editor/v1" },
+    "project_id": { "type": "string" },
+    "sheet_id": { "type": "string" },
+    "title": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": ["pdf_path", "sha256", "page_number", "page_index"],
+      "properties": {
+        "pdf_path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "page_number": { "type": "integer", "minimum": 1 },
+        "page_index": { "type": "integer", "minimum": 0 },
+        "sheet_code": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "canvas": {
+      "type": "object",
+      "required": ["width_pt", "height_pt", "view_box"],
+      "properties": {
+        "width_pt": { "type": "number" },
+        "height_pt": { "type": "number" },
+        "view_box": {
+          "type": "array",
+          "prefixItems": [
+            { "type": "number" },
+            { "type": "number" },
+            { "type": "number" },
+            { "type": "number" }
+          ],
+          "items": false
+        },
+        "coordinate_system": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "source_layers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "ocg_xref", "visible"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "ocg_xref": { "type": "integer" },
+          "visible": { "type": "boolean" },
+          "category": { "type": "string" },
+          "object_count": { "type": "integer" },
+          "bounds_pt": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": { "type": "number" }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "semantic_entities": {
+      "description": "Catálogo futuro para paredes, puertas, ventanas y áreas con nombres humanos.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "enum": ["wall", "door", "window", "column", "room", "area", "fixture", "furniture", "annotation"]
+          },
+          "label": { "type": "string" },
+          "level": { "type": "string" },
+          "source_layer_id": { "type": "string" },
+          "svg_id": { "type": "string" },
+          "visible": { "type": "boolean" },
+          "properties": { "type": "object" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "operations": {
+      "description": "Operaciones no destructivas aplicadas después de extraer las capas del PDF.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "enum": [
+              "append_svg",
+              "append_source_layers_clipped",
+              "append_source_layers_recolored",
+              "append_source_layer_elements",
+              "erase_source_layers",
+              "erase_source_layer_elements",
+              "append_source_colors",
+              "whiteout",
+              "draw_path"
+            ]
+          },
+          "id": { "type": "string" },
+          "path": { "type": "string" },
+          "visible": { "type": "boolean" },
+          "ocg_xrefs": {
+            "type": "array",
+            "items": { "type": "integer" }
+          },
+          "source_page_index": { "type": "integer", "minimum": 0 },
+          "regions_pt": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": { "type": "number" }
+            }
+          },
+          "exclude_regions_pt": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": { "type": "number" }
+            }
+          },
+          "preserve_regions_pt": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": { "type": "number" }
+            }
+          },
+          "target_regions_pt": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": { "type": "number" }
+            }
+          },
+          "rect_pt": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": { "type": "number" }
+          },
+          "polygon_pt": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": { "type": "number" }
+            }
+          },
+          "colors": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "stroke_colors": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "source_colors": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "color": { "type": "string" },
+          "fill_colors": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "d": { "type": "string" },
+          "fill": { "type": "string" },
+          "stroke": { "type": "string" },
+          "stroke_width_pt": { "type": "number" }
+          ,"eraser_stroke_width_source": { "type": "number" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": ["svg_path"],
+      "properties": {
+        "svg_path": { "type": "string" },
+        "text_as_path": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

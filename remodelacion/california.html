@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Propuesta visual de remodelación de la vivienda California.">
-  <title>Remodelación California | Antes y después</title>
+  <meta name="description" content="Propuesta visual y planos editables de la remodelación de la vivienda California.">
+  <title>Remodelación California | Propuesta y planos</title>
   <style>
     :root {
       --ink: #20231f;
@@ -213,6 +213,353 @@
     .reference-caption strong { font-size: .92rem; }
     .reference-caption span { color: var(--muted); font-size: .78rem; }
 
+    .plans-section { scroll-margin-top: 88px; }
+    .stage-roadmap {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .stage-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 245px;
+      padding: clamp(24px, 4vw, 36px);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .stage-card.current {
+      background: linear-gradient(145deg, #fffdf9 0%, #eef3ef 100%);
+      border-color: rgba(54, 84, 69, .42);
+      box-shadow: var(--shadow);
+    }
+    .stage-card.future {
+      color: #555a54;
+      background: rgba(255,253,249,.56);
+      border-style: dashed;
+    }
+    .stage-kicker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stage-number {
+      color: var(--green-dark);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .stage-status {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    .stage-status.active { color: #254234; background: #dbe9de; }
+    .stage-status.planned { color: #756b5e; background: #ebe6dc; }
+    .stage-card h3 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .stage-card p { margin: 0 0 22px; color: var(--muted); }
+    .stage-link, .stage-note {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      margin-top: auto;
+      font-size: .82rem;
+      font-weight: 850;
+    }
+    .stage-link {
+      padding-bottom: 3px;
+      color: var(--green-dark);
+      border-bottom: 1px solid currentColor;
+      text-decoration: none;
+    }
+    .stage-link:hover, .stage-link:focus-visible { color: var(--clay); outline: none; }
+    .stage-note { color: #8b8378; }
+    #planos-etapa-1 { scroll-margin-top: 92px; }
+    .plans-overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr);
+      overflow: hidden;
+      margin-bottom: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .plans-preview {
+      display: grid;
+      place-items: center;
+      min-height: 390px;
+      padding: 20px;
+      background: #eeece6;
+      border-right: 1px solid var(--line);
+    }
+    .plans-preview img {
+      width: 100%;
+      height: 100%;
+      max-height: 480px;
+      object-fit: contain;
+    }
+    .plans-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(26px, 4vw, 46px);
+    }
+    .plans-copy h3 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 3vw, 2.55rem);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+    .plans-copy > p { margin: 0; color: var(--muted); }
+    .plan-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0;
+      padding: 0;
+      list-style: none;
+    }
+    .plan-meta li {
+      padding: 7px 11px;
+      color: var(--green-dark);
+      background: #e8eee9;
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .plan-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .plan-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 16px;
+      color: var(--green-dark);
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: .88rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: .2s ease;
+    }
+    .plan-button.primary { color: white; background: var(--green); border-color: var(--green); }
+    .plan-button:hover, .plan-button:focus-visible {
+      color: white;
+      background: var(--clay);
+      border-color: var(--clay);
+      outline: none;
+      transform: translateY(-1px);
+    }
+    .construction-brief {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      gap: 1px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .construction-brief > div { padding: clamp(24px, 4vw, 42px); background: var(--card); }
+    .construction-brief h3 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .construction-brief p { margin: 0; color: var(--muted); }
+    .reading-order { margin: 16px 0 0; padding: 0; list-style: none; counter-reset: plan-order; }
+    .reading-order li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    .reading-order li::before {
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      color: white;
+      background: var(--green);
+      border-radius: 50%;
+      counter-increment: plan-order;
+      content: counter(plan-order);
+      font-size: .72rem;
+      font-weight: 900;
+    }
+    .level-plan {
+      margin-top: 28px;
+      padding: clamp(22px, 4vw, 38px);
+      background: rgba(255,255,255,.68);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 34px rgba(42, 48, 42, .06);
+    }
+    .level-plan.level-one { border-top: 5px solid var(--clay); }
+    .level-plan.level-two { border-top: 5px solid var(--green); }
+    .level-plan-header {
+      display: grid;
+      grid-template-columns: minmax(190px, .45fr) minmax(0, 1.55fr);
+      gap: clamp(22px, 4vw, 44px);
+      align-items: start;
+      margin-bottom: 24px;
+    }
+    .level-label {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      color: var(--green-dark);
+      background: #e8eee9;
+      border-radius: 999px;
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .level-plan h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.85rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.02;
+    }
+    .level-scope-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .level-scope-list li {
+      position: relative;
+      padding: 13px 15px 13px 40px;
+      color: var(--muted);
+      background: #f4f2ec;
+      border-radius: 12px;
+      font-size: .9rem;
+    }
+    .level-scope-list li::before {
+      position: absolute;
+      top: 13px;
+      left: 15px;
+      color: var(--clay);
+      content: "✓";
+      font-weight: 900;
+    }
+    .level-sheet-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .level-sheet-grid .sheet-thumb { aspect-ratio: 17 / 9; }
+    .sheet-code {
+      display: grid;
+      place-items: center;
+      min-width: 48px;
+      height: 30px;
+      padding: 0 7px;
+      color: white;
+      background: var(--green);
+      border-radius: 999px;
+      font-size: .7rem;
+      font-weight: 850;
+    }
+    .general-plan {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .7fr);
+      gap: 20px;
+      align-items: center;
+      margin-top: 28px;
+      padding: 24px;
+      background: #ece8de;
+      border-radius: var(--radius);
+    }
+    .general-plan h3 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 1.6rem; font-weight: 400; }
+    .general-plan p { margin: 0; color: var(--muted); }
+    .general-plan .sheet-card { width: 100%; }
+    .sheets-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 0 0 16px;
+    }
+    .sheets-heading h3 { margin: 0; font-size: 1.05rem; }
+    .sheets-heading p { margin: 0; color: var(--muted); font-size: .84rem; }
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .sheet-card {
+      overflow: hidden;
+      color: var(--ink);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(42, 48, 42, .07);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .sheet-card:hover, .sheet-card:focus-visible {
+      border-color: rgba(54, 84, 69, .45);
+      box-shadow: 0 16px 34px rgba(42, 48, 42, .13);
+      outline: none;
+      transform: translateY(-3px);
+    }
+    .sheet-thumb {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 17 / 11;
+      padding: 10px;
+      background: #eeece6;
+      border-bottom: 1px solid var(--line);
+    }
+    .sheet-thumb img { width: 100%; height: 100%; object-fit: contain; }
+    .sheet-card-body {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 14px 15px;
+    }
+    .sheet-number {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      color: white;
+      background: var(--green);
+      border-radius: 50%;
+      font-size: .76rem;
+      font-weight: 800;
+    }
+    .sheet-title strong { display: block; font-size: .9rem; }
+    .sheet-title span { color: var(--muted); font-size: .74rem; }
+    .sheet-open { color: var(--clay); font-weight: 900; }
+
     .site-footer {
       padding: 42px 24px;
       color: rgba(255,255,255,.74);
@@ -231,6 +578,18 @@
       .photo-frame { height: min(70vw, 390px); min-height: 260px; }
       .reference-frame { height: min(72vw, 390px); }
       .card-footer { flex-wrap: wrap; }
+      .plans-overview { grid-template-columns: 1fr; }
+      .stage-roadmap { grid-template-columns: 1fr; }
+      .construction-brief, .level-plan-header, .general-plan { grid-template-columns: 1fr; }
+      .level-sheet-grid { grid-template-columns: 1fr; }
+      .plans-preview { min-height: 260px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .sheet-grid { grid-template-columns: 1fr; }
+      .sheets-heading { display: block; }
+      .sheets-heading p { margin-top: 5px; }
+    }
+
+    @media (min-width: 761px) and (max-width: 980px) {
+      .sheet-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -244,8 +603,8 @@
     <div>
       <p class="eyebrow">Proyecto de vivienda · California</p>
       <h1>Una casa lista para volver a vivirse.</h1>
-      <p>Recorrido visual por el estado actual y las mejoras propuestas. Cada fotografía se presenta completa para conservar techo, piso y laterales.</p>
-      <a class="hero-link" href="#recorrido">Explorar la propuesta <span aria-hidden="true">↓</span></a>
+      <p>Guía visual y técnica para organizar demoliciones, obra civil, instalaciones y acabados de la remodelación.</p>
+      <a class="hero-link" href="#recorrido">Consultar el alcance de obra <span aria-hidden="true">↓</span></a>
     </div>
   </header>
 
@@ -254,15 +613,138 @@
     <a href="#cocina">Cocina</a>
     <a href="#fachada">Fachada</a>
     <a href="#garaje">Garaje / Bodega</a>
+    <a href="#planos">Planos</a>
   </nav>
 
   <main id="recorrido">
     <section class="intro" aria-labelledby="intro-title">
-      <h2 id="intro-title">Antes y después,<br>sin perder detalle.</h2>
-      <p>Las vistas comparables aparecen lado a lado, sin recortes ni controles superpuestos. Cuando una fotografía no tiene una contraparte segura, se conserva en una galería de referencia independiente.</p>
+      <h2 id="intro-title">Reconocer, verificar<br>y después ejecutar.</h2>
+      <p>Use las fotografías para ubicar el estado actual y el resultado esperado. Antes de demoler o construir, confirme cada frente contra la planta arquitectónica y coordine acabados, electricidad e hidráulica del mismo nivel.</p>
     </section>
 
     <div id="rooms"></div>
+
+    <section class="room plans-section" id="planos" aria-labelledby="plans-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Documentación técnica</p><h2 id="plans-title">Planos de California</h2></div>
+        <p>Documentación ordenada por nivel para que el maestro de obra revise primero la distribución y después coordine acabados e instalaciones con su cuadrilla.</p>
+      </div>
+
+      <div class="stage-roadmap" aria-label="Etapas del trabajo de planos">
+        <article class="stage-card current">
+          <div class="stage-kicker">
+            <span class="stage-number">Etapa 1</span>
+            <span class="stage-status active">Agosto – Septiembre 2026</span>
+          </div>
+          <h3>Obra inicial con los espacios modificados</h3>
+          <p>Alcance para limpieza, retiro selectivo, nuevos cierres y coordinación de arquitectura, acabados, electricidad e hidráulica en los dos niveles.</p>
+          <a class="stage-link" href="#planos-etapa-1">Consultar planos para ejecución ↓</a>
+        </article>
+
+        <article class="stage-card future" id="planos-etapa-2">
+          <div class="stage-kicker">
+            <span class="stage-number">Etapa 2</span>
+            <span class="stage-status planned">Octubre – Diciembre 2026</span>
+          </div>
+          <h3>Desarrollo del proyecto completo</h3>
+          <p>Documentación del conjunto original completo para programar los frentes restantes y coordinar futuras ampliaciones sin interferir con la obra de la primera etapa.</p>
+          <span class="stage-note">No usar para ejecutar hasta su publicación</span>
+        </article>
+      </div>
+
+      <div class="construction-brief" id="planos-etapa-1">
+        <div>
+          <p class="eyebrow">Alcance vigente para obra</p>
+          <h3>Espacios despejados y volúmenes cerrados antes de iniciar instalaciones.</h3>
+          <p>La propuesta deja libres el estacionamiento y las áreas aplazadas, conserva los baños existentes y mantiene completos el portón, los linderos y los muros que cierran las habitaciones que sí se construirán.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Orden recomendado de consulta</p>
+          <ol class="reading-order">
+            <li><span><strong>Arquitectura:</strong> confirmar muros, accesos, áreas conservadas y retiros.</span></li>
+            <li><span><strong>Acabados:</strong> definir pisos, recubrimientos y remates después de aprobar la distribución.</span></li>
+            <li><span><strong>Electricidad:</strong> coordinar puntos y recorridos en violeta antes de cerrar paredes.</span></li>
+            <li><span><strong>Hidráulica:</strong> revisar agua y drenajes en azul/naranja antes de fundir o colocar acabados.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <section class="level-plan level-one" aria-labelledby="nivel-1-title">
+        <div class="level-plan-header">
+          <div>
+            <span class="level-label">Nivel 1 · Planta baja</span>
+            <h3 id="nivel-1-title">Accesos, estacionamiento y espacios habitables</h3>
+          </div>
+          <ul class="level-scope-list">
+            <li>Se conservan los Apartamentos I, II y III, las Habitaciones III y IV y los baños existentes.</li>
+            <li>No se ejecutan las Habitaciones I y II, la piscina, los vehículos, la escalera del estacionamiento ni el pasillo y columnas aplazados.</li>
+            <li>Se mantienen el portón, el perímetro exterior y el muro continuo que cierra la Habitación III; estacionamiento y área de lavado quedan libres.</li>
+          </ul>
+        </div>
+        <div class="level-sheet-grid">
+          <a class="sheet-card" href="planos/california/planos_finales/nivel_1/california_nivel_1_arquitectura.svg" target="_blank" rel="noopener">
+            <span class="sheet-thumb"><img src="planos/california/planos_finales/nivel_1/california_nivel_1_arquitectura.svg" alt="Planta arquitectónica del Nivel 1" loading="lazy"></span>
+            <span class="sheet-card-body"><span class="sheet-code">A1/4</span><span class="sheet-title"><strong>Planta arquitectónica</strong><span>Muros, accesos, habitaciones conservadas y áreas libres</span></span><span class="sheet-open" aria-hidden="true">↗</span></span>
+          </a>
+          <a class="sheet-card" href="planos/california/planos_finales/nivel_1/california_nivel_1_acabados.svg" target="_blank" rel="noopener">
+            <span class="sheet-thumb"><img src="planos/california/planos_finales/nivel_1/california_nivel_1_acabados.svg" alt="Plano de acabados del Nivel 1" loading="lazy"></span>
+            <span class="sheet-card-body"><span class="sheet-code">A3/4</span><span class="sheet-title"><strong>Acabados</strong><span>Pisos, recubrimientos y remates señalados en terracota</span></span><span class="sheet-open" aria-hidden="true">↗</span></span>
+          </a>
+          <a class="sheet-card" href="planos/california/planos_finales/nivel_1/california_nivel_1_electrico.svg" target="_blank" rel="noopener">
+            <span class="sheet-thumb"><img src="planos/california/planos_finales/nivel_1/california_nivel_1_electrico.svg" alt="Plano eléctrico del Nivel 1" loading="lazy"></span>
+            <span class="sheet-card-body"><span class="sheet-code">E1/2</span><span class="sheet-title"><strong>Instalación eléctrica</strong><span>Puntos, apagadores y recorridos coordinados en violeta</span></span><span class="sheet-open" aria-hidden="true">↗</span></span>
+          </a>
+          <a class="sheet-card" href="planos/california/planos_finales/nivel_1/california_nivel_1_hidraulico.svg" target="_blank" rel="noopener">
+            <span class="sheet-thumb"><img src="planos/california/planos_finales/nivel_1/california_nivel_1_hidraulico.svg" alt="Plano hidráulico del Nivel 1" loading="lazy"></span>
+            <span class="sheet-card-body"><span class="sheet-code">1/I-H</span><span class="sheet-title"><strong>Instalación hidráulica</strong><span>Agua potable, drenajes y aparatos sanitarios conservados</span></span><span class="sheet-open" aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="level-plan level-two" aria-labelledby="nivel-2-title">
+        <div class="level-plan-header">
+          <div>
+            <span class="level-label">Nivel 2 · Planta alta</span>
+            <h3 id="nivel-2-title">Apartamentos y habitaciones con soporte construido</h3>
+          </div>
+          <ul class="level-scope-list">
+            <li>Se conservan los Apartamentos IV, V y VI, las Habitaciones VII y VIII y sus baños existentes.</li>
+            <li>No se ejecutan las Habitaciones V y VI ni la escalera, el pasillo y las columnas que dependían del área aplazada del Nivel 1.</li>
+            <li>El muro inferior de la Habitación VII funciona como fachada exterior; ninguna instalación debe continuar dentro de la huella eliminada.</li>
+          </ul>
+        </div>
+        <div class="level-sheet-grid">
+          <a class="sheet-card" href="planos/california/planos_finales/nivel_2/california_nivel_2_arquitectura.svg" target="_blank" rel="noopener">
+            <span class="sheet-thumb"><img src="planos/california/planos_finales/nivel_2/california_nivel_2_arquitectura.svg" alt="Planta arquitectónica del Nivel 2" loading="lazy"></span>
+            <span class="sheet-card-body"><span class="sheet-code">A2/4</span><span class="sheet-title"><strong>Planta arquitectónica</strong><span>Distribución conservada, nuevo límite exterior y áreas no ejecutables</span></span><span class="sheet-open" aria-hidden="true">↗</span></span>
+          </a>
+          <a class="sheet-card" href="planos/california/planos_finales/nivel_2/california_nivel_2_acabados.svg" target="_blank" rel="noopener">
+            <span class="sheet-thumb"><img src="planos/california/planos_finales/nivel_2/california_nivel_2_acabados.svg" alt="Plano de acabados del Nivel 2" loading="lazy"></span>
+            <span class="sheet-card-body"><span class="sheet-code">A4/4</span><span class="sheet-title"><strong>Acabados</strong><span>Pisos y recubrimientos limitados a los ambientes conservados</span></span><span class="sheet-open" aria-hidden="true">↗</span></span>
+          </a>
+          <a class="sheet-card" href="planos/california/planos_finales/nivel_2/california_nivel_2_electrico.svg" target="_blank" rel="noopener">
+            <span class="sheet-thumb"><img src="planos/california/planos_finales/nivel_2/california_nivel_2_electrico.svg" alt="Plano eléctrico del Nivel 2" loading="lazy"></span>
+            <span class="sheet-card-body"><span class="sheet-code">E2/2</span><span class="sheet-title"><strong>Instalación eléctrica</strong><span>Puntos y recorridos en violeta dentro del volumen construido</span></span><span class="sheet-open" aria-hidden="true">↗</span></span>
+          </a>
+          <a class="sheet-card" href="planos/california/planos_finales/nivel_2/california_nivel_2_hidraulico.svg" target="_blank" rel="noopener">
+            <span class="sheet-thumb"><img src="planos/california/planos_finales/nivel_2/california_nivel_2_hidraulico.svg" alt="Plano hidráulico del Nivel 2" loading="lazy"></span>
+            <span class="sheet-card-body"><span class="sheet-code">2/I-H</span><span class="sheet-title"><strong>Instalación hidráulica</strong><span>Redes activas y baños conservados, sin ramales en áreas retiradas</span></span><span class="sheet-open" aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+      </section>
+
+      <div class="general-plan">
+        <div>
+          <p class="eyebrow">Información común a ambos niveles</p>
+          <h3>Datos generales del proyecto</h3>
+          <p>Consulte esta hoja para identificar proyecto, responsables, escala impresa y nomenclatura general antes de distribuir copias a la cuadrilla.</p>
+        </div>
+        <a class="sheet-card" href="planos/california/planos_finales/informacion_general/california_portada.svg" target="_blank" rel="noopener">
+          <span class="sheet-thumb"><img src="planos/california/planos_finales/informacion_general/california_portada.svg" alt="Portada y datos generales del proyecto" loading="lazy"></span>
+          <span class="sheet-card-body"><span class="sheet-code">PORTADA</span><span class="sheet-title"><strong>Datos del proyecto</strong><span>Identificación y contenido general</span></span><span class="sheet-open" aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">

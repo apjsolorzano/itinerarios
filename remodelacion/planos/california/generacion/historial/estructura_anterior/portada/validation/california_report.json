@@ -1,0 +1,79 @@
+{
+  "generated_at_utc": "2026-08-13T17:13:04.790943+00:00",
+  "model": "/Users/felix/Desktop/AI/personal/remodelacion/planos/california/portada/california_model.json",
+  "source_pdf": "/Users/felix/Desktop/AI/personal/remodelacion/planos/california/source/california_planos_casa_remodelacion.pdf",
+  "source_pdf_sha256": "e4f69232fb5bfaa51469b0355bb3247e479c4645e26ec3dfeb039616d24bf6f4",
+  "page_number": 1,
+  "source_page_svg_sha256": "ed5656cad4232c77b283a202bf30325e66aeaab5cedde548b05bdcf40d1ddd32",
+  "configured_page_svg_sha256": "ed5656cad4232c77b283a202bf30325e66aeaab5cedde548b05bdcf40d1ddd32",
+  "regenerated_svg_sha256": "ed5656cad4232c77b283a202bf30325e66aeaab5cedde548b05bdcf40d1ddd32",
+  "source_and_regenerated_svg_byte_identical": true,
+  "source_and_faithful_svg_byte_identical": true,
+  "visible_ocg_xrefs": [],
+  "visual_profile": {
+    "enabled": false,
+    "name": "faithful_only",
+    "minimum_hairline_width_pt": 0.75,
+    "force_full_stroke_opacity": true,
+    "preserve_explicit_lineweights": true,
+    "purpose": "la portada no requiere refuerzo de linework"
+  },
+  "enhanced_hairline_count": 0,
+  "operation_count": 0,
+  "configured_pdf_vs_faithful_svg_pixels": {
+    "width_px": 2448,
+    "height_px": 1584,
+    "changed_pixels": 26526,
+    "changed_pixel_ratio": 0.006840772925331749,
+    "mean_absolute_channel_difference": [
+      0.20618924126889812,
+      0.20618924126889812,
+      0.20618924126889812
+    ],
+    "rms_channel_difference": [
+      3.8352720588676794,
+      3.8352720588676794,
+      3.8352720588676794
+    ],
+    "max_channel_difference": [
+      180,
+      180,
+      180
+    ]
+  },
+  "configured_pdf_vs_profiled_svg_pixels": {
+    "width_px": 2448,
+    "height_px": 1584,
+    "changed_pixels": 26526,
+    "changed_pixel_ratio": 0.006840772925331749,
+    "mean_absolute_channel_difference": [
+      0.20618924126889812,
+      0.20618924126889812,
+      0.20618924126889812
+    ],
+    "rms_channel_difference": [
+      3.8352720588676794,
+      3.8352720588676794,
+      3.8352720588676794
+    ],
+    "max_channel_difference": [
+      180,
+      180,
+      180
+    ]
+  },
+  "poppler_reference_vs_profiled_svg_ink": {
+    "masked_pixel_count": 447531,
+    "masked_mean_absolute_difference": 1.2878504505833115,
+    "candidate_to_reference_ink_ratio": 1.0006210927775165
+  },
+  "side_by_side_reference_renderer": "PyMuPDF 90 dpi equivalente",
+  "side_by_side_crop_pt": [
+    35,
+    35,
+    1000,
+    757
+  ],
+  "side_by_side_generated": false,
+  "note": "El SVG faithful conserva igualdad canónica con la fuente. El SVG principal aplica un grosor mínimo a hairlines para reproducir la densidad visual que los visores PDF asignan a esas líneas dependientes del dispositivo."
+}

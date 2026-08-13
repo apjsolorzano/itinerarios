@@ -1,0 +1,472 @@
+{
+  "$schema": "../california_plan.schema.json",
+  "format": "plan-editor/v1",
+  "project_id": "casa_california_remodelacion_revision_04",
+  "sheet_id": "hidraulico_nivel_1_1_ih_revision_sin_escalera_revision_04",
+  "title": "PLANO DE INSTALACIONES HIDRÁULICAS NIVEL 1",
+  "discipline": "hidráulico",
+  "source": {
+    "pdf_path": "../source/california_planos_casa_remodelacion.pdf",
+    "sha256": "e4f69232fb5bfaa51469b0355bb3247e479c4645e26ec3dfeb039616d24bf6f4",
+    "page_number": 8,
+    "page_index": 7,
+    "sheet_code": "1/I-H",
+    "printed_scale_text": "INDICADA / 1:2500",
+    "printed_scale_status": "preservada_del_original_no_calibrada",
+    "has_ocg_layers": false
+  },
+  "canvas": {
+    "width_pt": 1224.0,
+    "height_pt": 792.0,
+    "view_box": [
+      0,
+      0,
+      1224.0,
+      792.0
+    ],
+    "coordinate_system": "puntos_pdf_origen_superior_izquierdo",
+    "metric_calibration": {
+      "status": "pending",
+      "method": "calibrar_con_cotas_impresas_antes_de_editar_geometria"
+    }
+  },
+  "source_layers": [],
+  "unlayered_content": {
+    "visible": true,
+    "object_count": 5749,
+    "bounds_pt": [
+      43.74,
+      46.02,
+      747.78,
+      1176.06
+    ],
+    "drawing_kinds": {
+      "stroke-path": 1964,
+      "fill-path": 3785
+    },
+    "note": "Esta hoja no contiene capas OCG; su contenido vectorial se conserva como base única."
+  },
+  "visual_profile": {
+    "enabled": true,
+    "name": "architectural_validation_dense",
+    "minimum_hairline_width_pt": 0.75,
+    "force_full_stroke_opacity": true,
+    "preserve_explicit_lineweights": true,
+    "purpose": "reproducir la densidad visual de las hairlines del visor PDF"
+  },
+  "validation": {
+    "generate_side_by_side": false,
+    "keep_intermediate_images": false,
+    "comparison_crop_pt": [
+      35,
+      35,
+      1000,
+      757
+    ]
+  },
+  "semantic_entities": [
+    {
+      "id": "EDIT-BATHROOM-FIXTURES-KEEP",
+      "type": "fixture",
+      "label": "Aparatos sanitarios de baños conservados",
+      "level": "Nivel 1",
+      "visible": true,
+      "properties": {
+        "includes_washbasins": true,
+        "includes_toilets": true
+      }
+    },
+    {
+      "id": "EDIT-POOL-REMOVE",
+      "type": "area",
+      "label": "Piscina eliminada",
+      "visible": false,
+      "properties": {
+        "operation_id": "edit.remove-pool"
+      }
+    },
+    {
+      "id": "N1-ROOMS-01-02-REMOVE",
+      "type": "area",
+      "label": "Habitaciones I y II eliminadas",
+      "level": "Nivel 1",
+      "visible": false,
+      "properties": {
+        "operation_id": "edit.remove-level-1-rooms-1-2"
+      }
+    },
+    {
+      "id": "REV02-STAIR-N1-REMOVE",
+      "type": "area",
+      "label": "Escalera de estacionamiento retirada temporalmente",
+      "level": "Nivel 1",
+      "visible": false,
+      "properties": {
+        "revision": "REV-02",
+        "phase": "aplazada"
+      }
+    },
+    {
+      "id": "REV02-CORRIDOR-N1-REMOVE",
+      "type": "area",
+      "label": "Pasillo y columnas asociadas retirados temporalmente",
+      "level": "Nivel 1",
+      "visible": false,
+      "properties": {
+        "revision": "REV-02",
+        "phase": "aplazada"
+      }
+    },
+    {
+      "id": "REV04-EXTERIOR-CLOSURE-NIVEL-1-HYDRAULIC",
+      "type": "wall",
+      "label": "Muro exterior reconstruido y coordinado con instalaciones hidráulicas",
+      "level": "Nivel 1",
+      "visible": true,
+      "properties": {
+        "revision": "REV-04",
+        "continuous": true
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "edit.remove-hydraulic-furniture-01",
+      "type": "whiteout",
+      "rect_pt": [
+        225,
+        125,
+        78,
+        40
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-02",
+      "type": "whiteout",
+      "rect_pt": [
+        340,
+        125,
+        78,
+        40
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-03",
+      "type": "whiteout",
+      "rect_pt": [
+        225,
+        235,
+        78,
+        40
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-04",
+      "type": "whiteout",
+      "rect_pt": [
+        340,
+        235,
+        78,
+        40
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-05",
+      "type": "whiteout",
+      "rect_pt": [
+        710,
+        182,
+        82,
+        42
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-06",
+      "type": "whiteout",
+      "rect_pt": [
+        705,
+        238,
+        87,
+        42
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-07",
+      "type": "whiteout",
+      "rect_pt": [
+        245,
+        255,
+        62,
+        26
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-08",
+      "type": "whiteout",
+      "rect_pt": [
+        548,
+        257,
+        78,
+        35
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-09",
+      "type": "whiteout",
+      "rect_pt": [
+        625,
+        280,
+        48,
+        42
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-10",
+      "type": "whiteout",
+      "rect_pt": [
+        668,
+        280,
+        86,
+        48
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-11",
+      "type": "whiteout",
+      "rect_pt": [
+        548,
+        367,
+        78,
+        32
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-12",
+      "type": "whiteout",
+      "rect_pt": [
+        625,
+        368,
+        48,
+        46
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.remove-hydraulic-furniture-13",
+      "type": "whiteout",
+      "rect_pt": [
+        666,
+        367,
+        88,
+        56
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+    },
+    {
+      "id": "edit.restore-hydraulic-linework",
+      "type": "append_source_colors",
+      "stroke_colors": [
+        "#0000ff",
+        "#f8991e"
+      ],
+      "fill_colors": [
+        "#0000ff",
+        "#f8991e"
+      ],
+      "visible": true,
+      "description": "Restaura redes hidráulicas, drenajes, símbolos y notas sobre el borrado."
+    },
+    {
+      "id": "edit.remove-pool",
+      "type": "whiteout",
+      "polygon_pt": [
+        [
+          140,
+          284
+        ],
+        [
+          242,
+          284
+        ],
+        [
+          242,
+          374
+        ],
+        [
+          169,
+          374
+        ]
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Elimina la piscina y deja libre el patio, conservando sus límites exteriores."
+    },
+    {
+      "id": "edit.remove-level-1-rooms-1-2",
+      "type": "whiteout",
+      "rect_pt": [
+        533,
+        466,
+        246,
+        160
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Vacía Habitaciones I y II; el rectángulo se mantiene dentro del perímetro para conservar el muro inferior de Habitación III, el muro exterior derecho y el cerramiento del portón."
+    },
+    {
+      "id": "edit.rev02-remove-stair-corridor-01",
+      "type": "whiteout",
+      "rect_pt": [
+        248.0,
+        317.0,
+        270.0,
+        14.0
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira geometría arquitectónica de escalera, pasillo y columnas aplazadas."
+    },
+    {
+      "id": "edit.rev02-remove-stair-corridor-02",
+      "type": "whiteout",
+      "rect_pt": [
+        248.0,
+        280.0,
+        18.0,
+        52.0
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira geometría arquitectónica de escalera, pasillo y columnas aplazadas."
+    },
+    {
+      "id": "edit.rev02-remove-stair-corridor-03",
+      "type": "whiteout",
+      "rect_pt": [
+        390.0,
+        315.0,
+        128.0,
+        115.0
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira geometría arquitectónica de escalera, pasillo y columnas aplazadas."
+    },
+    {
+      "id": "edit.rev02-remove-stair-corridor-04",
+      "type": "whiteout",
+      "rect_pt": [
+        490.0,
+        319.0,
+        28.0,
+        307.0
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira geometría arquitectónica de escalera, pasillo y columnas aplazadas."
+    },
+    {
+      "id": "edit.rev02-restore-hydraulic-linework",
+      "type": "append_source_colors",
+      "stroke_colors": [
+        "#0000ff",
+        "#f8991e"
+      ],
+      "fill_colors": [
+        "#0000ff",
+        "#f8991e"
+      ],
+      "visible": true,
+      "description": "Recupera redes hidráulicas azules y símbolos naranjas después del retiro arquitectónico."
+    },
+    {
+      "id": "edit.rev04-reconstruct-exterior-closure-01",
+      "type": "draw_path",
+      "d": "M510.1 461 H679.5",
+      "fill": "none",
+      "stroke": "#636465",
+      "stroke_width_pt": 0.75,
+      "stroke_linecap": "square",
+      "stroke_linejoin": "miter",
+      "visible": true,
+      "description": "Línea del muro exterior reconstruido y coordinado con arquitectura."
+    },
+    {
+      "id": "edit.rev04-reconstruct-exterior-closure-02",
+      "type": "draw_path",
+      "d": "M510.1 465.9 H679.2",
+      "fill": "none",
+      "stroke": "#636465",
+      "stroke_width_pt": 0.75,
+      "stroke_linecap": "square",
+      "stroke_linejoin": "miter",
+      "visible": true,
+      "description": "Línea del muro exterior reconstruido y coordinado con arquitectura."
+    }
+  ],
+  "output": {
+    "svg_path": "california_rev04.svg",
+    "faithful_svg_path": null,
+    "preview_png_path": null,
+    "text_as_path": true,
+    "reason_for_text_as_path": "preservar apariencia exacta sin depender de fuentes instaladas"
+  },
+  "edit_revision": {
+    "id": "REV-04",
+    "base_revision": "REV-03",
+    "non_destructive": true,
+    "svg_only": true,
+    "summary": [
+      "Muro exterior reconstruido en doble línea.",
+      "Ramales de habitaciones descartadas retirados.",
+      "Red hidráulica de los ambientes conservados mantenida."
+    ]
+  },
+  "discipline_palette": {
+    "accent": "#0000ff",
+    "secondary": "#f8991e",
+    "label": "azul y naranja"
+  },
+  "color_profile": {
+    "enabled": false,
+    "replacements": {}
+  }
+}

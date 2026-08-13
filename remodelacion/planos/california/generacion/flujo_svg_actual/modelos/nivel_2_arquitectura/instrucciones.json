@@ -1,0 +1,148 @@
+{
+  "$schema": "../../esquema_plan_svg.json",
+  "format": "plan-editor/svg-v1",
+  "project_id": "casa_california_svg_first",
+  "sheet_id": "nivel_2_a2_4_revision_sin_escalera_revision_04",
+  "title": "PLANTA ARQUITECTÓNICA NIVEL 2",
+  "discipline": "arquitectura",
+  "source": {
+    "kind": "svg",
+    "master_svg_path": "maestro.svg",
+    "master_svg_sha256": "8b046967108fff42eb0c38b52d230fd2ad33b16ef56c3c67ec2e2961ba77113a",
+    "reference_svg_path": "referencia.svg",
+    "reference_svg_sha256": "2e00afab40d3dc1fa68ed26b86a23da49bab9043c6c849f8edebbd767ebf3ab7",
+    "baseline_revision": "REV-04",
+    "reference_policy": "svg_only",
+    "normal_workflow_uses_pdf": false
+  },
+  "canvas": {
+    "width_pt": 1224.0,
+    "height_pt": 792.0,
+    "view_box": [
+      0,
+      0,
+      1224.0,
+      792.0
+    ],
+    "coordinate_system": "puntos_pdf_origen_superior_izquierdo",
+    "metric_calibration": {
+      "status": "pending",
+      "method": "calibrar_con_cotas_impresas_antes_de_editar_geometria"
+    }
+  },
+  "semantic_entities": [
+    {
+      "id": "EDIT-BATHROOM-FIXTURES-KEEP",
+      "type": "fixture",
+      "label": "Aparatos sanitarios de baños conservados",
+      "visible": true,
+      "properties": {
+        "includes_washbasins": true,
+        "includes_toilets": true
+      }
+    },
+    {
+      "id": "EDIT-POOL-REMOVE",
+      "type": "area",
+      "label": "Piscina eliminada",
+      "visible": false,
+      "properties": {
+        "operation_id": "edit.remove-pool"
+      }
+    },
+    {
+      "id": "REV03-ROOMS-N2-05-06-REMOVE",
+      "type": "area",
+      "label": "Habitaciones V y VI de Nivel 2 eliminadas",
+      "level": "Nivel 2",
+      "visible": false,
+      "properties": {
+        "revision": "REV-03",
+        "reason": "sin soporte en Nivel 1"
+      }
+    },
+    {
+      "id": "REV03-STAIR-CORRIDOR-N2-REMOVE",
+      "type": "area",
+      "label": "Escalera y pasillo de Nivel 2 eliminados",
+      "level": "Nivel 2",
+      "visible": false,
+      "properties": {
+        "revision": "REV-03",
+        "phase": "aplazada"
+      }
+    },
+    {
+      "id": "REV04-EXTERIOR-CLOSURE-NIVEL-2",
+      "type": "wall",
+      "label": "Muro exterior reconstruido después del retiro de habitaciones",
+      "level": "Nivel 2",
+      "visible": true,
+      "properties": {
+        "revision": "REV-04",
+        "discipline": "architecture",
+        "continuous": true
+      }
+    }
+  ],
+  "operations": [],
+  "baked_history": {
+    "legacy_model": "../../../historial/estructura_anterior/nivel_2/california_model.json",
+    "revision": "REV-04",
+    "operation_index": [
+      {
+        "id": "edit.restore-bathroom-fixtures",
+        "type": "append_source_layer_elements",
+        "description": "Recupera únicamente lavamanos, inodoros y demás aparatos dentro de baños."
+      },
+      {
+        "id": "edit.erase-patio-furniture",
+        "type": "erase_source_layer_elements",
+        "description": "Retira mesas y sillas exteriores sin borrar la vegetación."
+      },
+      {
+        "id": "edit.remove-pool",
+        "type": "whiteout",
+        "description": "Elimina la piscina y deja libre el patio, conservando sus límites exteriores."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-rooms-5-6",
+        "type": "whiteout",
+        "description": "Retira Habitaciones V y VI desde la cara exterior del nuevo muro de cierre; conserva íntegro el cerramiento inferior de Habitación VII."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-stair-corridor-01",
+        "type": "whiteout",
+        "description": "Retira escalera, pasillo y columnas aplazadas en Nivel 2."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-stair-corridor-02",
+        "type": "whiteout",
+        "description": "Retira escalera, pasillo y columnas aplazadas en Nivel 2."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-stair-corridor-03",
+        "type": "whiteout",
+        "description": "Retira escalera, pasillo y columnas aplazadas en Nivel 2."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-stair-corridor-04",
+        "type": "whiteout",
+        "description": "Retira escalera, pasillo y columnas aplazadas en Nivel 2."
+      }
+    ]
+  },
+  "workflow": {
+    "editing_rule": "Añadir únicamente operaciones incrementales sobre maestro.svg.",
+    "publication_rule": "Publicar una nueva revisión SVG y promoverla a maestro solo después de validarla.",
+    "forbidden_normal_inputs": [
+      "PDF"
+    ],
+    "allowed_outputs": [
+      "SVG"
+    ]
+  },
+  "output": {
+    "svg_path": "../../salidas_de_trabajo/california_nivel_2_arquitectura_trabajo.svg"
+  }
+}

@@ -1,0 +1,700 @@
+{
+  "$schema": "../california_plan.schema.json",
+  "format": "plan-editor/v1",
+  "project_id": "casa_california_remodelacion_revision_04",
+  "sheet_id": "electrico_nivel_1_e1_2_revision_sin_escalera_revision_04",
+  "title": "PLANO DE INSTALACIÓN ELÉCTRICA NIVEL 1",
+  "discipline": "eléctrico",
+  "source": {
+    "pdf_path": "../source/california_planos_casa_remodelacion.pdf",
+    "sha256": "e4f69232fb5bfaa51469b0355bb3247e479c4645e26ec3dfeb039616d24bf6f4",
+    "page_number": 6,
+    "page_index": 5,
+    "sheet_code": "E1/2",
+    "printed_scale_text": "1:2500",
+    "printed_scale_status": "preservada_del_original_no_calibrada",
+    "has_ocg_layers": true
+  },
+  "canvas": {
+    "width_pt": 1224.0,
+    "height_pt": 792.0,
+    "view_box": [
+      0,
+      0,
+      1224.0,
+      792.0
+    ],
+    "coordinate_system": "puntos_pdf_origen_superior_izquierdo",
+    "metric_calibration": {
+      "status": "pending",
+      "method": "calibrar_con_cotas_impresas_antes_de_editar_geometria"
+    }
+  },
+  "source_layers": [
+    {
+      "id": "src.p06.ejes",
+      "name": "ejes",
+      "ocg_xref": 307,
+      "visible": true,
+      "category": "grid",
+      "object_count": 565,
+      "bounds_pt": [
+        36.435,
+        39.495,
+        1189.245,
+        756.405
+      ],
+      "drawing_kinds": {
+        "stroke-path": 549,
+        "fill-path": 5,
+        "fill-text": 11
+      }
+    },
+    {
+      "id": "src.p06.hatch",
+      "name": "hatch",
+      "ocg_xref": 308,
+      "visible": true,
+      "category": "hatch",
+      "object_count": 177,
+      "bounds_pt": [
+        139.215,
+        121.395,
+        780.165,
+        573.135
+      ],
+      "drawing_kinds": {
+        "stroke-path": 176,
+        "fill-text": 1
+      }
+    },
+    {
+      "id": "src.p06.paredes_actuales",
+      "name": "PAREDES ACTUALES",
+      "ocg_xref": 309,
+      "visible": true,
+      "category": "walls_existing",
+      "object_count": 23,
+      "bounds_pt": [
+        122.685,
+        107.325,
+        794.535,
+        643.845
+      ],
+      "drawing_kinds": {
+        "stroke-path": 23
+      }
+    },
+    {
+      "id": "src.p06.columnas",
+      "name": "columnas",
+      "ocg_xref": 310,
+      "visible": true,
+      "category": "columns_existing",
+      "object_count": 13,
+      "bounds_pt": [
+        536.535,
+        210.945,
+        779.895,
+        469.965
+      ],
+      "drawing_kinds": {
+        "stroke-path": 13
+      }
+    },
+    {
+      "id": "src.p06.wall",
+      "name": "wall",
+      "ocg_xref": 311,
+      "visible": true,
+      "category": "wall_misc",
+      "object_count": 153,
+      "bounds_pt": [
+        193.109,
+        146.711,
+        780.18,
+        644.662
+      ],
+      "drawing_kinds": {
+        "fill-path": 32,
+        "stroke-path": 113,
+        "fill-text": 8
+      }
+    },
+    {
+      "id": "src.p06.0",
+      "name": "0",
+      "ocg_xref": 312,
+      "visible": true,
+      "category": "base_geometry",
+      "object_count": 661,
+      "bounds_pt": [
+        71.82,
+        45.585,
+        1163.255,
+        745.635
+      ],
+      "drawing_kinds": {
+        "fill-text": 6,
+        "stroke-path": 554,
+        "fill-path": 101
+      }
+    },
+    {
+      "id": "src.p06.paredes_nuevas",
+      "name": "PAREDES NUEVAS",
+      "ocg_xref": 313,
+      "visible": true,
+      "category": "walls_new",
+      "object_count": 107,
+      "bounds_pt": [
+        127.935,
+        115.605,
+        783.915,
+        631.785
+      ],
+      "drawing_kinds": {
+        "stroke-path": 107
+      }
+    },
+    {
+      "id": "src.p06.ventana",
+      "name": "ventana",
+      "ocg_xref": 314,
+      "visible": true,
+      "category": "windows",
+      "object_count": 108,
+      "bounds_pt": [
+        131.955,
+        121.185,
+        692.085,
+        639.285
+      ],
+      "drawing_kinds": {
+        "stroke-path": 108
+      }
+    },
+    {
+      "id": "src.p06.muebles",
+      "name": "Muebles",
+      "ocg_xref": 315,
+      "visible": false,
+      "category": "furniture_and_fixtures",
+      "object_count": 2673,
+      "bounds_pt": [
+        127.65,
+        118.905,
+        784.695,
+        636.465
+      ],
+      "drawing_kinds": {
+        "stroke-path": 2672,
+        "fill-path": 1
+      },
+      "edit_reason": "Capa global oculta; se recuperan por objeto únicamente los aparatos de baños."
+    },
+    {
+      "id": "src.p06.texto",
+      "name": "TEXTO",
+      "ocg_xref": 316,
+      "visible": true,
+      "category": "labels_and_schedules",
+      "object_count": 22,
+      "bounds_pt": [
+        52.725,
+        217.153,
+        635.034,
+        728.865
+      ],
+      "drawing_kinds": {
+        "fill-text": 13,
+        "stroke-path": 9
+      }
+    },
+    {
+      "id": "src.p06.columnas_nuevas",
+      "name": "Columnas nuevas",
+      "ocg_xref": 317,
+      "visible": true,
+      "category": "columns_new",
+      "object_count": 48,
+      "bounds_pt": [
+        230.97,
+        107.04,
+        773.97,
+        644.13
+      ],
+      "drawing_kinds": {
+        "stroke-path": 36,
+        "fill-path": 12
+      }
+    },
+    {
+      "id": "src.p06.flecha",
+      "name": "Flecha",
+      "ocg_xref": 318,
+      "visible": true,
+      "category": "circulation_arrow",
+      "object_count": 1,
+      "bounds_pt": [
+        537.045,
+        636.435,
+        773.685,
+        643.845
+      ],
+      "drawing_kinds": {
+        "stroke-path": 1
+      }
+    },
+    {
+      "id": "src.p06.correcciones",
+      "name": "CORRECCIONES",
+      "ocg_xref": 319,
+      "visible": true,
+      "category": "revisions",
+      "object_count": 17,
+      "bounds_pt": [
+        122.685,
+        281.025,
+        537.075,
+        636.465
+      ],
+      "drawing_kinds": {
+        "stroke-path": 17
+      }
+    },
+    {
+      "id": "src.p06.vegetacion_h",
+      "name": "Vegetación-h",
+      "ocg_xref": 320,
+      "visible": true,
+      "category": "landscape",
+      "object_count": 45,
+      "bounds_pt": [
+        166.485,
+        373.845,
+        252.405,
+        548.745
+      ],
+      "drawing_kinds": {
+        "stroke-path": 45
+      }
+    },
+    {
+      "id": "src.p06.ie_il_bocas",
+      "name": "IE_IL_BOCAS",
+      "ocg_xref": 321,
+      "visible": false,
+      "category": "electrical_lighting_points",
+      "object_count": 2712,
+      "bounds_pt": [
+        55.785,
+        122.565,
+        787.253,
+        726.91
+      ],
+      "drawing_kinds": {
+        "stroke-path": 2656,
+        "fill-text": 56
+      }
+    },
+    {
+      "id": "src.p06.ie_to_bocas",
+      "name": "IE_TO_BOCAS",
+      "ocg_xref": 322,
+      "visible": false,
+      "category": "electrical_outlet_points",
+      "object_count": 96,
+      "bounds_pt": [
+        178.635,
+        139.425,
+        770.145,
+        610.245
+      ],
+      "drawing_kinds": {
+        "stroke-path": 96
+      }
+    },
+    {
+      "id": "src.p06.ie_il_caneria_losa",
+      "name": "IE_IL_CAÑERÍA_LOSA",
+      "ocg_xref": 323,
+      "visible": false,
+      "category": "electrical_conduits",
+      "object_count": 31,
+      "bounds_pt": [
+        160.665,
+        142.035,
+        764.925,
+        614.295
+      ],
+      "drawing_kinds": {
+        "stroke-path": 31
+      }
+    },
+    {
+      "id": "src.p06.cotas",
+      "name": "cotas",
+      "ocg_xref": 324,
+      "visible": true,
+      "category": "dimensions",
+      "object_count": 205,
+      "bounds_pt": [
+        68.385,
+        70.995,
+        839.325,
+        683.295
+      ],
+      "drawing_kinds": {
+        "stroke-path": 164,
+        "fill-text": 41
+      }
+    },
+    {
+      "id": "src.p06.100_flech",
+      "name": "100 FLECH",
+      "ocg_xref": 325,
+      "visible": true,
+      "category": "symbols",
+      "object_count": 9,
+      "bounds_pt": [
+        436.35,
+        328.74,
+        442.17,
+        332.4
+      ],
+      "drawing_kinds": {
+        "stroke-path": 5,
+        "fill-path": 4
+      }
+    },
+    {
+      "id": "src.p06.porton",
+      "name": "PORTON",
+      "ocg_xref": 326,
+      "visible": true,
+      "category": "gate",
+      "object_count": 4,
+      "bounds_pt": [
+        273.855,
+        623.625,
+        477.735,
+        633.975
+      ],
+      "drawing_kinds": {
+        "stroke-path": 4
+      }
+    },
+    {
+      "id": "src.p06.membrete",
+      "name": "membrete",
+      "ocg_xref": 327,
+      "visible": true,
+      "category": "sheet_border_and_title_block",
+      "object_count": 8,
+      "bounds_pt": [
+        33.015,
+        36.105,
+        1189.245,
+        756.405
+      ],
+      "drawing_kinds": {
+        "stroke-path": 8
+      }
+    }
+  ],
+  "unlayered_content": {
+    "visible": true,
+    "object_count": 235,
+    "bounds_pt": [
+      277.995,
+      579.345,
+      752.399,
+      755.295
+    ],
+    "drawing_kinds": {
+      "stroke-path": 231,
+      "fill-text": 4
+    },
+    "note": "Contenido que el PDF no asignó a una capa OCG."
+  },
+  "visual_profile": {
+    "enabled": true,
+    "name": "architectural_validation_dense",
+    "minimum_hairline_width_pt": 0.75,
+    "force_full_stroke_opacity": true,
+    "preserve_explicit_lineweights": true,
+    "purpose": "reproducir la densidad visual de las hairlines del visor PDF"
+  },
+  "validation": {
+    "generate_side_by_side": false,
+    "keep_intermediate_images": false,
+    "comparison_crop_pt": [
+      35,
+      35,
+      1000,
+      757
+    ]
+  },
+  "semantic_entities": [
+    {
+      "id": "EDIT-BATHROOM-FIXTURES-KEEP",
+      "type": "fixture",
+      "label": "Aparatos sanitarios de baños conservados",
+      "visible": true,
+      "properties": {
+        "includes_washbasins": true,
+        "includes_toilets": true
+      }
+    },
+    {
+      "id": "EDIT-POOL-REMOVE",
+      "type": "area",
+      "label": "Piscina eliminada",
+      "visible": false,
+      "properties": {
+        "operation_id": "edit.remove-pool"
+      }
+    },
+    {
+      "id": "N1-ROOMS-01-02-REMOVE",
+      "type": "area",
+      "label": "Habitaciones I y II eliminadas",
+      "level": "Nivel 1",
+      "visible": false,
+      "properties": {
+        "operation_id": "edit.remove-level-1-rooms-1-2"
+      }
+    },
+    {
+      "id": "REV02-STAIR-N1-REMOVE",
+      "type": "area",
+      "label": "Escalera de estacionamiento retirada temporalmente",
+      "level": "Nivel 1",
+      "visible": false,
+      "properties": {
+        "revision": "REV-02",
+        "phase": "aplazada"
+      }
+    },
+    {
+      "id": "REV02-CORRIDOR-N1-REMOVE",
+      "type": "area",
+      "label": "Pasillo y columnas asociadas retirados temporalmente",
+      "level": "Nivel 1",
+      "visible": false,
+      "properties": {
+        "revision": "REV-02",
+        "phase": "aplazada"
+      }
+    },
+    {
+      "id": "REV04-EXTERIOR-CLOSURE-ELECTRICO-NIVEL-1",
+      "type": "wall",
+      "label": "Muro exterior reconstruido después del retiro de habitaciones",
+      "level": "Nivel 1",
+      "visible": true,
+      "properties": {
+        "revision": "REV-04",
+        "discipline": "electrical",
+        "continuous": true
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "edit.rev03-highlight-electrical",
+      "type": "append_source_layers_recolored",
+      "ocg_xrefs": [
+        321,
+        322,
+        323
+      ],
+      "source_colors": [
+        "#000000"
+      ],
+      "color": "#7c3aed",
+      "visible": true,
+      "description": "Destaca luminarias, tomas y canalizaciones eléctricas en violeta."
+    },
+    {
+      "id": "edit.restore-bathroom-fixtures",
+      "type": "append_source_layer_elements",
+      "ocg_xrefs": [
+        315
+      ],
+      "target_regions_pt": [
+        [
+          167.11363356715063,
+          112.56706216551731,
+          42.87306285101723,
+          43.03854309592118
+        ],
+        [
+          475.3913712101793,
+          112.56706216551731,
+          79.62140243760342,
+          44.06327031249073
+        ],
+        [
+          587.6779643914148,
+          112.56706216551731,
+          48.997786115448264,
+          44.06327031249073
+        ],
+        [
+          744.8791948451446,
+          317.51250547942766,
+          44.91463727249424,
+          55.335269694755794
+        ],
+        [
+          742.8376204236677,
+          391.29286507243546,
+          46.95621169397125,
+          59.434178561034
+        ]
+      ],
+      "preserve_regions_pt": [],
+      "visible": true,
+      "description": "Recupera únicamente lavamanos, inodoros y demás aparatos dentro de baños."
+    },
+    {
+      "id": "edit.erase-patio-furniture",
+      "type": "erase_source_layer_elements",
+      "ocg_xrefs": [
+        312
+      ],
+      "target_regions_pt": [
+        [
+          178,
+          368,
+          92,
+          184
+        ]
+      ],
+      "preserve_regions_pt": [],
+      "visible": true,
+      "description": "Retira mesas y sillas exteriores sin borrar la vegetación."
+    },
+    {
+      "id": "edit.remove-pool",
+      "type": "whiteout",
+      "polygon_pt": [
+        [
+          130,
+          284
+        ],
+        [
+          230,
+          284
+        ],
+        [
+          230,
+          374
+        ],
+        [
+          158,
+          374
+        ]
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Elimina la piscina y deja libre el patio, conservando sus límites exteriores."
+    },
+    {
+      "id": "edit.remove-level-1-rooms-1-2",
+      "type": "whiteout",
+      "rect_pt": [
+        519.2852212719349,
+        477.3699512642778,
+        251.11365384167235,
+        155.75853691857188
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Vacía Habitaciones I y II; el rectángulo se mantiene dentro del perímetro para conservar el muro inferior de Habitación III, el muro exterior derecho y el cerramiento del portón."
+    },
+    {
+      "id": "edit.rev02-remove-stair-corridor-01",
+      "type": "whiteout",
+      "rect_pt": [
+        238.569,
+        316.488,
+        260.301,
+        14.346
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira la línea de cierre y las columnas superiores del pasillo aplazado."
+    },
+    {
+      "id": "edit.rev02-remove-stair-corridor-02",
+      "type": "whiteout",
+      "rect_pt": [
+        238.569,
+        278.573,
+        11.229,
+        53.286
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira el retorno lateral del pasillo aplazado."
+    },
+    {
+      "id": "edit.rev02-remove-stair-corridor-03",
+      "type": "whiteout",
+      "rect_pt": [
+        380.458,
+        318.537,
+        120.453,
+        91.201
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira la escalera y su rótulo asociado."
+    },
+    {
+      "id": "edit.rev02-remove-stair-corridor-04",
+      "type": "whiteout",
+      "rect_pt": [
+        486.62,
+        318.537,
+        14.291,
+        314.591
+      ],
+      "fill": "#ffffff",
+      "visible": true,
+      "description": "Retira la línea lateral y las columnas del pasillo aplazado."
+    }
+  ],
+  "output": {
+    "svg_path": "california_rev04.svg",
+    "faithful_svg_path": null,
+    "preview_png_path": null,
+    "text_as_path": true,
+    "reason_for_text_as_path": "preservar apariencia exacta sin depender de fuentes instaladas"
+  },
+  "edit_revision": {
+    "id": "REV-04",
+    "base_revision": "REV-03",
+    "non_destructive": true,
+    "svg_only": true,
+    "summary": [
+      "Muro de cierre completo conservado en el límite de las habitaciones retiradas.",
+      "Los recortes empiezan después del espesor del muro para preservar columnas y encuentros.",
+      "Escalera, pasillo y habitaciones descartadas permanecen retirados."
+    ]
+  },
+  "discipline_palette": {
+    "base": "#737b80",
+    "accent": "#7c3aed",
+    "label": "violeta"
+  },
+  "color_profile": {
+    "enabled": true,
+    "replacements": {
+      "#000000": "#737b80"
+    }
+  }
+}

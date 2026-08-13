@@ -1,0 +1,79 @@
+{
+  "generated_at_utc": "2026-08-13T17:13:14.918683+00:00",
+  "model": "/Users/felix/Desktop/AI/personal/remodelacion/planos/california/hidraulico_nivel_1/california_model.json",
+  "source_pdf": "/Users/felix/Desktop/AI/personal/remodelacion/planos/california/source/california_planos_casa_remodelacion.pdf",
+  "source_pdf_sha256": "e4f69232fb5bfaa51469b0355bb3247e479c4645e26ec3dfeb039616d24bf6f4",
+  "page_number": 8,
+  "source_page_svg_sha256": "9f0afe2fd064d54a8fbd206a5aa1e1aee1362f9c5a424a69c5e2861ef7ede9d3",
+  "configured_page_svg_sha256": "9f0afe2fd064d54a8fbd206a5aa1e1aee1362f9c5a424a69c5e2861ef7ede9d3",
+  "regenerated_svg_sha256": "fa751ca9271131a2e5b621b36be15157b6f858918b23bd2d90f322866337ced1",
+  "source_and_regenerated_svg_byte_identical": false,
+  "source_and_faithful_svg_byte_identical": true,
+  "visible_ocg_xrefs": [],
+  "visual_profile": {
+    "enabled": true,
+    "name": "architectural_validation_dense",
+    "minimum_hairline_width_pt": 0.75,
+    "force_full_stroke_opacity": true,
+    "preserve_explicit_lineweights": true,
+    "purpose": "reproducir la densidad visual de las hairlines del visor PDF"
+  },
+  "enhanced_hairline_count": 0,
+  "operation_count": 21,
+  "configured_pdf_vs_faithful_svg_pixels": {
+    "width_px": 2448,
+    "height_px": 1584,
+    "changed_pixels": 55409,
+    "changed_pixel_ratio": 0.014289391051033207,
+    "mean_absolute_channel_difference": [
+      0.00986091511520433,
+      0.011880704512444709,
+      0.0010096368092691623
+    ],
+    "rms_channel_difference": [
+      0.09947339598877603,
+      0.10915468797436151,
+      0.032306008784817014
+    ],
+    "max_channel_difference": [
+      10,
+      10,
+      10
+    ]
+  },
+  "configured_pdf_vs_profiled_svg_pixels": {
+    "width_px": 2448,
+    "height_px": 1584,
+    "changed_pixels": 112463,
+    "changed_pixel_ratio": 0.029003010084505183,
+    "mean_absolute_channel_difference": [
+      2.0932236478345545,
+      2.086245161995775,
+      1.8843110950188156
+    ],
+    "rms_channel_difference": [
+      16.608415725321702,
+      16.543122945952355,
+      16.01075204145969
+    ],
+    "max_channel_difference": [
+      255,
+      255,
+      255
+    ]
+  },
+  "poppler_reference_vs_profiled_svg_ink": {
+    "masked_pixel_count": 122099,
+    "masked_mean_absolute_difference": 28.32558006208077,
+    "candidate_to_reference_ink_ratio": 0.7191424692827874
+  },
+  "side_by_side_reference_renderer": "PyMuPDF 90 dpi equivalente",
+  "side_by_side_crop_pt": [
+    35,
+    35,
+    1000,
+    757
+  ],
+  "side_by_side_generated": false,
+  "note": "El SVG faithful conserva igualdad canónica con la fuente. El SVG principal aplica un grosor mínimo a hairlines para reproducir la densidad visual que los visores PDF asignan a esas líneas dependientes del dispositivo."
+}

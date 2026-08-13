@@ -1,0 +1,53 @@
+{
+  "$schema": "../../esquema_plan_svg.json",
+  "format": "plan-editor/svg-v1",
+  "project_id": "casa_california_svg_first",
+  "sheet_id": "portada_revision_sin_escalera_revision_04",
+  "title": "PORTADA",
+  "discipline": "general",
+  "source": {
+    "kind": "svg",
+    "master_svg_path": "maestro.svg",
+    "master_svg_sha256": "2ba0fcb5b73c60afc10e90bfa079f6bc6f3db69229a1fbadbd5e786c2e89f2bf",
+    "reference_svg_path": "referencia.svg",
+    "reference_svg_sha256": "ed5656cad4232c77b283a202bf30325e66aeaab5cedde548b05bdcf40d1ddd32",
+    "baseline_revision": "REV-04",
+    "reference_policy": "svg_only",
+    "normal_workflow_uses_pdf": false
+  },
+  "canvas": {
+    "width_pt": 1224.0,
+    "height_pt": 792.0,
+    "view_box": [
+      0,
+      0,
+      1224.0,
+      792.0
+    ],
+    "coordinate_system": "puntos_pdf_origen_superior_izquierdo",
+    "metric_calibration": {
+      "status": "pending",
+      "method": "calibrar_con_cotas_impresas_antes_de_editar_geometria"
+    }
+  },
+  "semantic_entities": [],
+  "operations": [],
+  "baked_history": {
+    "legacy_model": "../../../historial/estructura_anterior/portada/california_model.json",
+    "revision": "REV-04",
+    "operation_index": []
+  },
+  "workflow": {
+    "editing_rule": "Añadir únicamente operaciones incrementales sobre maestro.svg.",
+    "publication_rule": "Publicar una nueva revisión SVG y promoverla a maestro solo después de validarla.",
+    "forbidden_normal_inputs": [
+      "PDF"
+    ],
+    "allowed_outputs": [
+      "SVG"
+    ]
+  },
+  "output": {
+    "svg_path": "../../salidas_de_trabajo/california_portada_trabajo.svg"
+  }
+}

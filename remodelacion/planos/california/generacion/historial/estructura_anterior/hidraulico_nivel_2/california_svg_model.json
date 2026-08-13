@@ -1,0 +1,245 @@
+{
+  "$schema": "../california_svg_plan.schema.json",
+  "format": "plan-editor/svg-v1",
+  "project_id": "casa_california_svg_first",
+  "sheet_id": "hidraulico_nivel_2_2_ih_revision_sin_escalera_revision_04",
+  "title": "PLANO DE INSTALACIONES HIDRÁULICAS NIVEL 2",
+  "discipline": "hidráulico",
+  "source": {
+    "kind": "svg",
+    "master_svg_path": "california_master.svg",
+    "master_svg_sha256": "0999b21f6b39ebd1d180876fa718bb1288a6f878ee803d6b34a72cac48a0c9cc",
+    "reference_svg_path": "california_reference.svg",
+    "reference_svg_sha256": "ec86ab5f36112d847b6e740eb9dcc49644713b877c7ec24669d7f6abc2ee366b",
+    "baseline_revision": "REV-04",
+    "reference_policy": "svg_only",
+    "normal_workflow_uses_pdf": false
+  },
+  "canvas": {
+    "width_pt": 1224.0,
+    "height_pt": 792.0,
+    "view_box": [
+      0,
+      0,
+      1224.0,
+      792.0
+    ],
+    "coordinate_system": "puntos_pdf_origen_superior_izquierdo",
+    "metric_calibration": {
+      "status": "pending",
+      "method": "calibrar_con_cotas_impresas_antes_de_editar_geometria"
+    }
+  },
+  "semantic_entities": [
+    {
+      "id": "EDIT-BATHROOM-FIXTURES-KEEP",
+      "type": "fixture",
+      "label": "Aparatos sanitarios de baños conservados",
+      "level": "Nivel 2",
+      "visible": true,
+      "properties": {
+        "includes_washbasins": true,
+        "includes_toilets": true
+      }
+    },
+    {
+      "id": "EDIT-POOL-REMOVE",
+      "type": "area",
+      "label": "Piscina eliminada",
+      "visible": false,
+      "properties": {
+        "operation_id": "edit.remove-pool"
+      }
+    },
+    {
+      "id": "REV03-ROOMS-N2-05-06-REMOVE",
+      "type": "area",
+      "label": "Habitaciones V y VI de Nivel 2 eliminadas",
+      "level": "Nivel 2",
+      "visible": false
+    },
+    {
+      "id": "REV03-STAIR-CORRIDOR-N2-REMOVE",
+      "type": "area",
+      "label": "Escalera y pasillo de Nivel 2 eliminados",
+      "level": "Nivel 2",
+      "visible": false
+    },
+    {
+      "id": "REV04-EXTERIOR-CLOSURE-NIVEL-2-HYDRAULIC",
+      "type": "wall",
+      "label": "Muro exterior reconstruido y coordinado con instalaciones hidráulicas",
+      "level": "Nivel 2",
+      "visible": true,
+      "properties": {
+        "revision": "REV-04",
+        "continuous": true
+      }
+    }
+  ],
+  "operations": [],
+  "baked_history": {
+    "legacy_model": "california_model.json",
+    "revision": "REV-04",
+    "operation_index": [
+      {
+        "id": "edit.remove-hydraulic-furniture-01",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-02",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-03",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-04",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-05",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-06",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-07",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-08",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-09",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-10",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-11",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-12",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-13",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-14",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-15",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-16",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-17",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-18",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-19",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.remove-hydraulic-furniture-20",
+        "type": "whiteout",
+        "description": "Máscara localizada de mobiliario en la base hidráulica sin capas."
+      },
+      {
+        "id": "edit.restore-hydraulic-linework",
+        "type": "append_source_colors",
+        "description": "Restaura redes hidráulicas, drenajes, símbolos y notas sobre el borrado."
+      },
+      {
+        "id": "edit.remove-pool",
+        "type": "whiteout",
+        "description": "Elimina por completo la piscina y su contorno, conservando el lindero exterior."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-rooms-5-6",
+        "type": "whiteout",
+        "description": "Retira Habitaciones V y VI y sus ramales desde la cara exterior del nuevo cierre."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-stair-corridor-01",
+        "type": "whiteout",
+        "description": "Retira escalera, pasillo y columnas aplazadas en el plano hidráulico de Nivel 2."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-stair-corridor-02",
+        "type": "whiteout",
+        "description": "Retira escalera, pasillo y columnas aplazadas en el plano hidráulico de Nivel 2."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-stair-corridor-03",
+        "type": "whiteout",
+        "description": "Retira escalera, pasillo y columnas aplazadas en el plano hidráulico de Nivel 2."
+      },
+      {
+        "id": "edit.rev03-remove-level-2-stair-corridor-04",
+        "type": "whiteout",
+        "description": "Retira escalera, pasillo y columnas aplazadas en el plano hidráulico de Nivel 2."
+      },
+      {
+        "id": "edit.rev04-reconstruct-exterior-closure-01",
+        "type": "draw_path",
+        "description": "Línea del muro exterior reconstruido y coordinado con arquitectura."
+      },
+      {
+        "id": "edit.rev04-reconstruct-exterior-closure-02",
+        "type": "draw_path",
+        "description": "Línea del muro exterior reconstruido y coordinado con arquitectura."
+      }
+    ]
+  },
+  "workflow": {
+    "editing_rule": "Añadir únicamente operaciones incrementales sobre california_master.svg.",
+    "publication_rule": "Publicar una nueva revisión SVG y promoverla a maestro solo después de validarla.",
+    "forbidden_normal_inputs": [
+      "PDF"
+    ],
+    "allowed_outputs": [
+      "SVG"
+    ]
+  },
+  "output": {
+    "svg_path": "california_working.svg"
+  }
+}

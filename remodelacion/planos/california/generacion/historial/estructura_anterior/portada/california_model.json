@@ -1,0 +1,96 @@
+{
+  "$schema": "../california_plan.schema.json",
+  "format": "plan-editor/v1",
+  "project_id": "casa_california_remodelacion_revision_04",
+  "sheet_id": "portada_revision_sin_escalera_revision_04",
+  "title": "PORTADA",
+  "discipline": "general",
+  "source": {
+    "pdf_path": "../source/california_planos_casa_remodelacion.pdf",
+    "sha256": "e4f69232fb5bfaa51469b0355bb3247e479c4645e26ec3dfeb039616d24bf6f4",
+    "page_number": 1,
+    "page_index": 0,
+    "sheet_code": "PORTADA",
+    "printed_scale_text": "no aplica",
+    "printed_scale_status": "preservada_del_original_no_calibrada",
+    "has_ocg_layers": false
+  },
+  "canvas": {
+    "width_pt": 1224.0,
+    "height_pt": 792.0,
+    "view_box": [
+      0,
+      0,
+      1224.0,
+      792.0
+    ],
+    "coordinate_system": "puntos_pdf_origen_superior_izquierdo",
+    "metric_calibration": {
+      "status": "pending",
+      "method": "calibrar_con_cotas_impresas_antes_de_editar_geometria"
+    }
+  },
+  "source_layers": [],
+  "unlayered_content": {
+    "visible": true,
+    "object_count": 36,
+    "bounds_pt": [
+      2.35,
+      1.5,
+      1230.2,
+      789.7
+    ],
+    "drawing_kinds": {
+      "fill-text": 30,
+      "fill-path": 3,
+      "stroke-path": 3
+    },
+    "note": "Esta hoja no contiene capas OCG; su contenido vectorial se conserva como base única."
+  },
+  "visual_profile": {
+    "enabled": false,
+    "name": "faithful_only",
+    "minimum_hairline_width_pt": 0.75,
+    "force_full_stroke_opacity": true,
+    "preserve_explicit_lineweights": true,
+    "purpose": "la portada no requiere refuerzo de linework"
+  },
+  "validation": {
+    "generate_side_by_side": false,
+    "keep_intermediate_images": false,
+    "comparison_crop_pt": [
+      35,
+      35,
+      1000,
+      757
+    ]
+  },
+  "semantic_entities": [],
+  "operations": [],
+  "output": {
+    "svg_path": "california_rev04.svg",
+    "faithful_svg_path": null,
+    "preview_png_path": null,
+    "text_as_path": true,
+    "reason_for_text_as_path": "preservar apariencia exacta sin depender de fuentes instaladas"
+  },
+  "edit_revision": {
+    "id": "REV-04",
+    "base_revision": "REV-03",
+    "non_destructive": true,
+    "svg_only": true,
+    "summary": [
+      "Portada coordinada con la revisión constructiva vigente."
+    ]
+  },
+  "discipline_palette": {
+    "base": "#263238",
+    "label": "grafito azulado"
+  },
+  "color_profile": {
+    "enabled": true,
+    "replacements": {
+      "#000000": "#263238"
+    }
+  }
+}

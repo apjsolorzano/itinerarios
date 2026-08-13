@@ -1,0 +1,110 @@
+{
+  "format": "plan-editor-svg-project/v1",
+  "project_id": "casa_california_svg_first",
+  "title": "Casa California - flujo SVG-first",
+  "baseline_revision": "REV-04",
+  "reference_policy": "svg_only",
+  "normal_workflow_uses_pdf": false,
+  "default_output_format": "SVG",
+  "sheets": [
+    {
+      "id": "portada",
+      "folder": "portada",
+      "title": "PORTADA",
+      "discipline": "general",
+      "sheet_code": "PORTADA",
+      "model": "portada/california_svg_model.json",
+      "reference_svg": "portada/california_reference.svg",
+      "master_svg": "portada/california_master.svg",
+      "published_svg": "portada/california_rev04.svg"
+    },
+    {
+      "id": "nivel_1_a1_4",
+      "folder": "nivel_1",
+      "title": "PLANTA ARQUITECTÓNICA NIVEL 1",
+      "discipline": "arquitectura",
+      "sheet_code": "A1/4",
+      "model": "nivel_1/california_svg_model.json",
+      "reference_svg": "nivel_1/california_reference.svg",
+      "master_svg": "nivel_1/california_master.svg",
+      "published_svg": "nivel_1/california_rev04.svg"
+    },
+    {
+      "id": "nivel_2_a2_4",
+      "folder": "nivel_2",
+      "title": "PLANTA ARQUITECTÓNICA NIVEL 2",
+      "discipline": "arquitectura",
+      "sheet_code": "A2/4",
+      "model": "nivel_2/california_svg_model.json",
+      "reference_svg": "nivel_2/california_reference.svg",
+      "master_svg": "nivel_2/california_master.svg",
+      "published_svg": "nivel_2/california_rev04.svg"
+    },
+    {
+      "id": "acabados_nivel_1_a3_4",
+      "folder": "acabados_nivel_1",
+      "title": "PLANO DE ACABADOS NIVEL 1",
+      "discipline": "acabados",
+      "sheet_code": "A3/4",
+      "model": "acabados_nivel_1/california_svg_model.json",
+      "reference_svg": "acabados_nivel_1/california_reference.svg",
+      "master_svg": "acabados_nivel_1/california_master.svg",
+      "published_svg": "acabados_nivel_1/california_rev04.svg"
+    },
+    {
+      "id": "acabados_nivel_2_a4_4",
+      "folder": "acabados_nivel_2",
+      "title": "PLANO DE ACABADOS NIVEL 2",
+      "discipline": "acabados",
+      "sheet_code": "A4/4",
+      "model": "acabados_nivel_2/california_svg_model.json",
+      "reference_svg": "acabados_nivel_2/california_reference.svg",
+      "master_svg": "acabados_nivel_2/california_master.svg",
+      "published_svg": "acabados_nivel_2/california_rev04.svg"
+    },
+    {
+      "id": "electrico_nivel_1_e1_2",
+      "folder": "electrico_nivel_1",
+      "title": "PLANO DE INSTALACIÓN ELÉCTRICA NIVEL 1",
+      "discipline": "eléctrico",
+      "sheet_code": "E1/2",
+      "model": "electrico_nivel_1/california_svg_model.json",
+      "reference_svg": "electrico_nivel_1/california_reference.svg",
+      "master_svg": "electrico_nivel_1/california_master.svg",
+      "published_svg": "electrico_nivel_1/california_rev04.svg"
+    },
+    {
+      "id": "electrico_nivel_2_e2_2",
+      "folder": "electrico_nivel_2",
+      "title": "PLANO DE INSTALACIÓN ELÉCTRICA NIVEL 2",
+      "discipline": "eléctrico",
+      "sheet_code": "E2/2",
+      "model": "electrico_nivel_2/california_svg_model.json",
+      "reference_svg": "electrico_nivel_2/california_reference.svg",
+      "master_svg": "electrico_nivel_2/california_master.svg",
+      "published_svg": "electrico_nivel_2/california_rev04.svg"
+    },
+    {
+      "id": "hidraulico_nivel_1_1_ih",
+      "folder": "hidraulico_nivel_1",
+      "title": "PLANO DE INSTALACIONES HIDRÁULICAS NIVEL 1",
+      "discipline": "hidráulico",
+      "sheet_code": "1/I-H",
+      "model": "hidraulico_nivel_1/california_svg_model.json",
+      "reference_svg": "hidraulico_nivel_1/california_reference.svg",
+      "master_svg": "hidraulico_nivel_1/california_master.svg",
+      "published_svg": "hidraulico_nivel_1/california_rev04.svg"
+    },
+    {
+      "id": "hidraulico_nivel_2_2_ih",
+      "folder": "hidraulico_nivel_2",
+      "title": "PLANO DE INSTALACIONES HIDRÁULICAS NIVEL 2",
+      "discipline": "hidráulico",
+      "sheet_code": "2/I-H",
+      "model": "hidraulico_nivel_2/california_svg_model.json",
+      "reference_svg": "hidraulico_nivel_2/california_reference.svg",
+      "master_svg": "hidraulico_nivel_2/california_master.svg",
+      "published_svg": "hidraulico_nivel_2/california_rev04.svg"
+    }
+  ]
+}

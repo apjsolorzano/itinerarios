@@ -1,0 +1,163 @@
+{
+  "$schema": "../../esquema_plan_svg.json",
+  "format": "plan-editor/svg-v1",
+  "project_id": "casa_california_svg_first",
+  "sheet_id": "acabados_nivel_1_a3_4_revision_sin_escalera_revision_04",
+  "title": "PLANO DE ACABADOS NIVEL 1",
+  "discipline": "acabados",
+  "source": {
+    "kind": "svg",
+    "master_svg_path": "maestro.svg",
+    "master_svg_sha256": "0f20db4ab22f9e68f5b35d94a667cf69a482823b6e637611b00515e920b690b5",
+    "reference_svg_path": "referencia.svg",
+    "reference_svg_sha256": "d95746995378d1ca271eaa684e387620187def7595cf67e72223600ab19726e0",
+    "baseline_revision": "REV-04",
+    "reference_policy": "svg_only",
+    "normal_workflow_uses_pdf": false
+  },
+  "canvas": {
+    "width_pt": 1224.0,
+    "height_pt": 792.0,
+    "view_box": [
+      0,
+      0,
+      1224.0,
+      792.0
+    ],
+    "coordinate_system": "puntos_pdf_origen_superior_izquierdo",
+    "metric_calibration": {
+      "status": "pending",
+      "method": "calibrar_con_cotas_impresas_antes_de_editar_geometria"
+    }
+  },
+  "semantic_entities": [
+    {
+      "id": "EDIT-BATHROOM-FIXTURES-KEEP",
+      "type": "fixture",
+      "label": "Aparatos sanitarios de baños conservados",
+      "visible": true,
+      "properties": {
+        "includes_washbasins": true,
+        "includes_toilets": true
+      }
+    },
+    {
+      "id": "EDIT-POOL-REMOVE",
+      "type": "area",
+      "label": "Piscina eliminada",
+      "visible": false,
+      "properties": {
+        "operation_id": "edit.remove-pool"
+      }
+    },
+    {
+      "id": "N1-ROOMS-01-02-REMOVE",
+      "type": "area",
+      "label": "Habitaciones I y II eliminadas",
+      "level": "Nivel 1",
+      "visible": false,
+      "properties": {
+        "operation_id": "edit.remove-level-1-rooms-1-2"
+      }
+    },
+    {
+      "id": "REV02-STAIR-N1-REMOVE",
+      "type": "area",
+      "label": "Escalera de estacionamiento retirada temporalmente",
+      "level": "Nivel 1",
+      "visible": false,
+      "properties": {
+        "revision": "REV-02",
+        "phase": "aplazada"
+      }
+    },
+    {
+      "id": "REV02-CORRIDOR-N1-REMOVE",
+      "type": "area",
+      "label": "Pasillo y columnas asociadas retirados temporalmente",
+      "level": "Nivel 1",
+      "visible": false,
+      "properties": {
+        "revision": "REV-02",
+        "phase": "aplazada"
+      }
+    },
+    {
+      "id": "REV04-EXTERIOR-CLOSURE-ACABADOS-NIVEL-1",
+      "type": "wall",
+      "label": "Muro exterior reconstruido después del retiro de habitaciones",
+      "level": "Nivel 1",
+      "visible": true,
+      "properties": {
+        "revision": "REV-04",
+        "discipline": "finishes",
+        "continuous": true
+      }
+    }
+  ],
+  "operations": [],
+  "baked_history": {
+    "legacy_model": "../../../historial/estructura_anterior/acabados_nivel_1/california_model.json",
+    "revision": "REV-04",
+    "operation_index": [
+      {
+        "id": "edit.rev03-highlight-finishes",
+        "type": "append_source_layers_recolored",
+        "description": "Destaca símbolos y especificaciones de acabados en terracota."
+      },
+      {
+        "id": "edit.restore-bathroom-fixtures",
+        "type": "append_source_layer_elements",
+        "description": "Recupera únicamente lavamanos, inodoros y demás aparatos dentro de baños."
+      },
+      {
+        "id": "edit.erase-patio-furniture",
+        "type": "erase_source_layer_elements",
+        "description": "Retira mesas y sillas exteriores sin borrar la vegetación."
+      },
+      {
+        "id": "edit.remove-pool",
+        "type": "whiteout",
+        "description": "Elimina la piscina y deja libre el patio, conservando sus límites exteriores."
+      },
+      {
+        "id": "edit.remove-level-1-rooms-1-2",
+        "type": "whiteout",
+        "description": "Vacía Habitaciones I y II; el rectángulo se mantiene dentro del perímetro para conservar el muro inferior de Habitación III, el muro exterior derecho y el cerramiento del portón."
+      },
+      {
+        "id": "edit.rev02-remove-stair-corridor-01",
+        "type": "whiteout",
+        "description": "Retira la línea de cierre y las columnas superiores del pasillo aplazado."
+      },
+      {
+        "id": "edit.rev02-remove-stair-corridor-02",
+        "type": "whiteout",
+        "description": "Retira el retorno lateral del pasillo aplazado."
+      },
+      {
+        "id": "edit.rev02-remove-stair-corridor-03",
+        "type": "whiteout",
+        "description": "Retira la escalera y su rótulo asociado."
+      },
+      {
+        "id": "edit.rev02-remove-stair-corridor-04",
+        "type": "whiteout",
+        "description": "Retira la línea lateral y las columnas del pasillo aplazado."
+      }
+    ]
+  },
+  "workflow": {
+    "editing_rule": "Añadir únicamente operaciones incrementales sobre maestro.svg.",
+    "publication_rule": "Publicar una nueva revisión SVG y promoverla a maestro solo después de validarla.",
+    "forbidden_normal_inputs": [
+      "PDF"
+    ],
+    "allowed_outputs": [
+      "SVG"
+    ]
+  },
+  "output": {
+    "svg_path": "../../salidas_de_trabajo/california_nivel_1_acabados_trabajo.svg"
+  }
+}
