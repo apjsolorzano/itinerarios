@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Propuesta visual de remodelación de la vivienda California.">
+  <title>Remodelación California | Antes y después</title>
+  <style>
+    :root {
+      --ink: #20231f;
+      --muted: #696d65;
+      --paper: #f5f2eb;
+      --card: #fffdf9;
+      --green: #365445;
+      --green-dark: #243b30;
+      --clay: #bf6e4d;
+      --line: #ddd8cd;
+      --shadow: 0 18px 48px rgba(42, 48, 42, .10);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    button, a { font: inherit; }
+    button { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      place-items: end start;
+      padding: clamp(96px, 13vw, 160px) max(24px, calc((100vw - 1180px) / 2)) 72px;
+      color: white;
+      background:
+        linear-gradient(100deg, rgba(22, 39, 30, .96) 0%, rgba(29, 49, 39, .84) 48%, rgba(29, 49, 39, .24) 100%),
+        url("https://res.cloudinary.com/dx8vxmic/image/upload/v1786401271/Fachada_California_2.png") center / cover;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #d9c4a6;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      max-width: 760px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .92;
+    }
+    .hero p:not(.eyebrow) {
+      max-width: 590px;
+      margin: 25px 0 30px;
+      color: rgba(255,255,255,.82);
+      font-size: clamp(1rem, 2vw, 1.16rem);
+    }
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      color: white;
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: .2s ease;
+    }
+    .hero-link:hover { background: white; color: var(--green-dark); }
+
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      overflow-x: auto;
+      padding: 12px 20px;
+      background: rgba(245,242,235,.92);
+      border-bottom: 1px solid rgba(32,35,31,.08);
+      backdrop-filter: blur(14px);
+    }
+    .sticky-nav a {
+      flex: 0 0 auto;
+      padding: 9px 15px;
+      color: var(--green-dark);
+      border-radius: 999px;
+      font-size: .88rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .sticky-nav a:hover, .sticky-nav a:focus-visible { background: #e6e0d5; outline: none; }
+
+    main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 84px 0 110px; }
+    .intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(30px, 6vw, 90px);
+      align-items: end;
+      margin-bottom: 94px;
+    }
+    .intro h2, .section-heading h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1;
+    }
+    .intro p { margin: 0; color: var(--muted); font-size: 1.05rem; }
+
+    .room { margin: 0 0 110px; scroll-margin-top: 88px; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 25px;
+    }
+    .section-heading p { max-width: 470px; margin: 0; color: var(--muted); }
+
+    .comparison-card, .reference-card {
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+    }
+    .photo-panel { min-width: 0; background: #eeece6; }
+    .photo-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 56px;
+      padding: 12px 18px;
+      background: var(--card);
+      font-weight: 800;
+    }
+    .photo-label small { color: var(--muted); font-size: .73rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+    .photo-frame {
+      display: grid;
+      place-items: center;
+      height: clamp(280px, 38vw, 470px);
+      padding: 14px;
+      background:
+        linear-gradient(45deg, rgba(0,0,0,.018) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.018) 75%),
+        #eeeae2;
+      background-size: 18px 18px;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 76px;
+      padding: 14px 18px;
+      border-top: 1px solid var(--line);
+    }
+    .view-status { margin: 0; color: var(--muted); font-size: .88rem; }
+    .dots { display: flex; gap: 7px; }
+    .dot {
+      width: 12px;
+      height: 12px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #cbc7be;
+      cursor: pointer;
+    }
+    .dot[aria-current="true"] { background: var(--clay); box-shadow: 0 0 0 4px rgba(191,110,77,.15); }
+    .nav-buttons { display: flex; gap: 8px; }
+    .nav-button {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .nav-button:hover, .nav-button:focus-visible { color: white; background: var(--green); border-color: var(--green); outline: none; }
+
+    .reference-block { margin-top: 32px; }
+    .reference-heading { margin: 0 0 14px; font-size: 1rem; }
+    .reference-card { max-width: 760px; margin-inline: auto; }
+    .reference-frame { height: min(420px, 55vw); min-height: 260px; }
+    .reference-caption { display: flex; flex-direction: column; gap: 3px; }
+    .reference-caption strong { font-size: .92rem; }
+    .reference-caption span { color: var(--muted); font-size: .78rem; }
+
+    .site-footer {
+      padding: 42px 24px;
+      color: rgba(255,255,255,.74);
+      background: var(--green-dark);
+      text-align: center;
+    }
+    .site-footer strong { display: block; margin-bottom: 5px; color: white; font-family: Georgia, serif; font-size: 1.35rem; font-weight: 400; }
+
+    @media (max-width: 760px) {
+      .hero { min-height: 68vh; padding-bottom: 50px; background-position: 62% center; }
+      .intro { grid-template-columns: 1fr; margin-bottom: 70px; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 14px; }
+      .room { margin-bottom: 82px; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .photo-frame { height: min(70vw, 390px); min-height: 260px; }
+      .reference-frame { height: min(72vw, 390px); }
+      .card-footer { flex-wrap: wrap; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Proyecto de vivienda · California</p>
+      <h1>Una casa lista para volver a vivirse.</h1>
+      <p>Recorrido visual por el estado actual y las mejoras propuestas. Cada fotografía se presenta completa para conservar techo, piso y laterales.</p>
+      <a class="hero-link" href="#recorrido">Explorar la propuesta <span aria-hidden="true">↓</span></a>
+    </div>
+  </header>
+
+  <nav class="sticky-nav" aria-label="Ambientes de la vivienda">
+    <a href="#sala">Sala</a>
+    <a href="#cocina">Cocina</a>
+    <a href="#fachada">Fachada</a>
+    <a href="#garaje">Garaje / Bodega</a>
+  </nav>
+
+  <main id="recorrido">
+    <section class="intro" aria-labelledby="intro-title">
+      <h2 id="intro-title">Antes y después,<br>sin perder detalle.</h2>
+      <p>Las vistas comparables aparecen lado a lado, sin recortes ni controles superpuestos. Cuando una fotografía no tiene una contraparte segura, se conserva en una galería de referencia independiente.</p>
+    </section>
+
+    <div id="rooms"></div>
+  </main>
+
+  <footer class="site-footer">
+    <strong>Remodelación California</strong>
+    Sitio dedicado exclusivamente a esta vivienda.
+  </footer>
+
+  <script>
+    const IMAGE_ROOT = "https://res.cloudinary.com/dx8vxmic/image/upload/";
+
+    const rooms = [
+      {
+        id: "sala",
+        title: "Sala",
+        description: "Dos ángulos para apreciar la renovación del espacio social.",
+        pairs: [
+          { before: "v1786401321/Sala_sin_mejora_1.jpg", after: "v1786401270/Sala_Mejora_1.png" },
+          { before: "v1786401321/Sala_sin_mejora_2.jpg", after: "v1786401268/Sala_mejora_2.png" }
+        ]
+      },
+      {
+        id: "cocina",
+        title: "Cocina",
+        description: "Distribución actual y propuestas para una cocina más clara y funcional.",
+        pairs: [
+          { before: "v1786401320/Cocina_California.jpg", after: "v1786401270/Cocina_mejora_1.png" },
+          { before: "v1786401321/Cocina_California_2.jpg", after: "v1786401270/Cocina_mejora_2.png" }
+        ]
+      },
+      {
+        id: "fachada",
+        title: "Fachada",
+        description: "Una lectura completa del frente de la vivienda y su nueva presencia exterior.",
+        pairs: [
+          { before: "v1786401320/Fachada_sin_arreglar_Cali_1.jpg", after: "v1786401271/Fachada_California_2.png" },
+          { before: "v1786401320/Fachada_sin_arreglar_Cali_2.jpg", after: "v1786401271/Fachada_California_1.png" }
+        ],
+        references: ["v1786401320/Fachada_sin_arreglar_Cali_3.jpg"]
+      },
+      {
+        id: "garaje",
+        title: "Garaje / Bodega",
+        description: "Propuestas de reorganización y referencias adicionales del estado original.",
+        pairs: [
+          { before: "v1786401320/Garaje-bodega_sin_arreglar_1.jpg", after: "v1786401273/Bodega-_Garaje_California_1.png" },
+          { before: "v1786401320/Garaje-bodega_sin_arreglar_2.jpg", after: "v1786401271/Bodega-Cochera_California.png" }
+        ],
+        references: [
+          "v1786401321/Garaje-bodega_sin_arreglar_3.jpg",
+          "v1786401321/Garaje-bodega_sin_arreglar_4.jpg",
+          "v1786401321/Garaje-bodega_sin_arreglar_5.jpg"
+        ]
+      }
+    ];
+
+    const state = Object.fromEntries(rooms.map(room => [room.id, { pair: 0, reference: 0 }]));
+    const fullUrl = path => IMAGE_ROOT + path;
+
+    function roomMarkup(room) {
+      const pair = room.pairs[0];
+      const dots = room.pairs.map((_, index) => `
+        <button class="dot" type="button" aria-label="Mostrar vista ${index + 1}" aria-current="${index === 0}" data-action="pair-dot" data-index="${index}"></button>
+      `).join("");
+
+      const references = room.references?.length ? `
+        <div class="reference-block">
+          <h3 class="reference-heading">Referencias del estado actual</h3>
+          <div class="reference-card">
+            <div class="photo-frame reference-frame">
+              <img class="reference-image" src="${fullUrl(room.references[0])}" alt="${room.title}: referencia 1 del estado actual" loading="lazy">
+            </div>
+            <div class="card-footer">
+              <div class="reference-caption" aria-live="polite">
+                <strong>Fotografía de referencia</strong>
+                <span class="reference-status">Imagen 1 de ${room.references.length}</span>
+              </div>
+              ${room.references.length > 1 ? `
+                <div class="nav-buttons">
+                  <button class="nav-button" type="button" aria-label="Referencia anterior" data-action="reference-prev">←</button>
+                  <button class="nav-button" type="button" aria-label="Referencia siguiente" data-action="reference-next">→</button>
+                </div>` : ""}
+            </div>
+          </div>
+        </div>` : "";
+
+      return `
+        <section class="room" id="${room.id}" data-room="${room.id}" aria-labelledby="${room.id}-title">
+          <div class="section-heading">
+            <div><p class="eyebrow">Ambiente</p><h2 id="${room.id}-title">${room.title}</h2></div>
+            <p>${room.description}</p>
+          </div>
+          <div class="comparison-card">
+            <div class="comparison-grid">
+              <article class="photo-panel">
+                <div class="photo-label"><span>Antes</span><small>Estado actual</small></div>
+                <div class="photo-frame"><img class="before-image" src="${fullUrl(pair.before)}" alt="${room.title}: estado actual, vista 1" loading="lazy"></div>
+              </article>
+              <article class="photo-panel">
+                <div class="photo-label"><span>Después</span><small>Propuesta</small></div>
+                <div class="photo-frame"><img class="after-image" src="${fullUrl(pair.after)}" alt="${room.title}: propuesta de mejora, vista 1" loading="lazy"></div>
+              </article>
+            </div>
+            <div class="card-footer">
+              <p class="view-status" aria-live="polite">Vista 1 de ${room.pairs.length}</p>
+              <div class="dots" aria-label="Seleccionar vista">${dots}</div>
+              ${room.pairs.length > 1 ? `
+                <div class="nav-buttons">
+                  <button class="nav-button" type="button" aria-label="Vista anterior" data-action="pair-prev">←</button>
+                  <button class="nav-button" type="button" aria-label="Vista siguiente" data-action="pair-next">→</button>
+                </div>` : ""}
+            </div>
+          </div>
+          ${references}
+        </section>`;
+    }
+
+    const roomsContainer = document.querySelector("#rooms");
+    roomsContainer.innerHTML = rooms.map(roomMarkup).join("");
+
+    function updatePair(room, section, index) {
+      const total = room.pairs.length;
+      const next = (index + total) % total;
+      const pair = room.pairs[next];
+      state[room.id].pair = next;
+      const before = section.querySelector(".before-image");
+      const after = section.querySelector(".after-image");
+      before.src = fullUrl(pair.before);
+      after.src = fullUrl(pair.after);
+      before.alt = `${room.title}: estado actual, vista ${next + 1}`;
+      after.alt = `${room.title}: propuesta de mejora, vista ${next + 1}`;
+      section.querySelector(".view-status").textContent = `Vista ${next + 1} de ${total}`;
+      section.querySelectorAll(".dot").forEach((dot, dotIndex) => dot.setAttribute("aria-current", dotIndex === next));
+    }
+
+    function updateReference(room, section, index) {
+      const total = room.references.length;
+      const next = (index + total) % total;
+      state[room.id].reference = next;
+      const image = section.querySelector(".reference-image");
+      image.src = fullUrl(room.references[next]);
+      image.alt = `${room.title}: referencia ${next + 1} del estado actual`;
+      section.querySelector(".reference-status").textContent = `Imagen ${next + 1} de ${total}`;
+    }
+
+    roomsContainer.addEventListener("click", event => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+      const section = button.closest("[data-room]");
+      const room = rooms.find(item => item.id === section.dataset.room);
+      const current = state[room.id];
+      const actions = {
+        "pair-prev": () => updatePair(room, section, current.pair - 1),
+        "pair-next": () => updatePair(room, section, current.pair + 1),
+        "pair-dot": () => updatePair(room, section, Number(button.dataset.index)),
+        "reference-prev": () => updateReference(room, section, current.reference - 1),
+        "reference-next": () => updateReference(room, section, current.reference + 1)
+      };
+      actions[button.dataset.action]?.();
+    });
+  </script>
+</body>
+</html>
