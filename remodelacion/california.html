@@ -417,7 +417,13 @@
           "Intervención del baño exterior."
         ],
         pending: [],
-        visuals: [],
+        visuals: [
+          {
+            title: "Fachada genérica de referencia",
+            detail: "Referencia de acabados y lenguaje visual; no representa la distribución ni las dimensiones del proyecto.",
+            src: "assets/visuales/etapa-0-fachada-generica.png"
+          }
+        ],
         plans: [
           { title: "Arquitectura", detail: "Planta arquitectónica disponible", src: "assets/planos/etapa-0-arquitectura.svg" },
           { title: "Electricidad", detail: "Plano pendiente", src: "" },
@@ -520,7 +526,7 @@
       if (!visual?.src) {
         return `<article class="carousel-card">${placeholderMarkup("Imágenes pendientes", `Se agregarán las referencias visuales de ${stageTitle} cuando estén disponibles.`)}<div class="card-meta"><div><strong>Resultado esperado</strong><span>Pendiente de documentación</span></div></div></article>`;
       }
-      return `<article class="carousel-card"><div class="media-frame"><img src="${visual.src}" alt="${visual.title}" loading="lazy"></div><div class="card-meta"><div><strong>${visual.title}</strong><span>Referencia de resultado</span></div></div></article>`;
+      return `<article class="carousel-card"><div class="media-frame"><img src="${visual.src}" alt="${visual.title}" loading="lazy"></div><div class="card-meta"><div><strong>${visual.title}</strong><span>${visual.detail || "Referencia de resultado"}</span></div></div></article>`;
     }
 
     function planCardMarkup(plan, stageTitle) {
