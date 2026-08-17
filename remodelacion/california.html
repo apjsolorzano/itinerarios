@@ -135,13 +135,48 @@
     .sequence-item span { display: block; margin-top: 5px; color: var(--muted); font-size: .82rem; }
 
     .stage-section, .final-section { margin-bottom: 118px; scroll-margin-top: 90px; }
-    .stage-section { padding-top: 6px; }
+    .stage-section {
+      --stage-accent: var(--clay);
+      --stage-bg: #f1e5da;
+      --stage-border: #dcc4b7;
+      position: relative;
+      padding: clamp(28px, 5vw, 58px);
+      border: 1px solid var(--stage-border);
+      border-top: 8px solid var(--stage-accent);
+      border-radius: 32px;
+      background: var(--stage-bg);
+      box-shadow: 0 22px 54px rgba(42, 48, 42, .10);
+    }
+    .stage-section:nth-child(2) {
+      --stage-accent: #3f6754;
+      --stage-bg: #e4ece7;
+      --stage-border: #bfd0c6;
+    }
+    .stage-section:nth-child(3) {
+      --stage-accent: #8c7446;
+      --stage-bg: #eee9dc;
+      --stage-border: #d8cbaa;
+    }
+    .stage-section:nth-child(4) {
+      --stage-accent: #53666c;
+      --stage-bg: #e5ebec;
+      --stage-border: #c2cfd2;
+    }
     .stage-heading, .final-heading {
       display: grid;
       grid-template-columns: 1fr minmax(280px, 470px);
       gap: 36px;
       align-items: end;
       margin-bottom: 28px;
+    }
+    .stage-section .stage-heading {
+      padding-bottom: 26px;
+      border-bottom: 1px solid color-mix(in srgb, var(--stage-accent) 34%, transparent);
+    }
+    .stage-section .stage-heading h2 {
+      max-width: 720px;
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      color: var(--green-dark);
     }
     .stage-heading > p, .final-heading > p { margin: 0; color: var(--muted); }
     .stage-number {
@@ -156,6 +191,16 @@
       text-transform: uppercase;
     }
     .stage-number::before { content: ""; width: 30px; height: 2px; background: currentColor; }
+    .stage-section .stage-number {
+      margin-bottom: 16px;
+      padding: 9px 14px;
+      color: white;
+      border-radius: 999px;
+      background: var(--stage-accent);
+      letter-spacing: .13em;
+      box-shadow: 0 8px 18px color-mix(in srgb, var(--stage-accent) 24%, transparent);
+    }
+    .stage-section .stage-number::before { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 
     .scope-panel {
       display: grid;
@@ -278,6 +323,7 @@
       .sequence { grid-template-columns: 1fr; }
       .sequence-item:last-child { grid-column: auto; }
       .stage-section, .final-section { margin-bottom: 86px; }
+      .stage-section { width: calc(100% + 16px); margin-left: -8px; padding: 28px 20px; border-radius: 24px; }
       .block-heading { display: block; }
       .block-heading p { margin-top: 8px; }
       .carousel-track { grid-auto-columns: 94%; }
