@@ -257,6 +257,7 @@
     .card-meta span { display: block; margin-top: 3px; color: var(--muted); font-size: .78rem; }
     .open-plan { flex: 0 0 auto; color: var(--green); font-size: .82rem; font-weight: 800; text-decoration: none; }
     .open-plan:hover, .open-plan:focus-visible { text-decoration: underline; outline: none; }
+    .single-plan { max-width: 860px; }
     .placeholder-frame {
       display: grid;
       place-items: center;
@@ -424,11 +425,9 @@
             src: "assets/visuales/etapa-0-fachada-generica-v2.png"
           }
         ],
+        planDisplay: "single",
         plans: [
-          { title: "Arquitectura", detail: "Planta arquitectónica disponible", src: "assets/planos/etapa-0-arquitectura.svg" },
-          { title: "Electricidad", detail: "Plano pendiente", src: "" },
-          { title: "Hidráulica y saneamiento", detail: "Plano pendiente", src: "" },
-          { title: "Acabados", detail: "Plano pendiente", src: "" }
+          { title: "Arquitectura", detail: "Planta arquitectónica disponible", src: "assets/planos/etapa-0-arquitectura.svg" }
         ]
       },
       {
@@ -468,9 +467,12 @@
         ],
         plans: [
           { title: "Arquitectura", detail: "Planta arquitectónica disponible", src: "assets/planos/etapa-1-arquitectura.svg" },
-          { title: "Electricidad", detail: "Plano pendiente", src: "" },
-          { title: "Hidráulica y saneamiento", detail: "Plano pendiente", src: "" },
-          { title: "Acabados", detail: "Plano pendiente", src: "" }
+          { title: "Estructura", detail: "Vista estructural disponible", src: "assets/planos/etapa-1-estructura.svg" },
+          { title: "Eléctrico", detail: "Vista de conexiones eléctricas disponible", src: "assets/planos/etapa-1-electrico.svg" },
+          { title: "Iluminación", detail: "Vista de iluminación disponible", src: "assets/planos/etapa-1-iluminacion.svg" },
+          { title: "Agua", detail: "Vista de alimentación de agua disponible", src: "assets/planos/etapa-1-agua.svg" },
+          { title: "Drenajes", detail: "Vista de drenajes disponible", src: "assets/planos/etapa-1-drenajes.svg" },
+          { title: "Hidrosanitario", detail: "Vista hidrosanitaria disponible", src: "assets/planos/etapa-1-hidrosanitario.svg" }
         ]
       },
       {
@@ -559,6 +561,9 @@
     function stageMarkup(stage) {
       const pending = stage.pending.length ? `<div class="pending-block"><h4>Pendientes fuera de esta etapa</h4><ul>${stage.pending.map(item => `<li>${item}</li>`).join("")}</ul></div>` : "";
       const visuals = stage.visuals.length ? stage.visuals.map(item => visualCardMarkup(item, stage.title)).join("") : visualCardMarkup(null, stage.title);
+      const plans = stage.planDisplay === "single"
+        ? `<div class="content-block"><div class="block-heading"><h3>Plano arquitectónico</h3><p>Vista arquitectónica disponible para esta etapa.</p></div><div class="single-plan">${planCardMarkup(stage.plans[0], stage.title)}</div></div>`
+        : `<div class="content-block"><div class="block-heading"><h3>Planos de la etapa</h3><p>Vistas separadas por especialidad para revisar arquitectura, instalaciones y acabados.</p></div><div class="carousel-shell" data-carousel><div class="carousel-track">${stage.plans.map(plan => planCardMarkup(plan, stage.title)).join("")}</div>${carouselControls(`planos de ${stage.number}`)}</div></div>`;
       return `
         <section class="stage-section" id="${stage.id}" aria-labelledby="${stage.id}-title">
           <div class="stage-heading">
@@ -573,10 +578,7 @@
             <div class="block-heading"><h3>Cómo debe verse la casa</h3><p>Galería horizontal de referencias aprobadas para esta etapa.</p></div>
             <div class="carousel-shell" data-carousel><div class="carousel-track">${visuals}</div>${carouselControls(`galería de ${stage.number}`)}</div>
           </div>
-          <div class="content-block">
-            <div class="block-heading"><h3>Planos de la etapa</h3><p>Vistas separadas por especialidad para revisar arquitectura, instalaciones y acabados.</p></div>
-            <div class="carousel-shell" data-carousel><div class="carousel-track">${stage.plans.map(plan => planCardMarkup(plan, stage.title)).join("")}</div>${carouselControls(`planos de ${stage.number}`)}</div>
-          </div>
+          ${plans}
         </section>`;
     }
 
