@@ -383,7 +383,7 @@
       </div>
 
       <div class="content-block">
-        <div class="block-heading"><h3>Referencias disponibles del resultado</h3><p>Imágenes existentes del proyecto. Su asignación definitiva por etapa se realizará cuando se confirme cada alcance visual.</p></div>
+        <div class="block-heading"><h3>Referencias ilustrativas del resultado</h3><p>Estas imágenes sirven como guía visual y no definen la distribución ni las dimensiones finales del proyecto.</p></div>
         <div class="carousel-shell" data-carousel>
           <div class="carousel-track" id="final-visuals"></div>
           <div class="carousel-controls"><button class="carousel-button" type="button" data-direction="-1" aria-label="Referencia anterior">←</button><button class="carousel-button" type="button" data-direction="1" aria-label="Referencia siguiente">→</button></div>
@@ -493,10 +493,10 @@
         pending: ["Detalles interiores.", "Muebles."],
         visuals: [],
         plans: [
-          { title: "Arquitectura", detail: "Plano pendiente", src: "" },
-          { title: "Electricidad", detail: "Plano pendiente", src: "" },
-          { title: "Hidráulica y saneamiento", detail: "Plano pendiente", src: "" },
-          { title: "Acabados", detail: "Plano pendiente", src: "" }
+          { title: "Arquitectura", detail: "Plano completo del Nivel 2", src: "planos/california/planos_finales/nivel_2/california_nivel_2_arquitectura.svg" },
+          { title: "Acabados", detail: "Plano completo de acabados del Nivel 2", src: "planos/california/planos_finales/nivel_2/california_nivel_2_acabados.svg" },
+          { title: "Eléctrico", detail: "Plano completo de instalación eléctrica del Nivel 2", src: "planos/california/planos_finales/nivel_2/california_nivel_2_electrico.svg" },
+          { title: "Hidráulico", detail: "Plano completo de instalación hidráulica del Nivel 2", src: "planos/california/planos_finales/nivel_2/california_nivel_2_hidraulico.svg" }
         ]
       },
       {
@@ -528,12 +528,8 @@
     const finalVisuals = [
       { title: "Fachada · propuesta 1", src: "https://res.cloudinary.com/dx8vxmic/image/upload/f_auto,q_auto,w_1600/v1786401271/Fachada_California_1.png" },
       { title: "Fachada · propuesta 2", src: "https://res.cloudinary.com/dx8vxmic/image/upload/f_auto,q_auto,w_1600/v1786401271/Fachada_California_2.png" },
-      { title: "Sala · propuesta 1", src: "https://res.cloudinary.com/dx8vxmic/image/upload/f_auto,q_auto,w_1600/v1786401270/Sala_Mejora_1.png" },
-      { title: "Sala · propuesta 2", src: "https://res.cloudinary.com/dx8vxmic/image/upload/f_auto,q_auto,w_1600/v1786401268/Sala_mejora_2.png" },
       { title: "Cocina · propuesta 1", src: "https://res.cloudinary.com/dx8vxmic/image/upload/f_auto,q_auto,w_1600/v1786401270/Cocina_mejora_1.png" },
-      { title: "Cocina · propuesta 2", src: "https://res.cloudinary.com/dx8vxmic/image/upload/f_auto,q_auto,w_1600/v1786401270/Cocina_mejora_2.png" },
-      { title: "Garaje / bodega · propuesta 1", src: "https://res.cloudinary.com/dx8vxmic/image/upload/f_auto,q_auto,w_1600/v1786401273/Bodega-_Garaje_California_1.png" },
-      { title: "Garaje / bodega · propuesta 2", src: "https://res.cloudinary.com/dx8vxmic/image/upload/f_auto,q_auto,w_1600/v1786401271/Bodega-Cochera_California.png" }
+      { title: "Cocina · propuesta 2", src: "https://res.cloudinary.com/dx8vxmic/image/upload/f_auto,q_auto,w_1600/v1786401270/Cocina_mejora_2.png" }
     ];
 
     function placeholderMarkup(title, message) {
@@ -544,7 +540,7 @@
       if (!visual?.src) {
         return `<article class="carousel-card">${placeholderMarkup("Imágenes pendientes", `Se agregarán las referencias visuales de ${stageTitle} cuando estén disponibles.`)}<div class="card-meta"><div><strong>Resultado esperado</strong><span>Pendiente de documentación</span></div></div></article>`;
       }
-      return `<article class="carousel-card"><div class="media-frame"><img src="${visual.src}" alt="${visual.title}" loading="lazy"></div><div class="card-meta"><div><strong>${visual.title}</strong><span>${visual.detail || "Referencia de resultado"}</span></div></div></article>`;
+      return `<article class="carousel-card"><div class="media-frame"><img src="${visual.src}" alt="${visual.title}" loading="lazy"></div><div class="card-meta"><div><strong>${visual.title}</strong><span>Referencia ilustrativa. ${visual.detail || "No define dimensiones ni distribución final."}</span></div></div></article>`;
     }
 
     function planCardMarkup(plan, stageTitle) {
@@ -575,7 +571,7 @@
             <div class="scope-list-wrap"><ul class="scope-list">${stage.scope.map(item => `<li>${item}</li>`).join("")}</ul>${pending}</div>
           </div>
           <div class="content-block">
-            <div class="block-heading"><h3>Cómo debe verse la casa</h3><p>Galería horizontal de referencias aprobadas para esta etapa.</p></div>
+            <div class="block-heading"><h3>Cómo debe verse la casa</h3><p>Referencias visuales de carácter ilustrativo; no definen dimensiones ni distribución final.</p></div>
             <div class="carousel-shell" data-carousel><div class="carousel-track">${visuals}</div>${carouselControls(`galería de ${stage.number}`)}</div>
           </div>
           ${plans}
