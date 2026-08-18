@@ -298,19 +298,12 @@
     .final-card p { margin: 0; color: rgba(255,255,255,.78); font-size: .92rem; }
     .final-section .block-heading p { color: rgba(255,255,255,.67); }
     .final-section .carousel-card { color: var(--ink); }
-    .master-plan { display: grid; grid-template-columns: 1fr 1.35fr; gap: 1px; overflow: hidden; margin-top: 18px; border: 1px solid rgba(255,255,255,.16); border-radius: 22px; background: rgba(255,255,255,.14); }
-    .master-copy { padding: clamp(24px, 4vw, 42px); background: rgba(255,255,255,.07); }
-    .master-copy h3 { margin: 0 0 12px; font-family: Georgia, serif; font-size: 1.8rem; font-weight: 400; }
-    .master-copy p { margin: 0; color: rgba(255,255,255,.7); }
-    .master-placeholder { display: grid; place-items: center; min-height: 330px; padding: 30px; color: var(--green-dark); background: var(--card); text-align: center; }
-    .master-placeholder strong { display: block; margin-bottom: 7px; font-family: Georgia, serif; font-size: 1.45rem; font-weight: 400; }
-    .master-placeholder span { color: var(--muted); font-size: .86rem; }
 
     .site-footer { padding: 42px 24px; color: rgba(255,255,255,.72); background: #172a21; text-align: center; }
     .site-footer strong { display: block; margin-bottom: 5px; color: white; font-family: Georgia, serif; font-size: 1.35rem; font-weight: 400; }
 
     @media (max-width: 820px) {
-      .overview, .stage-heading, .final-heading, .scope-panel, .master-plan { grid-template-columns: 1fr; }
+      .overview, .stage-heading, .final-heading, .scope-panel { grid-template-columns: 1fr; }
       .sequence { grid-template-columns: repeat(2, 1fr); }
       .sequence-item:last-child { grid-column: 1 / -1; }
       .scope-list { grid-template-columns: 1fr; }
@@ -390,13 +383,6 @@
         </div>
       </div>
 
-      <div class="content-block">
-        <div class="block-heading"><h3>Plano completo del proyecto</h3><p>Debe consolidar arquitectura, electricidad, hidráulica, saneamiento, acabados, exteriores y energía solar.</p></div>
-        <div class="master-plan">
-          <div class="master-copy"><p class="eyebrow">Documento de cierre</p><h3>Plano maestro coordinado</h3><p>Se publicará cuando las cuatro etapas tengan planos aprobados y las decisiones pendientes estén resueltas.</p></div>
-          <div class="master-placeholder"><div><strong>Plano maestro pendiente</strong><span>No se sustituye con un plano parcial de etapa.</span></div></div>
-        </div>
-      </div>
     </section>
   </main>
 
