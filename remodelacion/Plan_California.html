@@ -49,5 +49,9 @@
 /* Etiqueta cada semana con su etapa, incluso la Etapa 0. */
 (()=>{const table=document.querySelector('.heatmap-matrix .heat-matrix-table table');if(!table)return;[...table.tHead.rows[0].cells].slice(1).forEach(header=>{const stage=header.dataset.filterStage,caption=header.querySelector('small');if(stage!==undefined&&caption)caption.textContent=caption.textContent.replace(/\s*·\s*E.*$/,'')+' · E'+stage})})();
 </script>
+<style>
+/* Etiquetas de rol: contraste y jerarquía coherentes con la tabla. */
+.heat-matrix-table th.heat-role-label{background:linear-gradient(90deg,#edf5f8,#f8fbfc)!important;border-left:4px solid #155eef;color:#17374b!important;font-weight:850!important;text-align:left}.heat-matrix-table th.heat-role-label span{color:#17374b!important}.heat-matrix-table th.heat-role-label small{color:#5b7280!important;font-weight:700}
+</style>
 </body>
 </html>
